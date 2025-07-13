@@ -321,8 +321,8 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                           <li>{t('sms-item-4')}</li>
                         </ul>
                         <div className="mt-3 text-xs text-gray-600">
-                          <p><strong>{currentLanguage === 'en' ? 'Frequency:' : currentLanguage === 'es' ? 'Frecuencia:' : 'Frequência:'}</strong> {t('contact-sms-freq')}</p>
-                          <p>{t('contact-sms-rates')}</p>
+                          <p><strong>{currentLanguage === 'en' ? 'Frequency:' : currentLanguage === 'es' ? 'Frecuencia:' : 'Frequência:'}</strong> {t('sms-freq-text')}</p>
+                          <p>{t('sms-rates-text')}</p>
                         </div>
                       </div>
                     </label>
