@@ -253,7 +253,6 @@ const ReviewsSection = ({ currentLanguage, reviews }) => {
                         </div>
                       ))}
                     </div>
-                    </div>
                   </div>
                 ))}
               </motion.div>
