@@ -72,7 +72,7 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
   };
 
   const calculateEstimate = () => {
-    if (!formData.serviceType || !formData.squareFeet) return null;
+    if (!formData.serviceType || !formData.squareFeet || parseInt(formData.squareFeet) <= 0) return null;
 
     const selectedService = serviceTypes.find(s => s.id === formData.serviceType);
     if (!selectedService) return null;
