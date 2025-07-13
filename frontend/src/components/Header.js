@@ -190,6 +190,8 @@ const Header = ({ currentLanguage, onLanguageChange }) => {
         )}
       </nav>
     </header>
+      </nav>
+    </header>
   );
 };
 
