@@ -67,6 +67,46 @@ export const translations = {
     'footer-legal': 'Legal',
     'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. All rights reserved.',
 
+    // SMS Consent
+    'sms-consent-title': 'SMS Communication Consent',
+    'sms-consent-text': 'Yes, I consent to receive text messages from Santos Cleaning Solutions LLC',
+    'sms-consent-details': 'at the phone number provided. I understand I will receive:',
+    'sms-item-1': 'Service appointment confirmations',
+    'sms-item-2': 'Cleaning service reminders',
+    'sms-item-3': 'Important service updates',
+    'sms-item-4': 'Occasional promotional offers (optional)',
+    'sms-freq-text': 'Frequency: 2-4 messages/month | Cancel: Reply STOP | Help: Reply HELP',
+    'sms-rates-text': 'Message rates may apply. Your information is protected.',
+    'sms-policy-text': 'By submitting this form, you agree to our Privacy Policy and Terms of Service.',
+
+    // Contact Info
+    'contact-info-title': 'Contact Information',
+    'contact-phone-label': 'Phone',
+    'contact-call-now': 'Call now!',
+    'contact-location-label': 'Location',
+    'contact-service-area': 'We serve Atlanta Metro',
+    'contact-hours-label': 'Hours',
+    'contact-hours-time': 'Mon-Sat 8AM-6PM',
+    'contact-emergency': '24h emergencies',
+    'contact-need-now': 'Need to Talk Now?',
+    'contact-free-phone': 'Free phone estimate in 5 minutes!',
+    'contact-premium-areas': 'Premium Areas Served',
+    'contact-other-areas': '+ 40 other premium communities in Atlanta Metro',
+
+    // Calculator Messages
+    'calc-greeting': 'Hello! I would like a quote for:',
+    'calc-service': 'Service',
+    'calc-sqft': 'Square Footage',
+    'calc-bedrooms': 'Bedrooms',
+    'calc-bathrooms': 'Bathrooms',
+    'calc-pets': 'Pets',
+    'calc-frequency': 'Frequency',
+    'calc-addons': 'Add-ons',
+    'calc-estimated-total': 'Estimated Total',
+    'calc-confirm-message': 'Please confirm the quote and schedule a visit. Thank you!',
+    'calc-yes': 'Yes',
+    'calc-no': 'No',
+
     // Price Calculator
     'calculator-title': 'Price Calculator',
     'calculator-subtitle': 'Get an instant personalized estimate for your cleaning service',
