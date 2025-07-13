@@ -163,7 +163,7 @@ async def get_reviews():
 @app.get("/api/services")
 async def get_services():
     try:
-        services = await db.service_types.find({"active": True}).to_list(length=None)
+        services = await db.service_types.find({"active": True}, {"_id": 0}).to_list(length=None)
         return {"services": services}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching services: {str(e)}")
