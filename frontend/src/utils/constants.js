@@ -40,15 +40,17 @@ export const DEFAULT_SERVICES = [
     id: 'deep-cleaning',
     name: 'Deep Cleaning',
     description: 'Complete top-to-bottom cleaning ideal for first-time visits, post-renovation, or long periods without service. Includes hidden and hard-to-reach spots.',
-    basePrice: 200,
-    duration: 4,
+    basePrice: 89,
+    duration: 3,
     includes: [
       'All rooms cleaned thoroughly',
-      'Kitchen deep clean',
-      'Bathroom sanitization', 
-      'Window cleaning',
+      'Kitchen deep clean & appliances',
+      'Bathroom sanitization & grout', 
+      'Window cleaning (interior)',
       'Baseboards and moldings',
-      'Light fixtures and fans'
+      'Light fixtures and ceiling fans',
+      'Closet organization',
+      'Deep vacuum carpets & mop floors'
     ],
     icon: 'fa-broom',
     color: 'from-blue-500 to-blue-600'
@@ -57,15 +59,17 @@ export const DEFAULT_SERVICES = [
     id: 'regular-maintenance',
     name: 'Regular Maintenance',
     description: 'Ongoing cleaning to keep your space fresh. Includes kitchen, bathrooms, bedrooms, floors, and all visible surfaces.',
-    basePrice: 120,
+    basePrice: 65,
     duration: 2,
     includes: [
-      'Surface cleaning',
+      'Surface cleaning all rooms',
       'Vacuuming all floors',
       'Mopping hard surfaces',
-      'Bathroom cleaning',
-      'Kitchen cleaning',
-      'Dusting all surfaces'
+      'Bathroom cleaning & sanitizing',
+      'Kitchen cleaning & counters',
+      'Dusting all surfaces',
+      'Trash removal',
+      'Basic organizing'
     ],
     icon: 'fa-home',
     color: 'from-green-500 to-green-600'
@@ -74,61 +78,66 @@ export const DEFAULT_SERVICES = [
     id: 'move-in-out',
     name: 'Move-In / Move-Out Cleaning',
     description: 'Detailed cleaning to prepare a home for new occupants or leave it spotless after moving. Includes inside cabinets, baseboards, and appliances.',
-    basePrice: 300,
-    duration: 6,
+    basePrice: 149,
+    duration: 4,
     includes: [
       'Complete deep clean',
-      'Cabinet interiors',
-      'Appliance cleaning',
-      'Wall washing',
-      'Closet cleaning',
-      'Garage cleaning'
+      'Cabinet interiors & exteriors',
+      'All appliances (inside & out)',
+      'Wall washing & spot cleaning',
+      'Closet deep cleaning',
+      'Garage/basement cleaning',
+      'Light fixture deep clean',
+      'Window sills & tracks'
     ],
     icon: 'fa-truck-moving',
     color: 'from-purple-500 to-purple-600'
   },
   {
     id: 'appliance-cleaning',
-    name: 'Fridge & Oven Cleaning',
+    name: 'Fridge & Oven Add-On',
     description: 'Deep scrubbing of inside and outside of appliances to remove grease, residue, and odors.',
-    basePrice: 80,
+    basePrice: 35,
     duration: 1,
     includes: [
-      'Refrigerator deep clean',
-      'Oven interior cleaning',
-      'Grease removal',
-      'Odor elimination',
-      'Exterior polishing'
+      'Refrigerator deep clean (inside/out)',
+      'Oven interior deep cleaning',
+      'Grease & grime removal',
+      'Odor elimination treatment',
+      'Exterior polishing',
+      'Coil cleaning (if accessible)'
     ],
     icon: 'fa-fire',
     color: 'from-red-500 to-red-600'
   },
   {
     id: 'laundry-services',
-    name: 'Laundry Services',
+    name: 'Laundry Service Add-On',
     description: 'Washing, drying, folding and organizing clothes upon request.',
-    basePrice: 50,
-    duration: 2,
+    basePrice: 25,
+    duration: 1,
     includes: [
       'Washing and drying',
       'Folding and organizing',
-      'Sorting by type',
-      'Hanging delicate items'
+      'Sorting by type/color',
+      'Hanging delicate items',
+      'Linen organization'
     ],
     icon: 'fa-tshirt',
     color: 'from-yellow-500 to-yellow-600'
   },
   {
     id: 'cabinet-cleaning',
-    name: 'Interior Cabinet Cleaning',
+    name: 'Cabinet Deep Clean Add-On',
     description: 'Remove dust, crumbs and buildup from kitchen and bathroom cabinets.',
-    basePrice: 60,
+    basePrice: 45,
     duration: 1,
     includes: [
       'Cabinet interior cleaning',
-      'Shelf organizing',
+      'Shelf deep cleaning & organizing',
       'Hardware polishing',
-      'Liner replacement'
+      'Liner replacement (if needed)',
+      'Pantry organization'
     ],
     icon: 'fa-door-open',
     color: 'from-indigo-500 to-indigo-600'
