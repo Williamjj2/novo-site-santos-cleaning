@@ -195,7 +195,7 @@ const Footer = ({ currentLanguage }) => {
 
               {/* Social Media */}
               <div className="mb-6">
-                <h5 className="text-sm font-semibold mb-3 text-gray-300">Siga-nos</h5>
+                <h5 className="text-sm font-semibold mb-3 text-gray-300">{t('footer-follow-us')}</h5>
                 <div className="flex space-x-4">
                   <a
                     href={COMPANY_INFO.socialMedia.facebook}
