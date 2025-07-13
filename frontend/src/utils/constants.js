@@ -100,8 +100,8 @@ export const DEFAULT_SERVICES = [
     id: 'deep-cleaning',
     name: 'Deep Cleaning',
     description: 'Complete top-to-bottom cleaning ideal for first-time visits, post-renovation, or long periods without service. Includes hidden and hard-to-reach spots.',
-    basePrice: 89,
-    duration: 3,
+    basePrice: 250,
+    duration: 4,
     includes: [
       'All rooms cleaned thoroughly',
       'Kitchen deep clean & appliances',
@@ -119,7 +119,7 @@ export const DEFAULT_SERVICES = [
     id: 'regular-maintenance',
     name: 'Regular Maintenance',
     description: 'Ongoing cleaning to keep your space fresh. Includes kitchen, bathrooms, bedrooms, floors, and all visible surfaces.',
-    basePrice: 65,
+    basePrice: 100,
     duration: 2,
     includes: [
       'Surface cleaning all rooms',
@@ -138,8 +138,8 @@ export const DEFAULT_SERVICES = [
     id: 'move-in-out',
     name: 'Move-In / Move-Out Cleaning',
     description: 'Detailed cleaning to prepare a home for new occupants or leave it spotless after moving. Includes inside cabinets, baseboards, and appliances.',
-    basePrice: 149,
-    duration: 4,
+    basePrice: 250,
+    duration: 5,
     includes: [
       'Complete deep clean',
       'Cabinet interiors & exteriors',
@@ -174,7 +174,7 @@ export const DEFAULT_SERVICES = [
     id: 'laundry-services',
     name: 'Laundry Service Add-On',
     description: 'Washing, drying, folding and organizing clothes upon request.',
-    basePrice: 25,
+    basePrice: 35,
     duration: 1,
     includes: [
       'Washing and drying',
