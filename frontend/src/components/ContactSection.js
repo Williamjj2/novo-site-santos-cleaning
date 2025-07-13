@@ -187,7 +187,7 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
             {/* Urgency Indicator */}
             <div className="mt-8 inline-flex items-center space-x-2 bg-green-50 text-green-700 px-6 py-3 rounded-full border border-green-200">
               <i className="fas fa-clock animate-pulse"></i>
-              <span className="font-semibold">Response in 24 hours or less • Free estimates</span>
+              <span className="font-semibold">{t('contact-urgency-indicator')}</span>
             </div>
           </motion.div>
 
