@@ -104,77 +104,119 @@ const BeforeAfterSection = ({ currentLanguage }) => {
             </div>
           </motion.div>
 
-          {/* Before/After Grid */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            {transformations.map((transformation, index) => (
-              <motion.div
-                key={transformation.id}
+          {/* Before/After Grid - Dinâmico com Carrossel */}
+          <div className="relative mb-12">
+            <div className="overflow-hidden">
+              <motion.div 
                 variants={itemVariants}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                className="grid lg:grid-cols-3 gap-8"
               >
-                <h3 className="text-xl font-bold text-white text-center mb-6 flex items-center justify-center space-x-2">
-                  <span className="text-2xl">{transformation.emoji}</span>
-                  <span>{transformation.title}</span>
-                </h3>
-
-                {/* Before/After Comparison */}
-                <div className="relative overflow-hidden rounded-xl mb-4 group">
-                  <div className="relative h-64 bg-gray-200">
-                    {/* Before Image */}
-                    <img
-                      src={transformation.beforeImage}
-                      alt={transformation.beforeAlt}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                    
-                    {/* After Image */}
-                    <div
-                      className="absolute inset-0 overflow-hidden"
-                      style={{ clipPath: `inset(0 ${100 - sliderPositions[transformation.id]}% 0 0)` }}
-                    >
-                      <img
-                        src={transformation.afterImage}
-                        alt={transformation.afterAlt}
-                        className="w-full h-full object-cover"
-                      />
+                {getCurrentImages().map((transformation, index) => (
+                  <div
+                    key={transformation.id}
+                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                  >
+                    <div className="flex items-center justify-between mb-6">
+                      <h3 className="text-xl font-bold text-white flex items-center space-x-2">
+                        <span className="text-2xl">{transformation.emoji}</span>
+                        <span>{transformation.title}</span>
+                      </h3>
+                      <span className="text-xs bg-white/20 text-white px-2 py-1 rounded-full">
+                        {transformation.category}
+                      </span>
                     </div>
 
-                    {/* Slider */}
-                    <div
-                      className="absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-ew-resize z-10"
-                      style={{ left: `${sliderPositions[transformation.id]}%` }}
-                    >
-                      {/* Slider Handle */}
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <i className="fas fa-arrows-alt-h text-gray-600 text-xs"></i>
+                    {/* Before/After Comparison - Imagens Maiores */}
+                    <div className="relative overflow-hidden rounded-xl mb-4 group">
+                      <div className="relative h-80 bg-gray-200"> {/* Altura aumentada para 320px */}
+                        {/* Before Image */}
+                        <img
+                          src={transformation.beforeImage}
+                          alt={transformation.beforeAlt}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                        
+                        {/* After Image */}
+                        <div
+                          className="absolute inset-0 overflow-hidden"
+                          style={{ clipPath: `inset(0 ${100 - sliderPositions[transformation.id]}% 0 0)` }}
+                        >
+                          <img
+                            src={transformation.afterImage}
+                            alt={transformation.afterAlt}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+
+                        {/* Slider Line */}
+                        <div
+                          className="absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-ew-resize z-10 transition-transform group-hover:scale-105"
+                          style={{ left: `${sliderPositions[transformation.id]}%` }}
+                        >
+                          {/* Slider Handle */}
+                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i className="fas fa-arrows-alt-h text-gray-600 text-sm"></i>
+                          </div>
+                        </div>
+
+                        {/* Range Input (Invisible) */}
+                        <input
+                          type="range"
+                          min="0"
+                          max="100"
+                          value={sliderPositions[transformation.id]}
+                          onChange={(e) => handleSliderChange(transformation.id, parseInt(e.target.value))}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
+                        />
+
+                        {/* Labels */}
+                        <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-medium">
+                          ANTES
+                        </div>
+                        <div className="absolute bottom-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-lg text-sm font-medium">
+                          DEPOIS
+                        </div>
                       </div>
                     </div>
 
-                    {/* Range Input (Invisible) */}
-                    <input
-                      type="range"
-                      min="0"
-                      max="100"
-                      value={sliderPositions[transformation.id]}
-                      onChange={(e) => handleSliderChange(transformation.id, parseInt(e.target.value))}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
-                    />
-
-                    {/* Labels */}
-                    <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-medium">
-                      ANTES
-                    </div>
-                    <div className="absolute bottom-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-lg text-sm font-medium">
-                      DEPOIS
-                    </div>
+                    <p className="text-center text-white/90 text-sm">
+                      {transformation.description}
+                    </p>
                   </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Navegação do Carrossel */}
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center space-x-4 mt-8">
+                <button
+                  onClick={prevSlide}
+                  className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center text-white hover:text-blue-200 transition-colors"
+                >
+                  <i className="fas fa-chevron-left"></i>
+                </button>
+
+                <div className="flex space-x-2">
+                  {Array.from({ length: totalPages }).map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-3 h-3 rounded-full transition-colors ${
+                        index === currentSlide ? 'bg-white' : 'bg-white/50 hover:bg-white/80'
+                      }`}
+                    />
+                  ))}
                 </div>
 
-                <p className="text-center text-white/90 text-sm">
-                  {transformation.description}
-                </p>
-              </motion.div>
-            ))}
+                <button
+                  onClick={nextSlide}
+                  className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center text-white hover:text-blue-200 transition-colors"
+                >
+                  <i className="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Results Stats */}
