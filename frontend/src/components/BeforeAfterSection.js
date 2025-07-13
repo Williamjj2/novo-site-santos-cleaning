@@ -90,17 +90,17 @@ const BeforeAfterSection = ({ currentLanguage }) => {
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-              Veja os Resultados – Antes e Depois da Limpeza
+              {t('before-after-title')}
             </h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto mb-6">
-              Testemunhe a transformação de bagunçado para limpo
+              {t('before-after-subtitle')}
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full"></div>
             
             {/* Drag instruction */}
             <div className="mt-8 inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full border border-white/20">
               <i className="fas fa-hand-pointer animate-pulse"></i>
-              <span className="text-sm">Arraste o controle para ver o antes e depois</span>
+              <span className="text-sm">{t('before-after-drag-instruction')}</span>
             </div>
           </motion.div>
 
