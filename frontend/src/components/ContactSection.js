@@ -201,7 +201,7 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                   </h3>
                   <div className="flex items-center space-x-2 text-green-600">
                     <i className="fas fa-shield-alt"></i>
-                    <span className="text-sm font-medium">100% Secure</span>
+                    <span className="text-sm font-medium">{t('contact-secure-badge')}</span>
                   </div>
                 </div>
 
