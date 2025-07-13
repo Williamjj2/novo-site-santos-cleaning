@@ -66,6 +66,37 @@ export const translations = {
     'footer-services': 'Services',
     'footer-legal': 'Legal',
     'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. All rights reserved.',
+    'footer-company-tagline': 'Professional Excellence',
+    'footer-company-description': 'Professional cleaning services with a human touch in Marietta, Georgia. Family-owned company committed to excellence and customer satisfaction.',
+    'footer-our-services': 'Our Services',
+    'footer-quick-links': 'Quick Links',
+    'footer-schedule-service': 'Schedule Service',
+    'footer-privacy-policy': 'Privacy Policy',
+    'footer-terms-service': 'Terms of Service',
+    'footer-disclaimer': 'Disclaimer',
+    'footer-service-areas': 'Service Areas',
+    'footer-follow-us': 'Follow Us',
+    'footer-emergency-24h': 'Emergency 24h',
+    'footer-urgent-cleaning': 'For urgent cleaning situations',
+    'footer-back-to-top': 'Back to top',
+    'footer-licensed': 'Licensed',
+    'footer-insured': 'Insured',
+    'footer-licensed-insured-georgia': 'Licensed and insured in Georgia • Family business since 2024',
+    
+    // Footer Services
+    'footer-service-deep': 'Deep Cleaning',
+    'footer-service-regular': 'Regular Maintenance',
+    'footer-service-move': 'Move-In/Move-Out Cleaning',
+    'footer-service-appliance': 'Appliance Cleaning',
+    'footer-service-laundry': 'Laundry Services',
+    'footer-service-cabinet': 'Cabinet Cleaning',
+    
+    // Footer Quick Links
+    'footer-link-home': 'Home',
+    'footer-link-about': 'About Us',
+    'footer-link-services': 'Services',
+    'footer-link-testimonials': 'Testimonials',
+    'footer-link-contact': 'Contact',
 
     // SMS Consent
     'sms-consent-title': 'SMS Communication Consent',
