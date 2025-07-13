@@ -6,7 +6,7 @@ import { useTranslations } from '../utils/translations';
 import { COMPANY_INFO, VALIDATION_PATTERNS, ERROR_MESSAGES } from '../utils/constants';
 import { apiService } from '../services/api';
 
-const ContactSection = ({ currentLanguage }) => {
+const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
   const { t } = useTranslations(currentLanguage);
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -23,6 +23,16 @@ const ContactSection = ({ currentLanguage }) => {
 
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+  // Update message when preFilledEstimate changes
+  React.useEffect(() => {
+    if (preFilledEstimate && preFilledEstimate.message) {
+      setFormData(prev => ({
+        ...prev,
+        message: preFilledEstimate.message
+      }));
+    }
+  }, [preFilledEstimate]);
 
   const validateForm = () => {
     const newErrors = {};
