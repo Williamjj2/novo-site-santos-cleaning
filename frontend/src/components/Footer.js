@@ -228,10 +228,10 @@ const Footer = ({ currentLanguage }) => {
               <div className="bg-red-900/30 border border-red-500/30 rounded-lg p-4">
                 <div className="flex items-center space-x-2 mb-2">
                   <i className="fas fa-exclamation-triangle text-red-400"></i>
-                  <h5 className="text-sm font-semibold text-red-400">Emergência 24h</h5>
+                  <h5 className="text-sm font-semibold text-red-400">{t('footer-emergency-24h')}</h5>
                 </div>
                 <p className="text-xs text-gray-400 mb-2">
-                  Para situações urgentes de limpeza
+                  {t('footer-urgent-cleaning')}
                 </p>
                 <a
                   href={`tel:${COMPANY_INFO.phone}`}
