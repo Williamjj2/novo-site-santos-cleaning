@@ -107,6 +107,46 @@ export const translations = {
     'calc-yes': 'Yes',
     'calc-no': 'No',
 
+    // SMS Consent
+    'sms-consent-title': 'Consentimiento de Comunicación por SMS',
+    'sms-consent-text': 'Sí, consiento recibir mensajes de texto de Santos Cleaning Solutions LLC',
+    'sms-consent-details': 'en el número de teléfono proporcionado. Entiendo que recibiré:',
+    'sms-item-1': 'Confirmaciones de citas de servicio',
+    'sms-item-2': 'Recordatorios de servicio de limpieza',
+    'sms-item-3': 'Actualizaciones importantes del servicio',
+    'sms-item-4': 'Ofertas promocionales ocasionales (opcional)',
+    'sms-freq-text': 'Frecuencia: 2-4 mensajes/mes | Cancelar: Responder STOP | Ayuda: Responder HELP',
+    'sms-rates-text': 'Pueden aplicarse tarifas de mensajes. Su información está protegida.',
+    'sms-policy-text': 'Al enviar este formulario, acepta nuestra Política de Privacidad y Términos de Servicio.',
+
+    // Contact Info
+    'contact-info-title': 'Información de Contacto',
+    'contact-phone-label': 'Teléfono',
+    'contact-call-now': '¡Llame ahora!',
+    'contact-location-label': 'Ubicación',
+    'contact-service-area': 'Servimos Atlanta Metro',
+    'contact-hours-label': 'Horarios',
+    'contact-hours-time': 'Lun-Sáb 8AM-6PM',
+    'contact-emergency': 'Emergencias 24h',
+    'contact-need-now': '¿Necesita Hablar Ahora?',
+    'contact-free-phone': '¡Estimación gratuita por teléfono en 5 minutos!',
+    'contact-premium-areas': 'Áreas Premium Servidas',
+    'contact-other-areas': '+ 40 otras comunidades premium en Atlanta Metro',
+
+    // Calculator Messages
+    'calc-greeting': '¡Hola! Me gustaría una cotización para:',
+    'calc-service': 'Servicio',
+    'calc-sqft': 'Pies Cuadrados',
+    'calc-bedrooms': 'Habitaciones',
+    'calc-bathrooms': 'Baños',
+    'calc-pets': 'Mascotas',
+    'calc-frequency': 'Frecuencia',
+    'calc-addons': 'Adicionales',
+    'calc-estimated-total': 'Total Estimado',
+    'calc-confirm-message': '¡Por favor confirme la cotización y programe una visita. Gracias!',
+    'calc-yes': 'Sí',
+    'calc-no': 'No',
+
     // Price Calculator
     'calculator-title': 'Price Calculator',
     'calculator-subtitle': 'Get an instant personalized estimate for your cleaning service',
