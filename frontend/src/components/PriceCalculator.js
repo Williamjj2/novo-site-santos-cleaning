@@ -72,16 +72,12 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
   };
 
   const calculateEstimate = () => {
-    console.log('calculateEstimate called with formData:', formData);
-    
     if (!formData.serviceType || !formData.squareFeet) {
-      console.log('Missing serviceType or squareFeet');
       return null;
     }
 
     const selectedService = serviceTypes.find(s => s.id === formData.serviceType);
     if (!selectedService) {
-      console.log('Service not found');
       return null;
     }
 
@@ -90,7 +86,6 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
     // Square footage adjustments
     const sqft = parseInt(formData.squareFeet);
     if (isNaN(sqft) || sqft <= 0) {
-      console.log('Invalid square footage:', sqft);
       return null;
     }
     if (sqft <= 1000) {
