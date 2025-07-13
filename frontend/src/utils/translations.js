@@ -317,6 +317,48 @@ export const translations = {
     'form-submit': 'Enviar Solicitud',
     'form-success': '¡Gracias! Su solicitud ha sido recibida. Nos pondremos en contacto con usted dentro de 24 horas.',
 
+    // Before/After Section
+    'before-after-title': 'Vea los Resultados – Antes y Después de la Limpieza',
+    'before-after-subtitle': 'Presencia la transformación de desordenado a limpio',
+    'before-after-drag-instruction': 'Arrastre el control para ver el antes y después',
+    'before-after-before-label': 'ANTES',
+    'before-after-after-label': 'DESPUÉS',
+    'before-after-satisfaction-rate': 'Tasa de Satisfacción',
+    'before-after-star-reviews': 'Reseñas de 5 Estrellas',
+    'before-after-homes-transformed': 'Hogares Transformados',
+    'before-after-response-time': 'Tiempo de Respuesta',
+    'before-after-cta-title': '¿Listo para Transformar su Hogar?',
+    'before-after-cta-subtitle': 'Vea con sus propios ojos la diferencia que Santos Cleaning Solutions puede hacer. ¡Solicite una evaluación gratuita hoy!',
+    'before-after-cta-button': 'Solicitar Evaluación Gratuita',
+    'before-after-cta-call': 'Llamar (866) 350-9407',
+    'before-after-guarantee-free': 'Cotización Gratuita',
+    'before-after-guarantee-insured': 'Totalmente Asegurado',
+    'before-after-guarantee-response': 'Respuesta en 24h',
+    
+    // Contact Section
+    'contact-urgency-indicator': 'Respuesta en 24 horas o menos • Estimaciones gratuitas',
+    'contact-secure-badge': '100% Seguro',
+    'contact-form-processing': 'Procesando...',
+    'contact-form-terms': 'Al enviar este formulario, acepta nuestra Política de Privacidad y Términos de Servicio.',
+    'contact-info-title': 'Información de Contacto',
+    'contact-info-phone': 'Teléfono',
+    'contact-info-call-now': '¡Llame ahora!',
+    'contact-info-location': 'Ubicación',
+    'contact-info-hours': 'Horario',
+    'contact-quick-call-title': '¿Necesita Hablar Ahora?',
+    'contact-quick-call-subtitle': '¡Estimación gratuita por teléfono en 5 minutos!',
+    'contact-premium-areas-title': 'Áreas Premium Servidas',
+    'contact-other-areas': '+ 40 otras comunidades premium en Atlanta Metro',
+    'contact-sms-freq': 'Frecuencia: 2-4 mensajes/mes | Cancelar: Responder STOP | Ayuda: Responder HELP',
+    'contact-sms-rates': 'Pueden aplicarse tarifas de mensajes. Su información está protegida.',
+    
+    // Reviews Section
+    'reviews-verified-google': 'Verificado por Google',
+    'reviews-posted-on': 'Publicado en',
+    'reviews-verified': 'Verificado',
+    'reviews-google-cta': 'Ver Todas las Reseñas de Google',
+    'reviews-rate-us': 'Califique nuestra limpieza y ayude a otras familias a encontrar calidad',
+    
     // Footer
     'footer-services': 'Servicios',
     'footer-legal': 'Legal',
