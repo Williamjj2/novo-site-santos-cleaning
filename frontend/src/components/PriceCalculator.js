@@ -136,7 +136,6 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
       }
     };
     
-    console.log('Calculated estimate:', result);
     return result;
   };
 
