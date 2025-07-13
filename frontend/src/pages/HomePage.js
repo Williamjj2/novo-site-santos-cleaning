@@ -101,9 +101,16 @@ const HomePage = () => {
         <HeroSection currentLanguage={currentLanguage} />
         <AboutSection currentLanguage={currentLanguage} />
         <ServicesSection currentLanguage={currentLanguage} services={services} />
+        <PriceCalculator 
+          currentLanguage={currentLanguage} 
+          onEstimateReady={handleEstimateReady}
+        />
         <BeforeAfterSection currentLanguage={currentLanguage} />
         <ReviewsSection currentLanguage={currentLanguage} reviews={reviews} />
-        <ContactSection currentLanguage={currentLanguage} />
+        <ContactSection 
+          currentLanguage={currentLanguage} 
+          preFilledEstimate={preFilledEstimate}
+        />
       </main>
       
       <Footer currentLanguage={currentLanguage} />
