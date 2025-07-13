@@ -354,7 +354,7 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
               <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-4">
                   <i className="fas fa-calculator text-blue-500 mr-2"></i>
-                  Sua Estimativa
+                  {t('estimate-title')}
                 </h3>
                 
                 {isCalculated && estimate ? (
@@ -363,26 +363,26 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
                       <h4 className="font-semibold text-blue-800 mb-2">{estimate.service}</h4>
                       <div className="text-sm text-blue-700 space-y-1">
                         <p>🏠 {estimate.sqft} sq ft</p>
-                        <p>🛏️ {estimate.details.bedrooms} quartos • 🛁 {estimate.details.bathrooms} banheiros</p>
-                        {estimate.details.hasPets && <p>🐕 Com pets</p>}
-                        <p>🔄 {estimate.frequency === 'one-time' ? 'Uma vez' : estimate.frequency}</p>
+                        <p>🛏️ {estimate.details.bedrooms} {t('bedrooms-label').toLowerCase()} • 🛁 {estimate.details.bathrooms} {t('bathrooms-label').toLowerCase()}</p>
+                        {estimate.details.hasPets && <p>🐕 {currentLanguage === 'es' ? 'Con mascotas' : currentLanguage === 'pt' ? 'Com pets' : 'With pets'}</p>}
+                        <p>🔄 {getFrequencyLabel(estimate.frequency)}</p>
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span>Serviço Base:</span>
+                        <span>{t('estimate-base-service')}</span>
                         <span className="font-semibold">${estimate.basePrice}</span>
                       </div>
                       {estimate.addOnsPrice > 0 && (
                         <div className="flex justify-between">
-                          <span>Add-ons:</span>
+                          <span>{t('estimate-addons')}</span>
                           <span className="font-semibold">${estimate.addOnsPrice}</span>
                         </div>
                       )}
                       <div className="border-t border-gray-200 pt-2">
                         <div className="flex justify-between text-lg font-bold text-blue-600">
-                          <span>Total Estimado:</span>
+                          <span>{t('estimate-total')}</span>
                           <span>${estimate.total}</span>
                         </div>
                       </div>
@@ -393,13 +393,13 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
                       className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                     >
                       <i className="fas fa-paper-plane mr-2"></i>
-                      Solicitar Orçamento
+                      {t('request-quote')}
                     </button>
                   </div>
                 ) : (
                   <div className="text-center py-8 text-gray-500">
                     <i className="fas fa-calculator text-4xl mb-4 text-gray-300"></i>
-                    <p>Preencha os dados para ver sua estimativa</p>
+                    <p>{t('estimate-placeholder')}</p>
                   </div>
                 )}
               </div>
@@ -408,24 +408,24 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
               <div className="bg-green-50 rounded-2xl p-6 border border-green-200">
                 <h4 className="font-bold text-green-800 mb-3">
                   <i className="fas fa-shield-check mr-2"></i>
-                  Garantias Incluídas
+                  {t('guarantees-title')}
                 </h4>
                 <ul className="space-y-2 text-sm text-green-700">
                   <li className="flex items-center space-x-2">
                     <i className="fas fa-check text-green-600"></i>
-                    <span>Orçamento sem compromisso</span>
+                    <span>{t('guarantee-no-commitment')}</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <i className="fas fa-check text-green-600"></i>
-                    <span>Preços fixos, sem surpresas</span>
+                    <span>{t('guarantee-fixed-prices')}</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <i className="fas fa-check text-green-600"></i>
-                    <span>Satisfação 100% garantida</span>
+                    <span>{t('guarantee-satisfaction')}</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <i className="fas fa-check text-green-600"></i>
-                    <span>Licenciado e segurado</span>
+                    <span>{t('guarantee-licensed')}</span>
                   </li>
                 </ul>
               </div>
