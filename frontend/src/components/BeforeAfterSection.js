@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useTranslations } from '../utils/translations';
+import { BEFORE_AFTER_IMAGES } from '../utils/constants';
 
 const BeforeAfterSection = ({ currentLanguage }) => {
   const { t } = useTranslations(currentLanguage);
@@ -10,11 +11,16 @@ const BeforeAfterSection = ({ currentLanguage }) => {
     triggerOnce: true
   });
 
-  const [sliderPositions, setSliderPositions] = useState({
-    bathroom: 50,
-    kitchen: 50,
-    room: 50
-  });
+  const [sliderPositions, setSliderPositions] = useState(
+    BEFORE_AFTER_IMAGES.reduce((acc, img) => {
+      acc[img.id] = 50;
+      return acc;
+    }, {})
+  );
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(BEFORE_AFTER_IMAGES.length / itemsPerPage);
 
   const handleSliderChange = (type, value) => {
     setSliderPositions(prev => ({
@@ -23,38 +29,18 @@ const BeforeAfterSection = ({ currentLanguage }) => {
     }));
   };
 
-  const transformations = [
-    {
-      id: 'bathroom',
-      title: 'Transformação do Banheiro',
-      description: 'De rejunte negligenciado para azulejos brilhantes',
-      emoji: '🛁',
-      beforeImage: 'https://images.unsplash.com/photo-1565057513005-53ebda0c1e50?w=400&h=300&fit=crop&crop=center',
-      afterImage: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop&crop=center',
-      beforeAlt: 'Banheiro sujo antes da limpeza',
-      afterAlt: 'Banheiro limpo após limpeza'
-    },
-    {
-      id: 'kitchen',
-      title: 'Restauração da Cozinha',
-      description: 'Cozinha restaurada da gordura ao brilho',
-      emoji: '🍳',
-      beforeImage: 'https://images.unsplash.com/photo-1556909114-35e9cbd73e6e?w=400&h=300&fit=crop&crop=center',
-      afterImage: 'https://images.unsplash.com/photo-1556909114-d81f5d430bf5?w=400&h=300&fit=crop&crop=center',
-      beforeAlt: 'Cozinha suja antes da limpeza',
-      afterAlt: 'Cozinha limpa após limpeza'
-    },
-    {
-      id: 'room',
-      title: 'Transformação do Quarto',
-      description: 'Quarto empoeirado transformado em santuário aconchegante',
-      emoji: '🛏️',
-      beforeImage: 'https://images.unsplash.com/photo-1558618666-fcd2c0cd9dc3?w=400&h=300&fit=crop&crop=center',
-      afterImage: 'https://images.unsplash.com/photo-1556185781-a47769abb7ee?w=400&h=300&fit=crop&crop=center',
-      beforeAlt: 'Quarto desarrumado antes da limpeza',
-      afterAlt: 'Quarto organizado após limpeza'
-    }
-  ];
+  const getCurrentImages = () => {
+    const startIndex = currentSlide * itemsPerPage;
+    return BEFORE_AFTER_IMAGES.slice(startIndex, startIndex + itemsPerPage);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalPages) % totalPages);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
