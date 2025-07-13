@@ -59,7 +59,7 @@ const Header = ({ currentLanguage, onLanguageChange }) => {
                 Santos <span className="font-semibold text-blue-600">Cleaning</span>
               </h1>
               <p className="text-xs text-gray-600 hidden md:block">Professional Solutions</p>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Desktop Navigation */}
