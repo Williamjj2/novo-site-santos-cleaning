@@ -166,31 +166,98 @@ const ServicesSection = ({ currentLanguage, services }) => {
             ))}
           </div>
 
-          {/* Service Areas */}
+          {/* Service Areas - Comprehensive Atlanta Metro */}
           <motion.div variants={itemVariants} className="text-center bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              Serving Premium Areas in Atlanta Metro
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center justify-center space-x-2">
+              <i className="fas fa-map-marked-alt text-blue-500"></i>
+              <span>Serving Premium Atlanta Metro Communities</span>
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+            
+            {/* Premium Areas Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-8">
               {[
-                'Marietta', 'Roswell', 'Alpharetta', 'Sandy Springs', 'Smyrna',
-                'Kennesaw', 'Acworth', 'Woodstock', 'Buckhead', 'Cobb County'
-              ].map((area, index) => (
-                <div key={index} className="flex items-center space-x-2 text-gray-600">
-                  <i className="fas fa-map-marker-alt text-blue-500"></i>
-                  <span className="text-sm font-medium">{area}</span>
+                // Tier 1 - Ultra Premium
+                { area: 'Buckhead', tier: 'premium' },
+                { area: 'Vinings', tier: 'premium' },
+                { area: 'East Cobb', tier: 'premium' },
+                { area: 'Alpharetta', tier: 'premium' },
+                
+                // Tier 2 - Premium
+                { area: 'Marietta', tier: 'standard' },
+                { area: 'Roswell', tier: 'standard' },
+                { area: 'Sandy Springs', tier: 'standard' },
+                { area: 'Dunwoody', tier: 'standard' },
+                { area: 'Johns Creek', tier: 'standard' },
+                { area: 'Milton', tier: 'standard' },
+                { area: 'Smyrna', tier: 'standard' },
+                { area: 'Kennesaw', tier: 'standard' }
+              ].map((location, index) => (
+                <div key={index} className={`flex items-center space-x-2 p-2 rounded-lg transition-colors ${
+                  location.tier === 'premium' 
+                    ? 'bg-gradient-to-r from-yellow-50 to-yellow-100 border border-yellow-200' 
+                    : 'bg-blue-50 border border-blue-200'
+                }`}>
+                  <i className={`fas fa-map-marker-alt ${
+                    location.tier === 'premium' ? 'text-yellow-600' : 'text-blue-500'
+                  }`}></i>
+                  <span className={`text-sm font-medium ${
+                    location.tier === 'premium' ? 'text-yellow-800' : 'text-gray-700'
+                  }`}>
+                    {location.area}
+                  </span>
+                  {location.tier === 'premium' && (
+                    <i className="fas fa-crown text-yellow-500 text-xs"></i>
+                  )}
                 </div>
               ))}
             </div>
+            
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                <h4 className="font-bold text-green-800 mb-2">
+                  <i className="fas fa-shield-alt mr-2"></i>
+                  Licensed & Insured
+                </h4>
+                <p className="text-sm text-green-700">Full liability coverage for your peace of mind</p>
+              </div>
+              
+              <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                <h4 className="font-bold text-blue-800 mb-2">
+                  <i className="fas fa-clock mr-2"></i>
+                  Same-Day Available
+                </h4>
+                <p className="text-sm text-blue-700">Emergency and last-minute bookings accepted</p>
+              </div>
+              
+              <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                <h4 className="font-bold text-purple-800 mb-2">
+                  <i className="fas fa-award mr-2"></i>
+                  Satisfaction Guarantee
+                </h4>
+                <p className="text-sm text-purple-700">100% satisfaction or we return to fix it free</p>
+              </div>
+            </div>
+            
             <p className="text-gray-600 mb-6">
-              Professional cleaning services for upscale neighborhoods and luxury homes
+              <strong>Luxury home specialists</strong> serving gated communities, executive homes, and upscale neighborhoods throughout North Atlanta Metro. 
+              <span className="text-blue-600 font-medium">Free consultations for homes over 3,500 sq ft.</span>
             </p>
             
-            {/* Emergency Service Badge */}
-            <div className="inline-flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-full border border-red-200">
-              <i className="fas fa-bolt"></i>
-              <span className="font-semibold">Emergency & Same-Day Service Available</span>
-            </div>
+            {/* Service Areas Expansion */}
+            <details className="text-left">
+              <summary className="cursor-pointer text-blue-600 font-medium hover:text-blue-800 inline-flex items-center space-x-2">
+                <span>View All 40+ Communities We Serve</span>
+                <i className="fas fa-chevron-down text-sm"></i>
+              </summary>
+              <div className="mt-4 grid grid-cols-3 md:grid-cols-5 gap-2 text-sm text-gray-600">
+                {SERVICE_AREAS.slice(12).map((area, index) => (
+                  <div key={index} className="flex items-center space-x-1">
+                    <i className="fas fa-map-pin text-blue-400 text-xs"></i>
+                    <span>{area}</span>
+                  </div>
+                ))}
+              </div>
+            </details>
           </motion.div>
 
           {/* Bottom CTA */}
