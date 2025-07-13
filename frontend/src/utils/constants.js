@@ -204,27 +204,75 @@ export const DEFAULT_SERVICES = [
   }
 ];
 
-// Before/After images (placeholder URLs - should be replaced with actual images)
-export const BEFORE_AFTER_IMAGES = {
-  bathroom: {
-    before: '/assets/galeria/antes4.jpg',
-    after: '/assets/galeria/depois4.jpg',
+// Before/After images (placeholders - can be replaced with actual images)
+export const BEFORE_AFTER_IMAGES = [
+  {
+    id: 'bathroom',
     title: 'Bathroom Transformation',
-    description: 'From neglected grout to gleaming bathroom tiles'
+    description: 'From neglected grout to gleaming bathroom tiles',
+    emoji: '🛁',
+    beforeImage: 'https://images.unsplash.com/photo-1565057513005-53ebda0c1e50?w=600&h=400&fit=crop&crop=center',
+    afterImage: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop&crop=center',
+    beforeAlt: 'Dirty bathroom before cleaning',
+    afterAlt: 'Clean bathroom after cleaning',
+    category: 'Bathroom Deep Clean'
   },
-  kitchen: {
-    before: '/assets/galeria/antes5.jpg', 
-    after: '/assets/galeria/depois5.jpg',
-    title: 'Kitchen Restoration',
-    description: 'Kitchen restored from grease to sparkle'
+  {
+    id: 'kitchen',
+    title: 'Kitchen Restoration', 
+    description: 'Kitchen restored from grease to sparkle',
+    emoji: '🍳',
+    beforeImage: 'https://images.unsplash.com/photo-1556909114-35e9cbd73e6e?w=600&h=400&fit=crop&crop=center',
+    afterImage: 'https://images.unsplash.com/photo-1556909114-d81f5d430bf5?w=600&h=400&fit=crop&crop=center',
+    beforeAlt: 'Dirty kitchen before cleaning',
+    afterAlt: 'Clean kitchen after cleaning',
+    category: 'Kitchen Deep Clean'
   },
-  room: {
-    before: '/assets/galeria/antes3.jpg',
-    after: '/assets/galeria/depois3.jpg', 
+  {
+    id: 'room',
     title: 'Room Transformation',
-    description: 'Dusty bedroom transformed into a cozy sanctuary'
+    description: 'Dusty bedroom transformed into a cozy sanctuary',
+    emoji: '🛏️',
+    beforeImage: 'https://images.unsplash.com/photo-1558618666-fcd2c0cd9dc3?w=600&h=400&fit=crop&crop=center',
+    afterImage: 'https://images.unsplash.com/photo-1556185781-a47769abb7ee?w=600&h=400&fit=crop&crop=center',
+    beforeAlt: 'Messy room before cleaning',
+    afterAlt: 'Clean room after cleaning',
+    category: 'Room Organization'
+  },
+  {
+    id: 'living-room',
+    title: 'Living Room Revival',
+    description: 'From cluttered chaos to organized comfort',
+    emoji: '🛋️',
+    beforeImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&crop=center',
+    afterImage: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop&crop=center',
+    beforeAlt: 'Cluttered living room before',
+    afterAlt: 'Organized living room after',
+    category: 'Living Area'
+  },
+  {
+    id: 'office',
+    title: 'Home Office Cleanup',
+    description: 'Professional workspace transformation',
+    emoji: '💼',
+    beforeImage: 'https://images.unsplash.com/photo-1541746972996-4e0b0f93e586?w=600&h=400&fit=crop&crop=center',
+    afterImage: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop&crop=center',
+    beforeAlt: 'Messy home office before',
+    afterAlt: 'Clean home office after',
+    category: 'Home Office'
+  },
+  {
+    id: 'garage',
+    title: 'Garage Organization',
+    description: 'From storage chaos to organized space',
+    emoji: '🏠',
+    beforeImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center',
+    afterImage: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop&crop=center',
+    beforeAlt: 'Cluttered garage before',
+    afterAlt: 'Organized garage after',
+    category: 'Garage & Storage'
   }
-};
+];
 
 // Animation configurations
 export const ANIMATION_CONFIG = {
