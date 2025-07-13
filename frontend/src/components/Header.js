@@ -127,7 +127,7 @@ const Header = ({ currentLanguage, onLanguageChange }) => {
                   {lang.flag} {lang.label}
                 </button>
               ))}
-            </div>
+            </motion.div>
 
             {/* Mobile Menu Button */}
             <button
