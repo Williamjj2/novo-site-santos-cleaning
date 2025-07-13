@@ -62,6 +62,48 @@ export const translations = {
     'kitchen-transform': 'Kitchen Restoration',
     'room-transform': 'Room Transformation',
 
+    // Before/After Section
+    'before-after-title': 'See the Results – Before and After Cleaning',
+    'before-after-subtitle': 'Witness the transformation from cluttered to clean',
+    'before-after-drag-instruction': 'Drag the control to see the before and after',
+    'before-after-before-label': 'BEFORE',
+    'before-after-after-label': 'AFTER',
+    'before-after-satisfaction-rate': 'Satisfaction Rate',
+    'before-after-star-reviews': '5 Star Reviews',
+    'before-after-homes-transformed': 'Homes Transformed',
+    'before-after-response-time': 'Response Time',
+    'before-after-cta-title': 'Ready to Transform Your Home?',
+    'before-after-cta-subtitle': 'See with your own eyes the difference Santos Cleaning Solutions can make. Request a free evaluation today!',
+    'before-after-cta-button': 'Request Free Evaluation',
+    'before-after-cta-call': 'Call (866) 350-9407',
+    'before-after-guarantee-free': 'Free Quote',
+    'before-after-guarantee-insured': 'Fully Insured',
+    'before-after-guarantee-response': 'Response in 24h',
+    
+    // Contact Section
+    'contact-urgency-indicator': 'Response in 24 hours or less • Free estimates',
+    'contact-secure-badge': '100% Secure',
+    'contact-form-processing': 'Processing...',
+    'contact-form-terms': 'By submitting this form, you agree to our Privacy Policy and Terms of Service.',
+    'contact-info-title': 'Contact Information',
+    'contact-info-phone': 'Phone',
+    'contact-info-call-now': 'Call now!',
+    'contact-info-location': 'Location',
+    'contact-info-hours': 'Hours',
+    'contact-quick-call-title': 'Need to Talk Now?',
+    'contact-quick-call-subtitle': 'Free phone estimate in 5 minutes!',
+    'contact-premium-areas-title': 'Premium Areas Served',
+    'contact-other-areas': '+ 40 other premium communities in Atlanta Metro',
+    'contact-sms-freq': 'Frequency: 2-4 messages/month | Cancel: Reply STOP | Help: Reply HELP',
+    'contact-sms-rates': 'Message rates may apply. Your information is protected.',
+    
+    // Reviews Section
+    'reviews-verified-google': 'Verified by Google',
+    'reviews-posted-on': 'Posted on',
+    'reviews-verified': 'Verified',
+    'reviews-google-cta': 'View All Google Reviews',
+    'reviews-rate-us': 'Rate our cleaning and help other families find quality',
+    
     // Footer
     'footer-services': 'Services',
     'footer-legal': 'Legal',
