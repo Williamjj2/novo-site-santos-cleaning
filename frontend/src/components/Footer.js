@@ -10,20 +10,20 @@ const Footer = ({ currentLanguage }) => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    'Limpeza Profunda',
-    'Manutenção Regular', 
-    'Limpeza de Mudança',
-    'Limpeza de Eletrodomésticos',
-    'Serviços de Lavanderia',
-    'Limpeza de Gabinetes'
+    t('footer-service-deep'),
+    t('footer-service-regular'),
+    t('footer-service-move'),
+    t('footer-service-appliance'),
+    t('footer-service-laundry'),
+    t('footer-service-cabinet')
   ];
 
   const quickLinks = [
-    { label: 'Início', href: '#home' },
-    { label: 'Sobre Nós', href: '#about' },
-    { label: 'Serviços', href: '#services' },
-    { label: 'Depoimentos', href: '#testimonials' },
-    { label: 'Contato', href: '#contact' }
+    { label: t('footer-link-home'), href: '#home' },
+    { label: t('footer-link-about'), href: '#about' },
+    { label: t('footer-link-services'), href: '#services' },
+    { label: t('footer-link-testimonials'), href: '#testimonials' },
+    { label: t('footer-link-contact'), href: '#contact' }
   ];
 
   const scrollToSection = (sectionId) => {
