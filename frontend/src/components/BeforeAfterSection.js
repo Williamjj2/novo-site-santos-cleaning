@@ -171,10 +171,10 @@ const BeforeAfterSection = ({ currentLanguage }) => {
 
                         {/* Labels */}
                         <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-medium">
-                          ANTES
+                          {t('before-after-before-label')}
                         </div>
                         <div className="absolute bottom-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-lg text-sm font-medium">
-                          DEPOIS
+                          {t('before-after-after-label')}
                         </div>
                       </div>
                     </div>
