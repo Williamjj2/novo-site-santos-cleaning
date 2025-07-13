@@ -445,8 +445,41 @@ export const translations = {
     'calc-yes': 'Sim',
     'calc-no': 'Não',
 
-    // Price Calculator
-    'calculator-title': 'Calculadora de Preços',
+    // Footer
+    'footer-services': 'Serviços',
+    'footer-legal': 'Legal',
+    'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. Todos os direitos reservados.',
+    'footer-company-tagline': 'Excelência Profissional',
+    'footer-company-description': 'Serviços de limpeza profissionais com um toque humano em Marietta, Georgia. Empresa familiar comprometida com a excelência e satisfação do cliente.',
+    'footer-our-services': 'Nossos Serviços',
+    'footer-quick-links': 'Links Rápidos',
+    'footer-schedule-service': 'Agendar Serviço',
+    'footer-privacy-policy': 'Política de Privacidade',
+    'footer-terms-service': 'Termos de Serviço',
+    'footer-disclaimer': 'Isenção de Responsabilidade',
+    'footer-service-areas': 'Áreas Atendidas',
+    'footer-follow-us': 'Siga-nos',
+    'footer-emergency-24h': 'Emergência 24h',
+    'footer-urgent-cleaning': 'Para situações urgentes de limpeza',
+    'footer-back-to-top': 'Voltar ao topo',
+    'footer-licensed': 'Licenciado',
+    'footer-insured': 'Segurado',
+    'footer-licensed-insured-georgia': 'Licenciado e segurado na Geórgia • Empresa familiar desde 2024',
+    
+    // Footer Services
+    'footer-service-deep': 'Limpeza Profunda',
+    'footer-service-regular': 'Manutenção Regular',
+    'footer-service-move': 'Limpeza de Mudança',
+    'footer-service-appliance': 'Limpeza de Eletrodomésticos',
+    'footer-service-laundry': 'Serviços de Lavanderia',
+    'footer-service-cabinet': 'Limpeza de Gabinetes',
+    
+    // Footer Quick Links
+    'footer-link-home': 'Início',
+    'footer-link-about': 'Sobre Nós',
+    'footer-link-services': 'Serviços',
+    'footer-link-testimonials': 'Depoimentos',
+    'footer-link-contact': 'Contato',
     'calculator-subtitle': 'Obtenha uma estimativa personalizada instantânea para seu serviço de limpeza',
     'calculator-form-title': 'Configure Seu Serviço',
     'service-type-label': 'Tipo de Serviço',
