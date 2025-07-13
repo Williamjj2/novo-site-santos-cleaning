@@ -255,10 +255,10 @@ const Footer = ({ currentLanguage }) => {
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-center md:text-left">
                 <p className="text-gray-400 text-sm">
-                  © {currentYear} Santos Cleaning Solutions LLC. Todos os direitos reservados.
+                  {t('footer-copyright')}
                 </p>
                 <p className="text-gray-500 text-xs mt-1">
-                  Licenciado e segurado na Geórgia • Empresa familiar desde 2024
+                  {t('footer-licensed-insured-georgia')}
                 </p>
               </div>
 
@@ -267,11 +267,11 @@ const Footer = ({ currentLanguage }) => {
                 <div className="flex items-center space-x-4 text-xs text-gray-400">
                   <div className="flex items-center space-x-1">
                     <i className="fas fa-shield-alt text-green-400"></i>
-                    <span>Licenciado</span>
+                    <span>{t('footer-licensed')}</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <i className="fas fa-certificate text-blue-400"></i>
-                    <span>Segurado</span>
+                    <span>{t('footer-insured')}</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <i className="fas fa-star text-yellow-400"></i>
@@ -283,7 +283,7 @@ const Footer = ({ currentLanguage }) => {
                 <button
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white transition-all duration-300 transform hover:scale-110"
-                  aria-label="Voltar ao topo"
+                  aria-label={t('footer-back-to-top')}
                 >
                   <i className="fas fa-arrow-up"></i>
                 </button>
