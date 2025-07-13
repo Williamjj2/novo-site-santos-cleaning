@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
+import PriceCalculator from '../components/PriceCalculator';
 import BeforeAfterSection from '../components/BeforeAfterSection';
 import ReviewsSection from '../components/ReviewsSection';
 import ContactSection from '../components/ContactSection';
@@ -17,6 +18,7 @@ const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [services, setServices] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [preFilledEstimate, setPreFilledEstimate] = useState(null);
 
   useEffect(() => {
     // Initialize page
@@ -51,6 +53,28 @@ const HomePage = () => {
     if (window.gtag) {
       window.gtag('event', 'language_change', {
         'language': language
+      });
+    }
+  };
+
+  const handleEstimateReady = (preFilledMessage, estimateData) => {
+    setPreFilledEstimate({
+      message: preFilledMessage,
+      data: estimateData
+    });
+    
+    // Scroll to contact form
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    // Track calculator usage
+    if (window.gtag) {
+      window.gtag('event', 'price_calculator_used', {
+        'service_type': estimateData.service,
+        'estimated_total': estimateData.total,
+        'square_feet': estimateData.sqft
       });
     }
   };
