@@ -129,7 +129,7 @@ const Footer = ({ currentLanguage }) => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="lg:col-span-1"
             >
-              <h4 className="text-lg font-semibold mb-6 text-white">Links Rápidos</h4>
+              <h4 className="text-lg font-semibold mb-6 text-white">{t('footer-quick-links')}</h4>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
