@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useTranslations } from '../utils/translations';
-import { DEFAULT_SERVICES } from '../utils/constants';
+import { DEFAULT_SERVICES, SERVICE_AREAS } from '../utils/constants';
 
 const ServicesSection = ({ currentLanguage, services }) => {
   const { t } = useTranslations(currentLanguage);
