@@ -275,8 +275,41 @@ export const translations = {
     'form-submit': 'Enviar Solicitud',
     'form-success': '¡Gracias! Su solicitud ha sido recibida. Nos pondremos en contacto con usted dentro de 24 horas.',
 
-    // Price Calculator
-    'calculator-title': 'Calculadora de Precios',
+    // Footer
+    'footer-services': 'Servicios',
+    'footer-legal': 'Legal',
+    'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. Todos los derechos reservados.',
+    'footer-company-tagline': 'Excelencia Profesional',
+    'footer-company-description': 'Servicios de limpieza profesionales con un toque humano en Marietta, Georgia. Empresa familiar comprometida con la excelencia y la satisfacción del cliente.',
+    'footer-our-services': 'Nuestros Servicios',
+    'footer-quick-links': 'Enlaces Rápidos',
+    'footer-schedule-service': 'Programar Servicio',
+    'footer-privacy-policy': 'Política de Privacidad',
+    'footer-terms-service': 'Términos de Servicio',
+    'footer-disclaimer': 'Descargo de Responsabilidad',
+    'footer-service-areas': 'Áreas de Servicio',
+    'footer-follow-us': 'Síguenos',
+    'footer-emergency-24h': 'Emergencia 24h',
+    'footer-urgent-cleaning': 'Para situaciones urgentes de limpieza',
+    'footer-back-to-top': 'Volver arriba',
+    'footer-licensed': 'Licenciado',
+    'footer-insured': 'Asegurado',
+    'footer-licensed-insured-georgia': 'Licenciado y asegurado en Georgia • Empresa familiar desde 2024',
+    
+    // Footer Services
+    'footer-service-deep': 'Limpieza Profunda',
+    'footer-service-regular': 'Mantenimiento Regular',
+    'footer-service-move': 'Limpieza de Mudanza',
+    'footer-service-appliance': 'Limpieza de Electrodomésticos',
+    'footer-service-laundry': 'Servicios de Lavandería',
+    'footer-service-cabinet': 'Limpieza de Gabinetes',
+    
+    // Footer Quick Links
+    'footer-link-home': 'Inicio',
+    'footer-link-about': 'Nosotros',
+    'footer-link-services': 'Servicios',
+    'footer-link-testimonials': 'Testimonios',
+    'footer-link-contact': 'Contacto',
     'calculator-subtitle': 'Obtenga una estimación personalizada instantánea para su servicio de limpieza',
     'calculator-form-title': 'Configure Su Servicio',
     'service-type-label': 'Tipo de Servicio',
