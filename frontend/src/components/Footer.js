@@ -183,7 +183,7 @@ const Footer = ({ currentLanguage }) => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="lg:col-span-1"
             >
-              <h4 className="text-lg font-semibold mb-6 text-white">Áreas Atendidas</h4>
+              <h4 className="text-lg font-semibold mb-6 text-white">{t('footer-service-areas')}</h4>
               <div className="grid grid-cols-2 gap-2 text-sm mb-8">
                 {SERVICE_AREAS.slice(0, 8).map((area, index) => (
                   <div key={index} className="text-gray-400 flex items-center space-x-1">
