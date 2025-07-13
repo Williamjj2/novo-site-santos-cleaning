@@ -54,7 +54,7 @@ const Header = ({ currentLanguage, onLanguageChange }) => {
                 e.target.src = 'https://ui-avatars.com/api/?name=Santos+Cleaning&background=3B82F6&color=fff&size=64';
               }}
             />
-            <div className="font-display">
+            <motion.div className="font-display">
               <h1 className="text-lg md:text-2xl font-bold text-gray-800 leading-tight">
                 Santos <span className="font-semibold text-blue-600">Cleaning</span>
               </h1>
