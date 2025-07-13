@@ -243,11 +243,10 @@ const BeforeAfterSection = ({ currentLanguage }) => {
           <motion.div variants={itemVariants} className="text-center">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Pronto para Transformar Sua Casa?
+                {t('before-after-cta-title')}
               </h3>
               <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-                Veja com seus próprios olhos a diferença que a Santos Cleaning Solutions pode fazer. 
-                Solicite uma avaliação gratuita hoje mesmo!
+                {t('before-after-cta-subtitle')}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -256,7 +255,7 @@ const BeforeAfterSection = ({ currentLanguage }) => {
                   className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
                   <i className="fas fa-calendar-check mr-2"></i>
-                  Solicitar Avaliação Gratuita
+                  {t('before-after-cta-button')}
                 </button>
                 
                 <a
@@ -264,22 +263,22 @@ const BeforeAfterSection = ({ currentLanguage }) => {
                   className="border-2 border-white text-white hover:bg-white hover:text-gray-800 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                 >
                   <i className="fas fa-phone mr-2"></i>
-                  Ligar (866) 350-9407
+                  {t('before-after-cta-call')}
                 </a>
               </div>
               
               <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-white/80">
                 <div className="flex items-center space-x-2">
                   <i className="fas fa-check-circle text-green-400"></i>
-                  <span>Orçamento Gratuito</span>
+                  <span>{t('before-after-guarantee-free')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <i className="fas fa-shield-alt text-blue-400"></i>
-                  <span>Totalmente Segurado</span>
+                  <span>{t('before-after-guarantee-insured')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <i className="fas fa-clock text-yellow-400"></i>
-                  <span>Resposta em 24h</span>
+                  <span>{t('before-after-guarantee-response')}</span>
                 </div>
               </div>
             </div>
