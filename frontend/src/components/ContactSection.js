@@ -398,8 +398,7 @@ const ContactSection = ({ currentLanguage }) => {
                 <i className="fas fa-phone-alt text-3xl mb-4 animate-pulse"></i>
                 <h3 className="text-xl font-bold mb-2">Precisa Falar Agora?</h3>
                 <p className="text-green-100 mb-4 text-sm">
-                  Ligue diretamente e fale com nossa equipe. 
-                  Orçamento gratuito por telefone!
+                  Orçamento gratuito por telefone em 5 minutos!
                 </p>
                 <a
                   href="tel:+18663509407"
@@ -410,43 +409,26 @@ const ContactSection = ({ currentLanguage }) => {
                 </a>
               </div>
 
-              {/* Social Proof */}
-              <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200">
-                <div className="text-center">
-                  <div className="flex justify-center space-x-1 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <i key={i} className="fas fa-star text-yellow-400 text-xl"></i>
-                    ))}
-                  </div>
-                  <h4 className="font-bold text-gray-800 mb-1">5.0 Estrelas</h4>
-                  <p className="text-sm text-gray-600 mb-4">Baseado em 47+ avaliações do Google</p>
-                  <div className="flex justify-center space-x-4">
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61573880229783"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform"
-                    >
-                      <i className="fab fa-facebook"></i>
-                    </a>
-                    <a
-                      href="https://www.instagram.com/santoscleaningsolutions/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform"
-                    >
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                    <a
-                      href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x88f511325b2440b5:0x9e2a519211f7f5e!12e1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform"
-                    >
-                      <i className="fab fa-google"></i>
-                    </a>
-                  </div>
+              {/* Service Areas */}
+              <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200">
+                <h3 className="text-lg font-bold text-blue-800 mb-4">
+                  <i className="fas fa-map-marker-alt mr-2"></i>
+                  Áreas Premium Atendidas
+                </h3>
+                <div className="grid grid-cols-2 gap-2 text-sm mb-4">
+                  {[
+                    'Buckhead', 'Marietta', 'Roswell', 'Alpharetta',
+                    'Sandy Springs', 'Vinings', 'East Cobb', 'Dunwoody'
+                  ].map((area, index) => (
+                    <div key={index} className="text-blue-700 flex items-center space-x-1">
+                      <i className="fas fa-map-pin text-blue-500 text-xs"></i>
+                      <span className="font-medium">{area}</span>
+                    </div>
+                  ))}
                 </div>
+                <p className="text-xs text-blue-600">
+                  + 40 outras comunidades premium em Atlanta Metro
+                </p>
               </div>
             </motion.div>
           </div>
