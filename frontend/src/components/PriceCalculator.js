@@ -154,18 +154,23 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
 
   const handleGetQuote = () => {
     if (estimate && onEstimateReady) {
-      const preFilledMessage = `Olá! Gostaria de um orçamento para:
+      const serviceName = serviceTypes.find(s => s.id === formData.serviceType)?.name || '';
+      const frequencyLabel = getFrequencyLabel(formData.frequency);
+      
+      const preFilledMessage = `${t('form-placeholder')}
 
-🏠 Serviço: ${estimate.service}
-📏 Metragem: ${estimate.sqft} sq ft
-🛏️ Quartos: ${estimate.details.bedrooms} | 🛁 Banheiros: ${estimate.details.bathrooms}
-🐕 Pets: ${estimate.details.hasPets ? 'Sim' : 'Não'}
-🔄 Frequência: ${estimate.frequency === 'one-time' ? 'Uma vez' : estimate.frequency}
-${estimate.details.addOns.length > 0 ? `\n➕ Add-ons: ${estimate.details.addOns.join(', ')}` : ''}
+🏠 ${t('nav-services')}: ${serviceName}
+📏 ${t('sqft-label')}: ${estimate.sqft} sq ft
+🛏️ ${t('bedrooms-label')}: ${estimate.details.bedrooms} | 🛁 ${t('bathrooms-label')}: ${estimate.details.bathrooms}
+🐕 ${t('pets-label')}: ${estimate.details.hasPets ? (currentLanguage === 'es' ? 'Sí' : currentLanguage === 'pt' ? 'Sim' : 'Yes') : (currentLanguage === 'es' ? 'No' : currentLanguage === 'pt' ? 'Não' : 'No')}
+🔄 ${t('frequency-label')}: ${frequencyLabel}
+${estimate.details.addOns.length > 0 ? `\n➕ ${t('addons-label')}: ${estimate.details.addOns.join(', ')}` : ''}
 
-💰 Estimativa Calculada: $${estimate.total}
+💰 ${t('estimate-total')}: $${estimate.total}
 
-Por favor, confirme o orçamento e agende uma visita. Obrigado!`;
+${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una visita. ¡Gracias!' : 
+  currentLanguage === 'pt' ? 'Por favor, confirme o orçamento e agende uma visita. Obrigado!' : 
+  'Please confirm the quote and schedule a visit. Thank you!'}`;
 
       onEstimateReady(preFilledMessage, estimate);
     }
