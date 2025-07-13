@@ -148,7 +148,7 @@ const Footer = ({ currentLanguage }) => {
                     className="text-gray-400 hover:text-white transition-colors duration-200 group"
                   >
                     <i className="fas fa-calendar-alt text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity mr-2"></i>
-                    Agendar Serviço
+                    {t('footer-schedule-service')}
                   </Link>
                 </li>
               </ul>
