@@ -341,6 +341,46 @@ export const translations = {
     'form-submit': 'Enviar Solicitação',
     'form-success': 'Obrigado! Sua solicitação foi recebida. Entraremos em contato em 24 horas.',
 
+    // SMS Consent
+    'sms-consent-title': 'Consentimento de Comunicação por SMS',
+    'sms-consent-text': 'Sim, consinto em receber mensagens de texto da Santos Cleaning Solutions LLC',
+    'sms-consent-details': 'no número de telefone fornecido. Entendo que receberei:',
+    'sms-item-1': 'Confirmações de agendamentos de serviço',
+    'sms-item-2': 'Lembretes de serviço de limpeza',
+    'sms-item-3': 'Atualizações importantes do serviço',
+    'sms-item-4': 'Ofertas promocionais ocasionais (opcional)',
+    'sms-freq-text': 'Frequência: 2-4 mensagens/mês | Cancelar: Responder STOP | Ajuda: Responder HELP',
+    'sms-rates-text': 'Tarifas de mensagens podem se aplicar. Suas informações estão protegidas.',
+    'sms-policy-text': 'Ao enviar este formulário, você concorda com nossa Política de Privacidade e Termos de Serviço.',
+
+    // Contact Info
+    'contact-info-title': 'Informações de Contato',
+    'contact-phone-label': 'Telefone',
+    'contact-call-now': 'Ligue agora!',
+    'contact-location-label': 'Localização',
+    'contact-service-area': 'Atendemos Atlanta Metro',
+    'contact-hours-label': 'Horário',
+    'contact-hours-time': 'Seg-Sáb 8h-18h',
+    'contact-emergency': 'Emergências 24h',
+    'contact-need-now': 'Precisa Falar Agora?',
+    'contact-free-phone': 'Orçamento gratuito por telefone em 5 minutos!',
+    'contact-premium-areas': 'Áreas Premium Atendidas',
+    'contact-other-areas': '+ 40 outras comunidades premium em Atlanta Metro',
+
+    // Calculator Messages
+    'calc-greeting': 'Olá! Gostaria de um orçamento para:',
+    'calc-service': 'Serviço',
+    'calc-sqft': 'Metragem',
+    'calc-bedrooms': 'Quartos',
+    'calc-bathrooms': 'Banheiros',
+    'calc-pets': 'Pets',
+    'calc-frequency': 'Frequência',
+    'calc-addons': 'Adicionais',
+    'calc-estimated-total': 'Total Estimado',
+    'calc-confirm-message': 'Por favor, confirme o orçamento e agende uma visita. Obrigado!',
+    'calc-yes': 'Sim',
+    'calc-no': 'Não',
+
     // Price Calculator
     'calculator-title': 'Calculadora de Preços',
     'calculator-subtitle': 'Obtenha uma estimativa personalizada instantânea para seu serviço de limpeza',
