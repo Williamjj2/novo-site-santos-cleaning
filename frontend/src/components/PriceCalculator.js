@@ -188,10 +188,10 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800 mb-6">
-              Calculadora de Preços
+              {t('calculator-title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Obtenha uma estimativa instantânea personalizada para seu serviço de limpeza
+              {t('calculator-subtitle')}
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full mt-6"></div>
           </div>
@@ -199,13 +199,13 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Calculator Form */}
             <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Configure Seu Serviço</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">{t('calculator-form-title')}</h3>
               
               <div className="space-y-6">
                 {/* Service Type */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    Tipo de Serviço *
+                    {t('service-type-required')}
                   </label>
                   <div className="grid md:grid-cols-3 gap-3">
                     {serviceTypes.map(service => (
@@ -230,30 +230,30 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Metragem Quadrada (sq ft) *
+                      {t('sqft-required')}
                     </label>
                     <input
                       type="number"
                       value={formData.squareFeet}
                       onChange={(e) => handleInputChange('squareFeet', e.target.value)}
-                      placeholder="Ex: 2500"
+                      placeholder={t('sqft-placeholder')}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Frequência
+                      {t('frequency-label')}
                     </label>
                     <select
                       value={formData.frequency}
                       onChange={(e) => handleInputChange('frequency', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
-                      <option value="one-time">Uma vez</option>
-                      <option value="weekly">Semanal (-15%)</option>
-                      <option value="biweekly">Quinzenal (-10%)</option>
-                      <option value="monthly">Mensal (-5%)</option>
+                      <option value="one-time">{t('frequency-one-time')}</option>
+                      <option value="weekly">{t('frequency-weekly')}</option>
+                      <option value="biweekly">{t('frequency-biweekly')}</option>
+                      <option value="monthly">{t('frequency-monthly')}</option>
                     </select>
                   </div>
                 </div>
@@ -262,7 +262,7 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Quartos
+                      {t('bedrooms-label')}
                     </label>
                     <div className="flex items-center space-x-3">
                       <button
@@ -283,7 +283,7 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Banheiros
+                      {t('bathrooms-label')}
                     </label>
                     <div className="flex items-center space-x-3">
                       <button
@@ -313,8 +313,8 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
                       className="w-5 h-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500"
                     />
                     <div className="flex-1">
-                      <span className="font-semibold text-gray-700">Tem animais de estimação?</span>
-                      <p className="text-sm text-gray-600">+15% pelo cuidado extra necessário</p>
+                      <span className="font-semibold text-gray-700">{t('pets-label')}</span>
+                      <p className="text-sm text-gray-600">{t('pets-description')}</p>
                     </div>
                     <i className="fas fa-paw text-orange-500"></i>
                   </label>
@@ -323,7 +323,7 @@ ${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una 
                 {/* Add-ons */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    Serviços Adicionais (Opcionais)
+                    {t('addons-label')}
                   </label>
                   <div className="grid md:grid-cols-2 gap-3">
                     {addOnOptions.map(addOn => (
