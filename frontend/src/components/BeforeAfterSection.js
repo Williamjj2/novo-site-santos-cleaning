@@ -223,19 +223,19 @@ const BeforeAfterSection = ({ currentLanguage }) => {
           <motion.div variants={itemVariants} className="grid md:grid-cols-4 gap-6 mb-12">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
               <div className="text-3xl font-bold text-white mb-2">100%</div>
-              <div className="text-white/80 text-sm">Taxa de Satisfação</div>
+              <div className="text-white/80 text-sm">{t('before-after-satisfaction-rate')}</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
               <div className="text-3xl font-bold text-white mb-2">47+</div>
-              <div className="text-white/80 text-sm">Avaliações 5 Estrelas</div>
+              <div className="text-white/80 text-sm">{t('before-after-star-reviews')}</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
               <div className="text-3xl font-bold text-white mb-2">200+</div>
-              <div className="text-white/80 text-sm">Lares Transformados</div>
+              <div className="text-white/80 text-sm">{t('before-after-homes-transformed')}</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
               <div className="text-3xl font-bold text-white mb-2">24h</div>
-              <div className="text-white/80 text-sm">Tempo de Resposta</div>
+              <div className="text-white/80 text-sm">{t('before-after-response-time')}</div>
             </div>
           </motion.div>
 
