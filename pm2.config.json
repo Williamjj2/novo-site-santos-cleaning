@@ -1,0 +1,24 @@
+{
+  "apps": [
+    {
+      "name": "santos-cleaning-api",
+      "script": "/var/www/santos-cleaning/backend/venv/bin/uvicorn",
+      "args": "server:app --host 0.0.0.0 --port 8000 --workers 2",
+      "cwd": "/var/www/santos-cleaning/backend",
+      "instances": 1,
+      "exec_mode": "fork",
+      "watch": false,
+      "max_memory_restart": "500M",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "log_file": "/var/log/santos-cleaning/api.log",
+      "out_file": "/var/log/santos-cleaning/api-out.log",
+      "error_file": "/var/log/santos-cleaning/api-error.log",
+      "time": true,
+      "autorestart": true,
+      "max_restarts": 3,
+      "restart_delay": 5000
+    }
+  ]
+}
