@@ -155,21 +155,21 @@ const Footer = ({ currentLanguage }) => {
 
               {/* Legal Links */}
               <div className="mt-8">
-                <h5 className="text-sm font-semibold mb-3 text-gray-300">Legal</h5>
+                <h5 className="text-sm font-semibold mb-3 text-gray-300">{t('footer-legal')}</h5>
                 <ul className="space-y-2 text-sm">
                   <li>
                     <a href="/politicas-legais" className="text-gray-400 hover:text-white transition-colors">
-                      Política de Privacidade
+                      {t('footer-privacy-policy')}
                     </a>
                   </li>
                   <li>
                     <a href="/politicas-legais" className="text-gray-400 hover:text-white transition-colors">
-                      Termos de Serviço
+                      {t('footer-terms-service')}
                     </a>
                   </li>
                   <li>
                     <a href="/politicas-legais" className="text-gray-400 hover:text-white transition-colors">
-                      Isenção de Responsabilidade
+                      {t('footer-disclaimer')}
                     </a>
                   </li>
                 </ul>
