@@ -354,7 +354,7 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                 </form>
 
                 <p className="text-xs text-gray-600 mt-4 text-center">
-                  Ao enviar este formulário, você concorda com nossa Política de Privacidade e Termos de Serviço.
+                  {t('contact-form-terms')}
                 </p>
               </div>
             </motion.div>
