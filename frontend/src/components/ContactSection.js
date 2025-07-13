@@ -342,7 +342,7 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                     {isLoading ? (
                       <span className="flex items-center justify-center">
                         <div className="loading-spinner mr-2"></div>
-                        Processando...
+                        {t('contact-form-processing')}
                       </span>
                     ) : (
                       <span className="flex items-center justify-center">
