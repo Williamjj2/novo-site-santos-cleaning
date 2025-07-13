@@ -126,7 +126,7 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
     const subtotal = Math.round(basePrice);
     const total = subtotal + addOnTotal;
 
-    return {
+    const result = {
       service: selectedService.name,
       basePrice: subtotal,
       addOnsPrice: addOnTotal,
@@ -140,6 +140,9 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
         addOns: formData.addOns.map(id => addOnOptions.find(a => a.id === id)?.name).filter(Boolean)
       }
     };
+    
+    console.log('Calculated estimate:', result);
+    return result;
   };
 
   useEffect(() => {
