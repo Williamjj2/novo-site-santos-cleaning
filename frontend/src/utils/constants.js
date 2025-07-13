@@ -20,18 +20,78 @@ export const COMPANY_INFO = {
   }
 };
 
-// Service areas
+// Service areas - EXPANDED for Atlanta Metro Premium Areas
 export const SERVICE_AREAS = [
+  // Core Marietta & North Cobb
   'Marietta',
-  'Roswell', 
-  'Alpharetta',
-  'Sandy Springs',
-  'Smyrna',
+  'East Marietta', 
+  'West Marietta',
   'Kennesaw',
   'Acworth',
+  'Dallas',
+  'Powder Springs',
+  
+  // North Atlanta Premium
+  'Roswell',
+  'Alpharetta',
+  'Milton',
+  'Mountain Park',
+  'Johns Creek',
+  'Duluth',
+  
+  // Sandy Springs & Dunwoody  
+  'Sandy Springs',
+  'Dunwoody',
+  'Brookhaven',
+  'Chamblee',
+  'Doraville',
+  
+  // Buckhead & Midtown Atlanta
+  'Buckhead',
+  'Midtown Atlanta',
+  'Virginia Highland',
+  'Morningside',
+  'Ansley Park',
+  'Piedmont Park Area',
+  
+  // Smyrna & Vinings
+  'Smyrna',
+  'Vinings',
+  'Cumberland',
+  'Galleria',
+  
+  // Woodstock & Cherokee County
   'Woodstock',
-  'Buckhead Atlanta',
-  'Cobb County'
+  'Holly Springs',
+  'Canton',
+  'Ball Ground',
+  
+  // East Cobb Premium Areas
+  'East Cobb',
+  'Johnson Ferry',
+  'Lassiter',
+  'Walton',
+  'Sprayberry',
+  
+  // Gwinnett Premium
+  'Suwanee',
+  'Sugar Hill',
+  'Buford',
+  'Flowery Branch',
+  'Gainesville',
+  
+  // Fulton County North
+  'Cumming',
+  'Lake Lanier Area',
+  'Dawsonville',
+  
+  // Additional Premium Communities
+  'Country Club of the South',
+  'St. Ives',
+  'Bridgemill',
+  'Towne Lake',
+  'Bentwater',
+  'Governor Towne Club'
 ];
 
 // Default service types (fallback data)
