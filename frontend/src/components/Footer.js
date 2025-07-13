@@ -106,7 +106,7 @@ const Footer = ({ currentLanguage }) => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="lg:col-span-1"
             >
-              <h4 className="text-lg font-semibold mb-6 text-white">Nossos Serviços</h4>
+              <h4 className="text-lg font-semibold mb-6 text-white">{t('footer-our-services')}</h4>
               <ul className="space-y-3">
                 {services.map((service, index) => (
                   <li key={index}>
