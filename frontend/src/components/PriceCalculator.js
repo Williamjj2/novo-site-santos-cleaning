@@ -157,20 +157,18 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
       const serviceName = serviceTypes.find(s => s.id === formData.serviceType)?.name || '';
       const frequencyLabel = getFrequencyLabel(formData.frequency);
       
-      const preFilledMessage = `${t('form-placeholder')}
+      const preFilledMessage = `${t('calc-greeting')}
 
-🏠 ${t('nav-services')}: ${serviceName}
-📏 ${t('sqft-label')}: ${estimate.sqft} sq ft
-🛏️ ${t('bedrooms-label')}: ${estimate.details.bedrooms} | 🛁 ${t('bathrooms-label')}: ${estimate.details.bathrooms}
-🐕 ${t('pets-label')}: ${estimate.details.hasPets ? (currentLanguage === 'es' ? 'Sí' : currentLanguage === 'pt' ? 'Sim' : 'Yes') : (currentLanguage === 'es' ? 'No' : currentLanguage === 'pt' ? 'Não' : 'No')}
-🔄 ${t('frequency-label')}: ${frequencyLabel}
-${estimate.details.addOns.length > 0 ? `\n➕ ${t('addons-label')}: ${estimate.details.addOns.join(', ')}` : ''}
+🏠 ${t('calc-service')}: ${serviceName}
+📏 ${t('calc-sqft')}: ${estimate.sqft} sq ft
+🛏️ ${t('calc-bedrooms')}: ${estimate.details.bedrooms} | 🛁 ${t('calc-bathrooms')}: ${estimate.details.bathrooms}
+🐕 ${t('calc-pets')}: ${estimate.details.hasPets ? t('calc-yes') : t('calc-no')}
+🔄 ${t('calc-frequency')}: ${frequencyLabel}
+${estimate.details.addOns.length > 0 ? `\n➕ ${t('calc-addons')}: ${estimate.details.addOns.join(', ')}` : ''}
 
-💰 ${t('estimate-total')}: $${estimate.total}
+💰 ${t('calc-estimated-total')}: $${estimate.total}
 
-${currentLanguage === 'es' ? 'Por favor, confirme la cotización y programe una visita. ¡Gracias!' : 
-  currentLanguage === 'pt' ? 'Por favor, confirme o orçamento e agende uma visita. Obrigado!' : 
-  'Please confirm the quote and schedule a visit. Thank you!'}`;
+${t('calc-confirm-message')}`;
 
       onEstimateReady(preFilledMessage, estimate);
     }
