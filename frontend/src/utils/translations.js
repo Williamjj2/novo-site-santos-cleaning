@@ -47,6 +47,7 @@ export const translations = {
     'form-success': 'Thank you! Your request has been received. We will contact you within 24 hours.',
 
     // SMS Consent
+    // SMS Consent
     'sms-consent-title': 'SMS Communication Consent',
     'sms-consent-text': 'Yes, I consent to receive text messages from Santos Cleaning Solutions LLC',
     'sms-consent-details': 'at the phone number provided. I understand I will receive:',
@@ -54,6 +55,9 @@ export const translations = {
     'sms-item-2': 'Cleaning service reminders',
     'sms-item-3': 'Important service updates',
     'sms-item-4': 'Occasional promotional offers (optional)',
+    'sms-freq-text': 'Frequency: 2-4 messages/month | Cancel: Reply STOP | Help: Reply HELP',
+    'sms-rates-text': 'Message rates may apply. Your information is protected.',
+    'sms-policy-text': 'By submitting this form, you agree to our Privacy Policy and Terms of Service.',
 
     // Before/After
     'before-after-title': 'See the Results – Before and After Cleaning',
