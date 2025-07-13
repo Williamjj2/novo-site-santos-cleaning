@@ -263,7 +263,9 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       className={`form-input ${errors.email ? 'border-red-500 focus:border-red-500' : 'focus:border-blue-500'}`}
-                      placeholder="seu@email.com"
+                      placeholder={currentLanguage === 'en' ? 'your@email.com' : 
+                                 currentLanguage === 'es' ? 'su@email.com' : 
+                                 'seu@email.com'}
                     />
                     {errors.email && (
                       <p className="text-red-500 text-sm mt-1 flex items-center">
