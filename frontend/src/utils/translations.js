@@ -33,6 +33,11 @@ export const translations = {
     'reviews-title': 'What Our Clients Say',
     'reviews-subtitle': 'Real reviews from satisfied customers',
     'reviews-rating': 'Based on 47+ Google reviews',
+    'reviews-verified-google': 'Verified by Google',
+    'reviews-posted-on': 'Posted on',
+    'reviews-verified': 'Verified',
+    'reviews-google-cta': 'View All Google Reviews',
+    'reviews-rate-us': 'Rate our cleaning and help other families find quality',
 
     // Contact
     'contact-title': 'Contact Us',
@@ -47,7 +52,6 @@ export const translations = {
     'form-success': 'Thank you! Your request has been received. We will contact you within 24 hours.',
 
     // SMS Consent
-    // SMS Consent
     'sms-consent-title': 'SMS Communication Consent',
     'sms-consent-text': 'Yes, I consent to receive text messages from Santos Cleaning Solutions LLC',
     'sms-consent-details': 'at the phone number provided. I understand I will receive:',
@@ -58,13 +62,6 @@ export const translations = {
     'sms-freq-text': 'Frequency: 2-4 messages/month | Cancel: Reply STOP | Help: Reply HELP',
     'sms-rates-text': 'Message rates may apply. Your information is protected.',
     'sms-policy-text': 'By submitting this form, you agree to our Privacy Policy and Terms of Service.',
-
-    // Before/After
-    'before-after-title': 'See the Results – Before and After Cleaning',
-    'before-after-subtitle': 'Witness the transformation from cluttered to clean',
-    'bathroom-transform': 'Bathroom Transformation',
-    'kitchen-transform': 'Kitchen Restoration',
-    'room-transform': 'Room Transformation',
 
     // Before/After Section
     'before-after-title': 'See the Results – Before and After Cleaning',
@@ -83,7 +80,7 @@ export const translations = {
     'before-after-guarantee-free': 'Free Quote',
     'before-after-guarantee-insured': 'Fully Insured',
     'before-after-guarantee-response': 'Response in 24h',
-    
+
     // Contact Section
     'contact-urgency-indicator': 'Response in 24 hours or less • Free estimates',
     'contact-secure-badge': '100% Secure',
@@ -98,119 +95,12 @@ export const translations = {
     'contact-quick-call-subtitle': 'Free phone estimate in 5 minutes!',
     'contact-premium-areas-title': 'Premium Areas Served',
     'contact-other-areas': '+ 40 other premium communities in Atlanta Metro',
-    'contact-sms-freq': 'Frequency: 2-4 messages/month | Cancel: Reply STOP | Help: Reply HELP',
-    'contact-sms-rates': 'Message rates may apply. Your information is protected.',
-    
-    // Reviews Section
-    'reviews-verified-google': 'Verified by Google',
-    'reviews-posted-on': 'Posted on',
-    'reviews-verified': 'Verified',
-    'reviews-google-cta': 'View All Google Reviews',
-    'reviews-rate-us': 'Rate our cleaning and help other families find quality',
-    
-    // Footer
-    'footer-services': 'Services',
-    'footer-legal': 'Legal',
-    'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. All rights reserved.',
-    'footer-company-tagline': 'Professional Excellence',
-    'footer-company-description': 'Professional cleaning services with a human touch in Marietta, Georgia. Family-owned company committed to excellence and customer satisfaction.',
-    'footer-our-services': 'Our Services',
-    'footer-quick-links': 'Quick Links',
-    'footer-schedule-service': 'Schedule Service',
-    'footer-privacy-policy': 'Privacy Policy',
-    'footer-terms-service': 'Terms of Service',
-    'footer-disclaimer': 'Disclaimer',
-    'footer-service-areas': 'Service Areas',
-    'footer-follow-us': 'Follow Us',
-    'footer-emergency-24h': 'Emergency 24h',
-    'footer-urgent-cleaning': 'For urgent cleaning situations',
-    'footer-back-to-top': 'Back to top',
-    'footer-licensed': 'Licensed',
-    'footer-insured': 'Insured',
-    'footer-licensed-insured-georgia': 'Licensed and insured in Georgia • Family business since 2024',
-    
-    // Footer Services
-    'footer-service-deep': 'Deep Cleaning',
-    'footer-service-regular': 'Regular Maintenance',
-    'footer-service-move': 'Move-In/Move-Out Cleaning',
-    'footer-service-appliance': 'Appliance Cleaning',
-    'footer-service-laundry': 'Laundry Services',
-    'footer-service-cabinet': 'Cabinet Cleaning',
-    
-    // Footer Quick Links
-    'footer-link-home': 'Home',
-    'footer-link-about': 'About Us',
-    'footer-link-services': 'Services',
-    'footer-link-testimonials': 'Testimonials',
-    'footer-link-contact': 'Contact',
-
-    // Contact Info
-    'contact-info-title': 'Contact Information',
-    'contact-phone-label': 'Phone',
-    'contact-call-now': 'Call now!',
-    'contact-location-label': 'Location',
     'contact-service-area': 'We serve Atlanta Metro',
-    'contact-hours-label': 'Hours',
     'contact-hours-time': 'Mon-Sat 8AM-6PM',
     'contact-emergency': '24h emergencies',
     'contact-need-now': 'Need to Talk Now?',
     'contact-free-phone': 'Free phone estimate in 5 minutes!',
     'contact-premium-areas': 'Premium Areas Served',
-    'contact-other-areas': '+ 40 other premium communities in Atlanta Metro',
-
-    // Calculator Messages
-    'calc-greeting': 'Hello! I would like a quote for:',
-    'calc-service': 'Service',
-    'calc-sqft': 'Square Footage',
-    'calc-bedrooms': 'Bedrooms',
-    'calc-bathrooms': 'Bathrooms',
-    'calc-pets': 'Pets',
-    'calc-frequency': 'Frequency',
-    'calc-addons': 'Add-ons',
-    'calc-estimated-total': 'Estimated Total',
-    'calc-confirm-message': 'Please confirm the quote and schedule a visit. Thank you!',
-    'calc-yes': 'Yes',
-    'calc-no': 'No',
-
-    // SMS Consent
-    'sms-consent-title': 'Consentimiento de Comunicación por SMS',
-    'sms-consent-text': 'Sí, consiento recibir mensajes de texto de Santos Cleaning Solutions LLC',
-    'sms-consent-details': 'en el número de teléfono proporcionado. Entiendo que recibiré:',
-    'sms-item-1': 'Confirmaciones de citas de servicio',
-    'sms-item-2': 'Recordatorios de servicio de limpieza',
-    'sms-item-3': 'Actualizaciones importantes del servicio',
-    'sms-item-4': 'Ofertas promocionales ocasionales (opcional)',
-    'sms-freq-text': 'Frecuencia: 2-4 mensajes/mes | Cancelar: Responder STOP | Ayuda: Responder HELP',
-    'sms-rates-text': 'Pueden aplicarse tarifas de mensajes. Su información está protegida.',
-    'sms-policy-text': 'Al enviar este formulario, acepta nuestra Política de Privacidad y Términos de Servicio.',
-
-    // Contact Info
-    'contact-info-title': 'Información de Contacto',
-    'contact-phone-label': 'Teléfono',
-    'contact-call-now': '¡Llame ahora!',
-    'contact-location-label': 'Ubicación',
-    'contact-service-area': 'Servimos Atlanta Metro',
-    'contact-hours-label': 'Horarios',
-    'contact-hours-time': 'Lun-Sáb 8AM-6PM',
-    'contact-emergency': 'Emergencias 24h',
-    'contact-need-now': '¿Necesita Hablar Ahora?',
-    'contact-free-phone': '¡Estimación gratuita por teléfono en 5 minutos!',
-    'contact-premium-areas': 'Áreas Premium Servidas',
-    'contact-other-areas': '+ 40 otras comunidades premium en Atlanta Metro',
-
-    // Calculator Messages
-    'calc-greeting': '¡Hola! Me gustaría una cotización para:',
-    'calc-service': 'Servicio',
-    'calc-sqft': 'Pies Cuadrados',
-    'calc-bedrooms': 'Habitaciones',
-    'calc-bathrooms': 'Baños',
-    'calc-pets': 'Mascotas',
-    'calc-frequency': 'Frecuencia',
-    'calc-addons': 'Adicionales',
-    'calc-estimated-total': 'Total Estimado',
-    'calc-confirm-message': '¡Por favor confirme la cotización y programe una visita. Gracias!',
-    'calc-yes': 'Sí',
-    'calc-no': 'No',
 
     // Price Calculator
     'calculator-title': 'Price Calculator',
@@ -255,6 +145,38 @@ export const translations = {
     'guarantee-satisfaction': '100% satisfaction guaranteed',
     'guarantee-licensed': 'Licensed and insured',
 
+    // Footer
+    'footer-services': 'Services',
+    'footer-legal': 'Legal',
+    'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. All rights reserved.',
+    'footer-company-tagline': 'Professional Excellence',
+    'footer-company-description': 'Professional cleaning services with a human touch in Marietta, Georgia. Family-owned company committed to excellence and customer satisfaction.',
+    'footer-our-services': 'Our Services',
+    'footer-quick-links': 'Quick Links',
+    'footer-schedule-service': 'Schedule Service',
+    'footer-privacy-policy': 'Privacy Policy',
+    'footer-terms-service': 'Terms of Service',
+    'footer-disclaimer': 'Disclaimer',
+    'footer-service-areas': 'Service Areas',
+    'footer-follow-us': 'Follow Us',
+    'footer-emergency-24h': 'Emergency 24h',
+    'footer-urgent-cleaning': 'For urgent cleaning situations',
+    'footer-back-to-top': 'Back to top',
+    'footer-licensed': 'Licensed',
+    'footer-insured': 'Insured',
+    'footer-licensed-insured-georgia': 'Licensed and insured in Georgia • Family business since 2024',
+    'footer-service-deep': 'Deep Cleaning',
+    'footer-service-regular': 'Regular Maintenance',
+    'footer-service-move': 'Move-In/Move-Out Cleaning',
+    'footer-service-appliance': 'Appliance Cleaning',
+    'footer-service-laundry': 'Laundry Services',
+    'footer-service-cabinet': 'Cabinet Cleaning',
+    'footer-link-home': 'Home',
+    'footer-link-about': 'About Us',
+    'footer-link-services': 'Services',
+    'footer-link-testimonials': 'Testimonials',
+    'footer-link-contact': 'Contact',
+
     // Common
     'free-quote': 'Free Quote',
     'call-now': 'Call Now',
@@ -296,6 +218,11 @@ export const translations = {
     'reviews-title': 'Lo Que Dicen Nuestros Clientes',
     'reviews-subtitle': 'Reseñas reales de clientes satisfechos',
     'reviews-rating': 'Basado en más de 47 reseñas de Google',
+    'reviews-verified-google': 'Verificado por Google',
+    'reviews-posted-on': 'Publicado en',
+    'reviews-verified': 'Verificado',
+    'reviews-google-cta': 'Ver Todas las Reseñas de Google',
+    'reviews-rate-us': 'Califique nuestra limpieza y ayude a otras familias a encontrar calidad',
 
     // Contact
     'contact-title': 'Contáctanos',
@@ -308,6 +235,18 @@ export const translations = {
     'form-placeholder': 'Cuéntanos sobre tus necesidades de limpieza...',
     'form-submit': 'Enviar Solicitud',
     'form-success': '¡Gracias! Su solicitud ha sido recibida. Nos pondremos en contacto con usted dentro de 24 horas.',
+
+    // SMS Consent
+    'sms-consent-title': 'Consentimiento de Comunicación por SMS',
+    'sms-consent-text': 'Sí, consiento recibir mensajes de texto de Santos Cleaning Solutions LLC',
+    'sms-consent-details': 'en el número de teléfono proporcionado. Entiendo que recibiré:',
+    'sms-item-1': 'Confirmaciones de citas de servicio',
+    'sms-item-2': 'Recordatorios de servicio de limpieza',
+    'sms-item-3': 'Actualizaciones importantes del servicio',
+    'sms-item-4': 'Ofertas promocionales ocasionales (opcional)',
+    'sms-freq-text': 'Frecuencia: 2-4 mensajes/mes | Cancelar: Responder STOP | Ayuda: Responder HELP',
+    'sms-rates-text': 'Pueden aplicarse tarifas de mensajes. Su información está protegida.',
+    'sms-policy-text': 'Al enviar este formulario, acepta nuestra Política de Privacidad y Términos de Servicio.',
 
     // Before/After Section
     'before-after-title': 'Vea los Resultados – Antes y Después de la Limpieza',
@@ -326,7 +265,7 @@ export const translations = {
     'before-after-guarantee-free': 'Cotización Gratuita',
     'before-after-guarantee-insured': 'Totalmente Asegurado',
     'before-after-guarantee-response': 'Respuesta en 24h',
-    
+
     // Contact Section
     'contact-urgency-indicator': 'Respuesta en 24 horas o menos • Estimaciones gratuitas',
     'contact-secure-badge': '100% Seguro',
@@ -341,51 +280,15 @@ export const translations = {
     'contact-quick-call-subtitle': '¡Estimación gratuita por teléfono en 5 minutos!',
     'contact-premium-areas-title': 'Áreas Premium Servidas',
     'contact-other-areas': '+ 40 otras comunidades premium en Atlanta Metro',
-    'contact-sms-freq': 'Frecuencia: 2-4 mensajes/mes | Cancelar: Responder STOP | Ayuda: Responder HELP',
-    'contact-sms-rates': 'Pueden aplicarse tarifas de mensajes. Su información está protegida.',
-    
-    // Reviews Section
-    'reviews-verified-google': 'Verificado por Google',
-    'reviews-posted-on': 'Publicado en',
-    'reviews-verified': 'Verificado',
-    'reviews-google-cta': 'Ver Todas las Reseñas de Google',
-    'reviews-rate-us': 'Califique nuestra limpieza y ayude a otras familias a encontrar calidad',
-    
-    // Footer
-    'footer-services': 'Servicios',
-    'footer-legal': 'Legal',
-    'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. Todos los derechos reservados.',
-    'footer-company-tagline': 'Excelencia Profesional',
-    'footer-company-description': 'Servicios de limpieza profesionales con un toque humano en Marietta, Georgia. Empresa familiar comprometida con la excelencia y la satisfacción del cliente.',
-    'footer-our-services': 'Nuestros Servicios',
-    'footer-quick-links': 'Enlaces Rápidos',
-    'footer-schedule-service': 'Programar Servicio',
-    'footer-privacy-policy': 'Política de Privacidad',
-    'footer-terms-service': 'Términos de Servicio',
-    'footer-disclaimer': 'Descargo de Responsabilidad',
-    'footer-service-areas': 'Áreas de Servicio',
-    'footer-follow-us': 'Síguenos',
-    'footer-emergency-24h': 'Emergencia 24h',
-    'footer-urgent-cleaning': 'Para situaciones urgentes de limpieza',
-    'footer-back-to-top': 'Volver arriba',
-    'footer-licensed': 'Licenciado',
-    'footer-insured': 'Asegurado',
-    'footer-licensed-insured-georgia': 'Licenciado y asegurado en Georgia • Empresa familiar desde 2024',
-    
-    // Footer Services
-    'footer-service-deep': 'Limpieza Profunda',
-    'footer-service-regular': 'Mantenimiento Regular',
-    'footer-service-move': 'Limpieza de Mudanza',
-    'footer-service-appliance': 'Limpieza de Electrodomésticos',
-    'footer-service-laundry': 'Servicios de Lavandería',
-    'footer-service-cabinet': 'Limpieza de Gabinetes',
-    
-    // Footer Quick Links
-    'footer-link-home': 'Inicio',
-    'footer-link-about': 'Nosotros',
-    'footer-link-services': 'Servicios',
-    'footer-link-testimonials': 'Testimonios',
-    'footer-link-contact': 'Contacto',
+    'contact-service-area': 'Servimos Atlanta Metro',
+    'contact-hours-time': 'Lun-Sáb 8AM-6PM',
+    'contact-emergency': 'Emergencias 24h',
+    'contact-need-now': '¿Necesita Hablar Ahora?',
+    'contact-free-phone': '¡Estimación gratuita por teléfono en 5 minutos!',
+    'contact-premium-areas': 'Áreas Premium Servidas',
+
+    // Price Calculator
+    'calculator-title': 'Calculadora de Precios',
     'calculator-subtitle': 'Obtenga una estimación personalizada instantánea para su servicio de limpieza',
     'calculator-form-title': 'Configure Su Servicio',
     'service-type-label': 'Tipo de Servicio',
@@ -426,6 +329,38 @@ export const translations = {
     'guarantee-fixed-prices': 'Precios fijos, sin sorpresas',
     'guarantee-satisfaction': '100% satisfacción garantizada',
     'guarantee-licensed': 'Licenciado y asegurado',
+
+    // Footer
+    'footer-services': 'Servicios',
+    'footer-legal': 'Legal',
+    'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. Todos los derechos reservados.',
+    'footer-company-tagline': 'Excelencia Profesional',
+    'footer-company-description': 'Servicios de limpieza profesionales con un toque humano en Marietta, Georgia. Empresa familiar comprometida con la excelencia y la satisfacción del cliente.',
+    'footer-our-services': 'Nuestros Servicios',
+    'footer-quick-links': 'Enlaces Rápidos',
+    'footer-schedule-service': 'Programar Servicio',
+    'footer-privacy-policy': 'Política de Privacidad',
+    'footer-terms-service': 'Términos de Servicio',
+    'footer-disclaimer': 'Descargo de Responsabilidad',
+    'footer-service-areas': 'Áreas de Servicio',
+    'footer-follow-us': 'Síguenos',
+    'footer-emergency-24h': 'Emergencia 24h',
+    'footer-urgent-cleaning': 'Para situaciones urgentes de limpieza',
+    'footer-back-to-top': 'Volver arriba',
+    'footer-licensed': 'Licenciado',
+    'footer-insured': 'Asegurado',
+    'footer-licensed-insured-georgia': 'Licenciado y asegurado en Georgia • Empresa familiar desde 2024',
+    'footer-service-deep': 'Limpieza Profunda',
+    'footer-service-regular': 'Mantenimiento Regular',
+    'footer-service-move': 'Limpieza de Mudanza',
+    'footer-service-appliance': 'Limpieza de Electrodomésticos',
+    'footer-service-laundry': 'Servicios de Lavandería',
+    'footer-service-cabinet': 'Limpieza de Gabinetes',
+    'footer-link-home': 'Inicio',
+    'footer-link-about': 'Nosotros',
+    'footer-link-services': 'Servicios',
+    'footer-link-testimonials': 'Testimonios',
+    'footer-link-contact': 'Contacto',
 
     // Common
     'free-quote': 'Cotización Gratis',
@@ -468,6 +403,11 @@ export const translations = {
     'reviews-title': 'O Que Nossos Clientes Dizem',
     'reviews-subtitle': 'Avaliações reais de clientes satisfeitos',
     'reviews-rating': 'Baseado em mais de 47 avaliações do Google',
+    'reviews-verified-google': 'Verificado pelo Google',
+    'reviews-posted-on': 'Postado no',
+    'reviews-verified': 'Verificado',
+    'reviews-google-cta': 'Ver Todas as Avaliações no Google',
+    'reviews-rate-us': 'Avalie nossa limpeza e ajude outras famílias a encontrar qualidade',
 
     // Contact
     'contact-title': 'Entre em Contato',
@@ -493,34 +433,6 @@ export const translations = {
     'sms-rates-text': 'Tarifas de mensagens podem se aplicar. Suas informações estão protegidas.',
     'sms-policy-text': 'Ao enviar este formulário, você concorda com nossa Política de Privacidade e Termos de Serviço.',
 
-    // Contact Info
-    'contact-info-title': 'Informações de Contato',
-    'contact-phone-label': 'Telefone',
-    'contact-call-now': 'Ligue agora!',
-    'contact-location-label': 'Localização',
-    'contact-service-area': 'Atendemos Atlanta Metro',
-    'contact-hours-label': 'Horário',
-    'contact-hours-time': 'Seg-Sáb 8h-18h',
-    'contact-emergency': 'Emergências 24h',
-    'contact-need-now': 'Precisa Falar Agora?',
-    'contact-free-phone': 'Orçamento gratuito por telefone em 5 minutos!',
-    'contact-premium-areas': 'Áreas Premium Atendidas',
-    'contact-other-areas': '+ 40 outras comunidades premium em Atlanta Metro',
-
-    // Calculator Messages
-    'calc-greeting': 'Olá! Gostaria de um orçamento para:',
-    'calc-service': 'Serviço',
-    'calc-sqft': 'Metragem',
-    'calc-bedrooms': 'Quartos',
-    'calc-bathrooms': 'Banheiros',
-    'calc-pets': 'Pets',
-    'calc-frequency': 'Frequência',
-    'calc-addons': 'Adicionais',
-    'calc-estimated-total': 'Total Estimado',
-    'calc-confirm-message': 'Por favor, confirme o orçamento e agende uma visita. Obrigado!',
-    'calc-yes': 'Sim',
-    'calc-no': 'Não',
-
     // Before/After Section
     'before-after-title': 'Veja os Resultados – Antes e Depois da Limpeza',
     'before-after-subtitle': 'Testemunhe a transformação de bagunçado para limpo',
@@ -538,7 +450,7 @@ export const translations = {
     'before-after-guarantee-free': 'Orçamento Gratuito',
     'before-after-guarantee-insured': 'Totalmente Segurado',
     'before-after-guarantee-response': 'Resposta em 24h',
-    
+
     // Contact Section
     'contact-urgency-indicator': 'Resposta em 24 horas ou menos • Orçamentos gratuitos',
     'contact-secure-badge': '100% Seguro',
@@ -553,51 +465,15 @@ export const translations = {
     'contact-quick-call-subtitle': 'Orçamento gratuito por telefone em 5 minutos!',
     'contact-premium-areas-title': 'Áreas Premium Atendidas',
     'contact-other-areas': '+ 40 outras comunidades premium em Atlanta Metro',
-    'contact-sms-freq': 'Frequência: 2-4 mensagens/mês | Cancelar: Responder STOP | Ajuda: Responder HELP',
-    'contact-sms-rates': 'Tarifas de mensagens podem se aplicar. Suas informações estão protegidas.',
-    
-    // Reviews Section
-    'reviews-verified-google': 'Verificado pelo Google',
-    'reviews-posted-on': 'Postado no',
-    'reviews-verified': 'Verificado',
-    'reviews-google-cta': 'Ver Todas as Avaliações no Google',
-    'reviews-rate-us': 'Avalie nossa limpeza e ajude outras famílias a encontrar qualidade',
-    
-    // Footer
-    'footer-services': 'Serviços',
-    'footer-legal': 'Legal',
-    'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. Todos os direitos reservados.',
-    'footer-company-tagline': 'Excelência Profissional',
-    'footer-company-description': 'Serviços de limpeza profissionais com um toque humano em Marietta, Georgia. Empresa familiar comprometida com a excelência e satisfação do cliente.',
-    'footer-our-services': 'Nossos Serviços',
-    'footer-quick-links': 'Links Rápidos',
-    'footer-schedule-service': 'Agendar Serviço',
-    'footer-privacy-policy': 'Política de Privacidade',
-    'footer-terms-service': 'Termos de Serviço',
-    'footer-disclaimer': 'Isenção de Responsabilidade',
-    'footer-service-areas': 'Áreas Atendidas',
-    'footer-follow-us': 'Siga-nos',
-    'footer-emergency-24h': 'Emergência 24h',
-    'footer-urgent-cleaning': 'Para situações urgentes de limpeza',
-    'footer-back-to-top': 'Voltar ao topo',
-    'footer-licensed': 'Licenciado',
-    'footer-insured': 'Segurado',
-    'footer-licensed-insured-georgia': 'Licenciado e segurado na Geórgia • Empresa familiar desde 2024',
-    
-    // Footer Services
-    'footer-service-deep': 'Limpeza Profunda',
-    'footer-service-regular': 'Manutenção Regular',
-    'footer-service-move': 'Limpeza de Mudança',
-    'footer-service-appliance': 'Limpeza de Eletrodomésticos',
-    'footer-service-laundry': 'Serviços de Lavanderia',
-    'footer-service-cabinet': 'Limpeza de Gabinetes',
-    
-    // Footer Quick Links
-    'footer-link-home': 'Início',
-    'footer-link-about': 'Sobre Nós',
-    'footer-link-services': 'Serviços',
-    'footer-link-testimonials': 'Depoimentos',
-    'footer-link-contact': 'Contato',
+    'contact-service-area': 'Atendemos Atlanta Metro',
+    'contact-hours-time': 'Seg-Sáb 8h-18h',
+    'contact-emergency': 'Emergências 24h',
+    'contact-need-now': 'Precisa Falar Agora?',
+    'contact-free-phone': 'Orçamento gratuito por telefone em 5 minutos!',
+    'contact-premium-areas': 'Áreas Premium Atendidas',
+
+    // Price Calculator
+    'calculator-title': 'Calculadora de Preços',
     'calculator-subtitle': 'Obtenha uma estimativa personalizada instantânea para seu serviço de limpeza',
     'calculator-form-title': 'Configure Seu Serviço',
     'service-type-label': 'Tipo de Serviço',
@@ -636,8 +512,40 @@ export const translations = {
     'guarantees-title': 'Garantias Incluídas',
     'guarantee-no-commitment': 'Orçamento sem compromisso',
     'guarantee-fixed-prices': 'Preços fixos, sem surpresas',
-    'guarantee-satisfaction': '100% satisfação garantida',
+    'guarantee-satisfaction': '100% satisfação garantizada',
     'guarantee-licensed': 'Licenciado e segurado',
+
+    // Footer
+    'footer-services': 'Serviços',
+    'footer-legal': 'Legal',
+    'footer-copyright': '© 2024 Santos Cleaning Solutions LLC. Todos os direitos reservados.',
+    'footer-company-tagline': 'Excelência Profissional',
+    'footer-company-description': 'Serviços de limpeza profissionais com um toque humano em Marietta, Georgia. Empresa familiar comprometida com a excelência e satisfação do cliente.',
+    'footer-our-services': 'Nossos Serviços',
+    'footer-quick-links': 'Links Rápidos',
+    'footer-schedule-service': 'Agendar Serviço',
+    'footer-privacy-policy': 'Política de Privacidade',
+    'footer-terms-service': 'Termos de Serviço',
+    'footer-disclaimer': 'Isenção de Responsabilidade',
+    'footer-service-areas': 'Áreas Atendidas',
+    'footer-follow-us': 'Siga-nos',
+    'footer-emergency-24h': 'Emergência 24h',
+    'footer-urgent-cleaning': 'Para situações urgentes de limpeza',
+    'footer-back-to-top': 'Voltar ao topo',
+    'footer-licensed': 'Licenciado',
+    'footer-insured': 'Segurado',
+    'footer-licensed-insured-georgia': 'Licenciado e segurado na Geórgia • Empresa familiar desde 2024',
+    'footer-service-deep': 'Limpeza Profunda',
+    'footer-service-regular': 'Manutenção Regular',
+    'footer-service-move': 'Limpeza de Mudança',
+    'footer-service-appliance': 'Limpeza de Eletrodomésticos',
+    'footer-service-laundry': 'Serviços de Lavanderia',
+    'footer-service-cabinet': 'Limpeza de Gabinetes',
+    'footer-link-home': 'Início',
+    'footer-link-about': 'Sobre Nós',
+    'footer-link-services': 'Serviços',
+    'footer-link-testimonials': 'Depoimentos',
+    'footer-link-contact': 'Contato',
 
     // Common
     'free-quote': 'Orçamento Grátis',
