@@ -81,6 +81,7 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
 
     // Square footage adjustments
     const sqft = parseInt(formData.squareFeet);
+    if (isNaN(sqft) || sqft <= 0) return null;
     if (sqft <= 1000) {
       // Small home - no adjustment
     } else if (sqft <= 2000) {
