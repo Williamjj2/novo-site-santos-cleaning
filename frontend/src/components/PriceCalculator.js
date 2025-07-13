@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslations } from '../utils/translations';
 
 const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
+  const { t } = useTranslations(currentLanguage);
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
@@ -25,31 +27,31 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
   const serviceTypes = [
     {
       id: 'regular',
-      name: 'Limpeza Regular',
+      name: t('service-regular'),
       basePrice: 100,
-      description: 'Limpeza de manutenção semanal/quinzenal'
+      description: t('service-regular-desc')
     },
     {
       id: 'deep',
-      name: 'Limpeza Profunda',
+      name: t('service-deep'),
       basePrice: 250,
-      description: 'Limpeza completa de cima a baixo'
+      description: t('service-deep-desc')
     },
     {
       id: 'move',
-      name: 'Mudança (Move-in/out)',
+      name: t('service-move'),
       basePrice: 250,
-      description: 'Limpeza para mudança'
+      description: t('service-move-desc')
     }
   ];
 
   const addOnOptions = [
-    { id: 'fridge-oven', name: 'Geladeira & Forno', price: 35 },
-    { id: 'laundry', name: 'Serviço de Lavanderia', price: 35 },
-    { id: 'cabinets', name: 'Limpeza de Gabinetes', price: 45 },
-    { id: 'garage', name: 'Garagem', price: 50 },
-    { id: 'basement', name: 'Porão', price: 40 },
-    { id: 'windows-exterior', name: 'Janelas Externas', price: 60 }
+    { id: 'fridge-oven', name: t('addon-fridge-oven'), price: 35 },
+    { id: 'laundry', name: t('addon-laundry'), price: 35 },
+    { id: 'cabinets', name: t('addon-cabinets'), price: 45 },
+    { id: 'garage', name: t('addon-garage'), price: 50 },
+    { id: 'basement', name: t('addon-basement'), price: 40 },
+    { id: 'windows-exterior', name: t('addon-windows'), price: 60 }
   ];
 
   const frequencyMultipliers = {
@@ -57,6 +59,16 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
     'weekly': 0.85,
     'biweekly': 0.90,
     'monthly': 0.95
+  };
+
+  const getFrequencyLabel = (frequency) => {
+    switch(frequency) {
+      case 'one-time': return t('frequency-one-time');
+      case 'weekly': return t('frequency-weekly');
+      case 'biweekly': return t('frequency-biweekly');
+      case 'monthly': return t('frequency-monthly');
+      default: return t('frequency-one-time');
+    }
   };
 
   const calculateEstimate = () => {
