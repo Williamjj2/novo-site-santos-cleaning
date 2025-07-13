@@ -377,9 +377,9 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                       <i className="fas fa-phone text-white"></i>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Telefone</p>
+                      <p className="text-sm text-gray-600">{t('contact-info-phone')}</p>
                       <p className="font-bold text-gray-800 text-lg">(866) 350-9407</p>
-                      <p className="text-xs text-green-600">Ligue agora!</p>
+                      <p className="text-xs text-green-600">{t('contact-info-call-now')}</p>
                     </div>
                   </a>
 
@@ -388,9 +388,9 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                       <i className="fas fa-map-marker-alt text-white"></i>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Localização</p>
+                      <p className="text-sm text-gray-600">{t('contact-info-location')}</p>
                       <p className="font-bold text-gray-800">Marietta, GA</p>
-                      <p className="text-xs text-blue-600">Atendemos Atlanta Metro</p>
+                      <p className="text-xs text-blue-600">{t('contact-service-area')}</p>
                     </div>
                   </div>
 
@@ -399,9 +399,9 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                       <i className="fas fa-clock text-white"></i>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Horário</p>
-                      <p className="font-bold text-gray-800">Seg-Sáb 8h-18h</p>
-                      <p className="text-xs text-purple-600">Emergências 24h</p>
+                      <p className="text-sm text-gray-600">{t('contact-info-hours')}</p>
+                      <p className="font-bold text-gray-800">{t('contact-hours-time')}</p>
+                      <p className="text-xs text-purple-600">{t('contact-emergency')}</p>
                     </div>
                   </div>
                 </div>
