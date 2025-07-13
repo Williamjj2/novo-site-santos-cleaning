@@ -410,9 +410,9 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
               {/* Quick Call CTA */}
               <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white text-center">
                 <i className="fas fa-phone-alt text-3xl mb-4 animate-pulse"></i>
-                <h3 className="text-xl font-bold mb-2">Precisa Falar Agora?</h3>
+                <h3 className="text-xl font-bold mb-2">{t('contact-quick-call-title')}</h3>
                 <p className="text-green-100 mb-4 text-sm">
-                  Orçamento gratuito por telefone em 5 minutos!
+                  {t('contact-quick-call-subtitle')}
                 </p>
                 <a
                   href="tel:+18663509407"
@@ -427,7 +427,7 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
               <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200">
                 <h3 className="text-lg font-bold text-blue-800 mb-4">
                   <i className="fas fa-map-marker-alt mr-2"></i>
-                  Áreas Premium Atendidas
+                  {t('contact-premium-areas-title')}
                 </h3>
                 <div className="grid grid-cols-2 gap-2 text-sm mb-4">
                   {[
@@ -441,7 +441,7 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                   ))}
                 </div>
                 <p className="text-xs text-blue-600">
-                  + 40 outras comunidades premium em Atlanta Metro
+                  {t('contact-other-areas')}
                 </p>
               </div>
             </motion.div>
