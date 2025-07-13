@@ -218,7 +218,9 @@ const ContactSection = ({ currentLanguage, preFilledEstimate }) => {
                         value={formData.name}
                         onChange={handleInputChange}
                         className={`form-input ${errors.name ? 'border-red-500 focus:border-red-500' : 'focus:border-blue-500'}`}
-                        placeholder="Seu nome completo"
+                        placeholder={t('form-name') === 'Full Name' ? 'Your full name' : 
+                                 t('form-name') === 'Nombre Completo' ? 'Su nombre completo' : 
+                                 'Seu nome completo'}
                       />
                       {errors.name && (
                         <p className="text-red-500 text-sm mt-1 flex items-center">
