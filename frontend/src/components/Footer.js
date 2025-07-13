@@ -64,13 +64,12 @@ const Footer = ({ currentLanguage }) => {
                 />
                 <div className="font-display">
                   <h3 className="text-xl font-bold">Santos Cleaning</h3>
-                  <p className="text-gray-400 text-sm">Excelência Profissional</p>
+                  <p className="text-gray-400 text-sm">{t('footer-company-tagline')}</p>
                 </div>
               </div>
               
               <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
-                Serviços de limpeza profissionais com um toque humano em Marietta, Georgia. 
-                Empresa familiar comprometida com a excelência e satisfação do cliente.
+                {t('footer-company-description')}
               </p>
 
               {/* Contact Info */}
