@@ -422,3 +422,59 @@ O problema está na integração entre os dados dos serviços vindos do backend 
 **PRIORIDADE MÁXIMA:** Corrigir o mapeamento entre IDs dinâmicos do backend e chaves estáticas de tradução.
 
 **STATUS ATUAL:** ❌ **SEÇÃO SERVICES NÃO FUNCIONAL PARA PRODUÇÃO**
+
+---
+
+## 🧪 TESTE CRÍTICO CONFIRMADO - JANEIRO 2025 - 14/01/2025 22:27 UTC
+
+### 📋 Teste Realizado pelo Testing Agent
+**Objetivo:** Verificar especificamente se as traduções da seção Services estão funcionando conforme solicitado.
+
+### ❌ PROBLEMAS CRÍTICOS CONFIRMADOS
+
+#### 1. **Service Includes NÃO Traduzem - CRÍTICO**
+- ❌ **Todos os idiomas (EN, PT, ES):** Mostram chaves de tradução ao invés do texto real
+- ❌ **Exemplos encontrados:**
+  - `service-deep-cleaning-includes-1` ao invés de "All rooms cleaned thoroughly"
+  - `service-regular-maintenance-includes-1` ao invés de "Surface cleaning all rooms"
+  - `service-move-in-out-includes-1` ao invés de "Complete deep clean"
+
+#### 2. **Service Names e Descriptions FUNCIONAM**
+- ✅ **Inglês (EN):** "Deep Cleaning", "Regular Maintenance", "Move-In / Move-Out Cleaning"
+- ✅ **Português (PT):** "Limpeza Profunda", "Manutenção Regular", "Limpeza de Mudança"
+- ✅ **Espanhol (ES):** "Limpieza Profunda", "Mantenimiento Regular", "Limpieza de Mudanza"
+
+### 📊 RESUMO DO TESTE DETALHADO
+
+| Elemento | EN | PT | ES | Status |
+|----------|----|----|----|---------| 
+| **Nomes dos Serviços** | ✅ | ✅ | ✅ | OK |
+| **Descrições dos Serviços** | ✅ | ✅ | ✅ | OK |
+| **Includes dos Serviços** | ❌ | ❌ | ❌ | CRÍTICO |
+| **Labels da Interface** | ✅ | ✅ | ✅ | OK |
+| **Títulos das Seções** | ✅ | ✅ | ✅ | OK |
+| **Troca de Idiomas** | ✅ | ✅ | ✅ | OK |
+
+### 🚨 IMPACTO NO USUÁRIO CONFIRMADO
+- **Experiência Quebrada:** Usuários veem códigos técnicos como `service-deep-cleaning-includes-1`
+- **Perda de Conversão:** Impossível entender o que os serviços incluem
+- **Credibilidade Afetada:** Site parece com erro técnico grave
+- **SEO Prejudicado:** Conteúdo não indexável pelos motores de busca
+
+### 🔍 DIAGNÓSTICO TÉCNICO CONFIRMADO
+**Causa Raiz:** O problema está na função `getServiceTranslationKey()` em `/app/frontend/src/components/ServicesSection.js`
+
+1. **Backend retorna serviços** com IDs estáticos: `deep-cleaning`, `regular-maintenance`, `move-in-out`
+2. **Frontend usa DEFAULT_SERVICES** do constants.js (não dados dinâmicos do backend)
+3. **getServiceTranslationKey() funciona** para names/descriptions mas falha para includes
+4. **Translation keys para includes** não são encontradas no translations.js
+
+### 📸 EVIDÊNCIA VISUAL
+- Screenshot capturada mostrando o problema em todos os idiomas
+- Todas as service includes mostram chaves de tradução ao invés do texto real
+- Problema afeta 100% dos serviços em 100% dos idiomas
+
+### 🎯 STATUS FINAL CONFIRMADO
+**❌ CRÍTICO - SEÇÃO SERVICES NÃO FUNCIONAL PARA PRODUÇÃO**
+
+**Requer correção imediata antes do deploy.**
