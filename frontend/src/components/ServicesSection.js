@@ -216,23 +216,23 @@ const ServicesSection = ({ currentLanguage, services }) => {
               <div className="bg-green-50 rounded-lg p-4 border border-green-200">
                 <h4 className="font-bold text-green-800 mb-2">
                   <i className="fas fa-shield-alt mr-2"></i>
-                  Licensed & Insured
+                  {t('services-guarantee-licensed-title')}
                 </h4>
-                <p className="text-sm text-green-700">Full liability coverage for your peace of mind</p>
+                <p className="text-sm text-green-700">{t('services-guarantee-licensed-desc')}</p>
               </div>
               
               <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                 <h4 className="font-bold text-blue-800 mb-2">
                   <i className="fas fa-clock mr-2"></i>
-                  Same-Day Available
+                  {t('services-guarantee-sameday-title')}
                 </h4>
-                <p className="text-sm text-blue-700">Emergency and last-minute bookings accepted</p>
+                <p className="text-sm text-blue-700">{t('services-guarantee-sameday-desc')}</p>
               </div>
               
               <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
                 <h4 className="font-bold text-purple-800 mb-2">
                   <i className="fas fa-award mr-2"></i>
-                  Satisfaction Guarantee
+                  {t('services-guarantee-satisfaction-title')}
                 </h4>
                 <p className="text-sm text-purple-700">100% satisfaction or we return to fix it free</p>
               </div>
