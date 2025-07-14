@@ -208,66 +208,76 @@ export const DEFAULT_SERVICES = [
 export const BEFORE_AFTER_IMAGES = [
   {
     id: 'bathroom',
-    title: 'Bathroom Transformation',
-    description: 'From neglected grout to gleaming bathroom tiles',
+    title: 'Transformação do Banheiro',
+    description: 'Do rejunte negligenciado aos azulejos brilhantes',
     emoji: '🛁',
-    beforeImage: 'https://images.unsplash.com/photo-1565057513005-53ebda0c1e50?w=600&h=400&fit=crop&crop=center',
-    afterImage: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop&crop=center',
-    beforeAlt: 'Dirty bathroom before cleaning',
-    afterAlt: 'Clean bathroom after cleaning',
-    category: 'Bathroom Deep Clean'
+    // SUBSTITUA ESTAS URLs PELAS SUAS IMAGENS:
+    beforeImage: 'https://sua-hospedagem.com/bathroom-before.jpg',
+    afterImage: 'https://sua-hospedagem.com/bathroom-after.jpg',
+    beforeAlt: 'Banheiro sujo antes da limpeza Santos Cleaning',
+    afterAlt: 'Banheiro limpo depois da limpeza Santos Cleaning',
+    category: 'Limpeza Profunda Banheiro'
   },
   {
     id: 'kitchen',
-    title: 'Kitchen Restoration', 
-    description: 'Kitchen restored from grease to sparkle',
+    title: 'Restauração da Cozinha', 
+    description: 'Cozinha restaurada da gordura ao brilho',
     emoji: '🍳',
-    beforeImage: 'https://images.unsplash.com/photo-1556909114-35e9cbd73e6e?w=600&h=400&fit=crop&crop=center',
-    afterImage: 'https://images.unsplash.com/photo-1556909114-d81f5d430bf5?w=600&h=400&fit=crop&crop=center',
-    beforeAlt: 'Dirty kitchen before cleaning',
-    afterAlt: 'Clean kitchen after cleaning',
-    category: 'Kitchen Deep Clean'
+    // SUBSTITUA ESTAS URLs PELAS SUAS IMAGENS:
+    beforeImage: 'https://sua-hospedagem.com/kitchen-before.jpg',
+    afterImage: 'https://sua-hospedagem.com/kitchen-after.jpg',
+    beforeAlt: 'Cozinha suja antes da limpeza Santos Cleaning',
+    afterAlt: 'Cozinha limpa depois da limpeza Santos Cleaning',
+    category: 'Limpeza Profunda Cozinha'
   },
   {
     id: 'room',
-    title: 'Room Transformation',
-    description: 'Dusty bedroom transformed into a cozy sanctuary',
+    title: 'Transformação do Quarto',
+    description: 'Quarto empoeirado transformado em santuário aconchegante',
     emoji: '🛏️',
-    beforeImage: 'https://images.unsplash.com/photo-1558618666-fcd2c0cd9dc3?w=600&h=400&fit=crop&crop=center',
-    afterImage: 'https://images.unsplash.com/photo-1556185781-a47769abb7ee?w=600&h=400&fit=crop&crop=center',
-    beforeAlt: 'Messy room before cleaning',
-    afterAlt: 'Clean room after cleaning',
-    category: 'Room Organization'
+    // SUBSTITUA ESTAS URLs PELAS SUAS IMAGENS:
+    beforeImage: 'https://sua-hospedagem.com/room-before.jpg',
+    afterImage: 'https://sua-hospedagem.com/room-after.jpg',
+    beforeAlt: 'Quarto bagunçado antes da limpeza Santos Cleaning',
+    afterAlt: 'Quarto limpo depois da limpeza Santos Cleaning',
+    category: 'Organização de Quartos'
   },
   {
     id: 'living-room',
-    title: 'Living Room Revival',
-    description: 'From cluttered chaos to organized comfort',
+    title: 'Renovação da Sala',
+    description: 'Do caos bagunçado ao conforto organizado',
     emoji: '🛋️',
-    beforeImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&crop=center',
-    afterImage: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop&crop=center',
-    beforeAlt: 'Cluttered living room before',
-    afterAlt: 'Organized living room after',
-    category: 'Living Area'
+    // SUBSTITUA ESTAS URLs PELAS SUAS IMAGENS:
+    beforeImage: 'https://sua-hospedagem.com/livingroom-before.jpg',
+    afterImage: 'https://sua-hospedagem.com/livingroom-after.jpg',
+    beforeAlt: 'Sala bagunçada antes da limpeza Santos Cleaning',
+    afterAlt: 'Sala organizada depois da limpeza Santos Cleaning',
+    category: 'Área de Estar'
   },
   {
     id: 'office',
-    title: 'Home Office Cleanup',
-    description: 'Professional workspace transformation',
+    title: 'Limpeza do Home Office',
+    description: 'Transformação do espaço de trabalho profissional',
     emoji: '💼',
-    beforeImage: 'https://images.unsplash.com/photo-1541746972996-4e0b0f93e586?w=600&h=400&fit=crop&crop=center',
-    afterImage: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop&crop=center',
-    beforeAlt: 'Messy home office before',
-    afterAlt: 'Clean home office after',
+    // SUBSTITUA ESTAS URLs PELAS SUAS IMAGENS:
+    beforeImage: 'https://sua-hospedagem.com/office-before.jpg',
+    afterImage: 'https://sua-hospedagem.com/office-after.jpg',
+    beforeAlt: 'Home office bagunçado antes da limpeza Santos Cleaning',
+    afterAlt: 'Home office limpo depois da limpeza Santos Cleaning',
     category: 'Home Office'
   },
   {
     id: 'garage',
-    title: 'Garage Organization',
-    description: 'From storage chaos to organized space',
+    title: 'Organização da Garagem',
+    description: 'Do caos de armazenamento ao espaço organizado',
     emoji: '🏠',
-    beforeImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center',
-    afterImage: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop&crop=center',
+    // SUBSTITUA ESTAS URLs PELAS SUAS IMAGENS:
+    beforeImage: 'https://sua-hospedagem.com/garage-before.jpg',
+    afterImage: 'https://sua-hospedagem.com/garage-after.jpg',
+    beforeAlt: 'Garagem bagunçada antes da organização Santos Cleaning',
+    afterAlt: 'Garagem organizada depois da organização Santos Cleaning',
+    category: 'Organização de Garagem'
+  }
     beforeAlt: 'Cluttered garage before',
     afterAlt: 'Organized garage after',
     category: 'Garage & Storage'
