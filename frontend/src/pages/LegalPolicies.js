@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslations } from '../utils/translations';
+import SEOHead from '../components/SEOHead';
 
 const LegalPolicies = () => {
   const [currentLanguage, setCurrentLanguage] = useState('pt');
