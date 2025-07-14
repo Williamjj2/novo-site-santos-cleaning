@@ -32,16 +32,6 @@ export const translations = {
     'about-feature-satisfaction-desc': 'Your happiness guaranteed',
     'about-get-free-quote': 'Get Free Quote',
     'about-call-now': 'Call Now',
-    'about-feature-family-title': 'Family-style Service',
-    'about-feature-family-desc': 'Friendly, caring approach',
-    'about-feature-quality-title': 'Superior Quality',
-    'about-feature-quality-desc': 'Attention to every detail',
-    'about-feature-reliable-title': 'Reliable & Punctual',
-    'about-feature-reliable-desc': 'On time, every time',
-    'about-feature-satisfaction-title': 'Customer Satisfaction',
-    'about-feature-satisfaction-desc': 'Your happiness guaranteed',
-    'about-get-free-quote': 'Get Free Quote',
-    'about-call-now': 'Call Now',
 
     // Services
     'services-title': 'Our Cleaning Services',
