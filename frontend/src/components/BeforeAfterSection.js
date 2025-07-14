@@ -169,12 +169,37 @@ const BeforeAfterSection = ({ currentLanguage }) => {
                           className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
                         />
 
-                        {/* Labels */}
-                        <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-medium">
+                        {/* Labels com indicação dinâmica */}
+                        <div 
+                          className={`absolute bottom-4 left-4 px-3 py-1 rounded-lg text-sm font-medium transition-all duration-300 ${
+                            sliderPositions[transformation.id] > 30 
+                              ? 'bg-blue-600 text-white shadow-lg scale-110' 
+                              : 'bg-black/70 text-white/70'
+                          }`}
+                        >
                           {t('before-after-before-label')}
+                          {sliderPositions[transformation.id] <= 30 && (
+                            <span className="ml-1 animate-pulse">👈</span>
+                          )}
                         </div>
-                        <div className="absolute bottom-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-lg text-sm font-medium">
+                        <div 
+                          className={`absolute bottom-4 right-4 px-3 py-1 rounded-lg text-sm font-medium transition-all duration-300 ${
+                            sliderPositions[transformation.id] < 70 
+                              ? 'bg-green-600 text-white shadow-lg scale-110' 
+                              : 'bg-black/70 text-white/70'
+                          }`}
+                        >
+                          {sliderPositions[transformation.id] >= 70 && (
+                            <span className="mr-1 animate-pulse">👉</span>
+                          )}
                           {t('before-after-after-label')}
+                        </div>
+                        
+                        {/* Indicador central de posição */}
+                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-xs font-semibold border border-white/30">
+                          {sliderPositions[transformation.id] <= 30 ? '← ' + t('before-after-before-label') : 
+                           sliderPositions[transformation.id] >= 70 ? t('before-after-after-label') + ' →' : 
+                           '↔️ ' + t('before-after-drag-instruction')}
                         </div>
                       </div>
                     </div>
