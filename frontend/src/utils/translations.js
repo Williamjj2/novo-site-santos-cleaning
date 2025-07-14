@@ -13,6 +13,10 @@ export const translations = {
     'hero-subtitle': 'Family-owned cleaning services in Marietta, Georgia. Trust, quality, and attention to detail in every job.',
     'hero-cta': 'Book a Free In-Home Evaluation',
     'hero-phone': '(866) 350-9407',
+    'hero-guarantee-estimates': 'Free Estimates',
+    'hero-guarantee-insured': 'Licensed & Insured',
+    'hero-guarantee-rated': '5-Star Rated Service',
+    'hero-family-owned': 'Family Owned',
 
     // About Section
     'about-title': 'About Us',
