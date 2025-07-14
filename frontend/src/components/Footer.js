@@ -158,17 +158,17 @@ const Footer = ({ currentLanguage }) => {
                 <h5 className="text-sm font-semibold mb-3 text-gray-300">{t('footer-legal')}</h5>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <a href="/politicas-legais" className="text-gray-400 hover:text-white transition-colors">
+                    <a href="/politicas-legais#privacidade" className="text-gray-400 hover:text-white transition-colors">
                       {t('footer-privacy-policy')}
                     </a>
                   </li>
                   <li>
-                    <a href="/politicas-legais" className="text-gray-400 hover:text-white transition-colors">
+                    <a href="/politicas-legais#termos" className="text-gray-400 hover:text-white transition-colors">
                       {t('footer-terms-service')}
                     </a>
                   </li>
                   <li>
-                    <a href="/politicas-legais" className="text-gray-400 hover:text-white transition-colors">
+                    <a href="/politicas-legais#aviso" className="text-gray-400 hover:text-white transition-colors">
                       {t('footer-disclaimer')}
                     </a>
                   </li>
