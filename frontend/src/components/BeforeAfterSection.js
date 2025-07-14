@@ -205,7 +205,7 @@ const BeforeAfterSection = ({ currentLanguage }) => {
                     </div>
 
                     <p className="text-center text-white/90 text-sm">
-                      {transformation.description}
+                      {t(`transformation-${transformation.id}-desc`)}
                     </p>
                   </div>
                 ))}
