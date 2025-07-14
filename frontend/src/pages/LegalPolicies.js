@@ -66,13 +66,49 @@ const LegalPolicies = () => {
               </div>
             </div>
             
-            <button 
-              onClick={() => window.history.back()}
-              className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
-            >
-              <i className="fas fa-arrow-left"></i>
-              <span>{t('back-to-site')}</span>
-            </button>
+            <div className="flex items-center space-x-4">
+              {/* Language Selector */}
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => changeLanguage('en')}
+                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    currentLanguage === 'en' 
+                      ? 'bg-blue-600 text-white' 
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  🇺🇸 EN
+                </button>
+                <button
+                  onClick={() => changeLanguage('es')}
+                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    currentLanguage === 'es' 
+                      ? 'bg-blue-600 text-white' 
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  🇪🇸 ES
+                </button>
+                <button
+                  onClick={() => changeLanguage('pt')}
+                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    currentLanguage === 'pt' 
+                      ? 'bg-blue-600 text-white' 
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  🇧🇷 PT
+                </button>
+              </div>
+              
+              <button 
+                onClick={() => window.history.back()}
+                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+              >
+                <i className="fas fa-arrow-left"></i>
+                <span>{t('back-to-site')}</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
