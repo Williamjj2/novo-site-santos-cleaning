@@ -172,7 +172,7 @@ export const DEFAULT_SERVICES = [
   },
   {
     id: 'laundry-services',
-    name: 'Laundry Service Add-On',
+    name: 'Laundry Services',
     description: 'Washing, drying, folding and organizing clothes upon request.',
     basePrice: 35,
     duration: 1,
