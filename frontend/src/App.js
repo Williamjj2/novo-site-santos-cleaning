@@ -39,6 +39,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/book" element={<BookingPage />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/politicas-legais" element={<LegalPolicies />} />
+          <Route path="/legal-policies" element={<LegalPolicies />} />
         </Routes>
       </div>
     </Router>
