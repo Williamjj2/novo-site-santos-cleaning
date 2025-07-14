@@ -72,19 +72,19 @@ const ServicesSection = ({ currentLanguage, services }) => {
             <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
                 <i className="fas fa-shield-alt text-blue-500"></i>
-                <span>Licensed & Insured</span>
+                <span>{t('services-trust-licensed')}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <i className="fas fa-award text-green-500"></i>
-                <span>5-Star Rated Service</span>
+                <span>{t('services-trust-rated')}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <i className="fas fa-clock text-orange-500"></i>
-                <span>Same-Day Response</span>
+                <span>{t('services-trust-response')}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <i className="fas fa-money-bill-wave text-purple-500"></i>
-                <span>Free Estimates</span>
+                <span>{t('services-trust-estimates')}</span>
               </div>
             </div>
           </motion.div>
