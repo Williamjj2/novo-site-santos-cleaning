@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslations } from '../utils/translations';
 
-const LegalPolicies = ({ currentLanguage = 'pt' }) => {
+const LegalPolicies = () => {
+  const [currentLanguage, setCurrentLanguage] = useState('pt');
   const { t } = useTranslations(currentLanguage);
   const [activeSection, setActiveSection] = useState('privacidade');
+
+  // Detectar idioma do localStorage ou URL
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language') || 'pt';
+    setCurrentLanguage(savedLanguage);
+  }, []);
 
   const sections = [
     { id: 'privacidade', icon: '📋', key: 'privacy-policy' },
@@ -12,6 +19,11 @@ const LegalPolicies = ({ currentLanguage = 'pt' }) => {
     { id: 'acessibilidade', icon: '♿', key: 'accessibility' },
     { id: 'cookies', icon: '🍪', key: 'cookies-policy' }
   ];
+
+  const changeLanguage = (lang) => {
+    setCurrentLanguage(lang);
+    localStorage.setItem('language', lang);
+  };
 
   const scrollToSection = (sectionId) => {
     setActiveSection(sectionId);
