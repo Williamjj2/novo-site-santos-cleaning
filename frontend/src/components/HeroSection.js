@@ -108,15 +108,15 @@ const HeroSection = ({ currentLanguage }) => {
           >
             <div className="flex items-center space-x-2">
               <i className="fas fa-check-circle text-green-400"></i>
-              <span>Free Estimates</span>
+              <span>{t('hero-guarantee-estimates')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <i className="fas fa-shield-alt text-blue-400"></i>
-              <span>Fully Insured</span>
+              <span>{t('hero-guarantee-insured')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <i className="fas fa-star text-yellow-400"></i>
-              <span>5-Star Rated</span>
+              <span>{t('hero-guarantee-rated')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <i className="fas fa-users text-purple-400"></i>
