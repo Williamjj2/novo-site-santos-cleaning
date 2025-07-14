@@ -234,19 +234,19 @@ const ServicesSection = ({ currentLanguage, services }) => {
                   <i className="fas fa-award mr-2"></i>
                   {t('services-guarantee-satisfaction-title')}
                 </h4>
-                <p className="text-sm text-purple-700">100% satisfaction or we return to fix it free</p>
+                <p className="text-sm text-purple-700">{t('services-guarantee-satisfaction-desc')}</p>
               </div>
             </div>
             
             <p className="text-gray-600 mb-6">
-              <strong>Luxury home specialists</strong> serving gated communities, executive homes, and upscale neighborhoods throughout North Atlanta Metro. 
-              <span className="text-blue-600 font-medium">Free consultations for homes over 3,500 sq ft.</span>
+              <strong>{t('services-luxury-specialists')}</strong> {t('services-luxury-desc')}
+              <span className="text-blue-600 font-medium">{t('services-luxury-consultation')}</span>
             </p>
             
             {/* Service Areas Expansion */}
             <details className="text-left">
               <summary className="cursor-pointer text-blue-600 font-medium hover:text-blue-800 inline-flex items-center space-x-2">
-                <span>View All 40+ Communities We Serve</span>
+                <span>{t('services-view-communities')}</span>
                 <i className="fas fa-chevron-down text-sm"></i>
               </summary>
               <div className="mt-4 grid grid-cols-3 md:grid-cols-5 gap-2 text-sm text-gray-600">
