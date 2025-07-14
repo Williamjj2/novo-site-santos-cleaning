@@ -128,10 +128,10 @@ const ServicesSection = ({ currentLanguage, services }) => {
                 {/* Service Content */}
                 <div className="relative z-10">
                   <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors">
-                    {t(`service-${service.id}-name`)}
+                    {t(`service-${getServiceTranslationKey(service)}-name`)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed mb-6 line-clamp-3">
-                    {t(`service-${service.id}-desc`)}
+                    {t(`service-${getServiceTranslationKey(service)}-desc`)}
                   </p>
 
                   {/* Price and Duration */}
