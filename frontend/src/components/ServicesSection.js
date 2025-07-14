@@ -131,24 +131,17 @@ const ServicesSection = ({ currentLanguage, services }) => {
                   </div>
 
                   {/* Includes List */}
-                  {service.includes && service.includes.length > 0 && (
-                    <div className="text-left mb-6">
-                      <p className="font-semibold text-gray-800 mb-2">{t('services-includes-label')}</p>
-                      <ul className="space-y-1">
-                        {service.includes.slice(0, 3).map((item, idx) => (
-                          <li key={idx} className="text-sm text-gray-600 flex items-center">
-                            <i className="fas fa-check text-green-500 mr-2 flex-shrink-0"></i>
-                            <span className="line-clamp-1">{item}</span>
-                          </li>
-                        ))}
-                        {service.includes.length > 3 && (
-                          <li className="text-sm text-blue-600 font-medium">
-                            +{service.includes.length - 3} {t('services-more-included')}
-                          </li>
-                        )}
-                      </ul>
-                    </div>
-                  )}
+                  <div className="text-left mb-6">
+                    <p className="font-semibold text-gray-800 mb-2">{t('services-includes-label')}</p>
+                    <ul className="space-y-1">
+                      {Array.from({length: 4}, (_, idx) => (
+                        <li key={idx} className="text-sm text-gray-600 flex items-center">
+                          <i className="fas fa-check text-green-500 mr-2 flex-shrink-0"></i>
+                          <span className="line-clamp-1">{t(`service-${service.id}-includes-${idx + 1}`)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
                   {/* CTA Button */}
                   <button
