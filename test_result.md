@@ -341,3 +341,84 @@ O site agora oferece uma experiência multilíngue profissional que:
 - Não apresenta textos hardcoded ou misturados
 
 **✅ PRONTO PARA PRODUÇÃO - Internacionalização aprovada para deploy.**
+
+---
+
+## 🧪 TESTE CRÍTICO DE TRADUÇÃO - SEÇÃO SERVICES - JANEIRO 2025
+
+### 📋 Teste Realizado em 14/01/2025 - 21:20 UTC
+**Objetivo:** Verificar especificamente as traduções da seção Services conforme solicitado pelo usuário.
+
+### ❌ PROBLEMAS CRÍTICOS IDENTIFICADOS
+
+#### 1. **Nomes dos Serviços NÃO Traduzem**
+- ❌ **Inglês (EN):** Mostra `service-e122f11c-12cb-4ea6-b85b-31391fbe573f-name` ao invés de "Deep Cleaning"
+- ❌ **Português (PT):** Mostra `service-e122f11c-12cb-4ea6-b85b-31391fbe573f-name` ao invés de "Limpeza Profunda"  
+- ❌ **Espanhol (ES):** Mostra `service-e122f11c-12cb-4ea6-b85b-31391fbe573f-name` ao invés de "Limpieza Profunda"
+
+#### 2. **Descrições dos Serviços NÃO Traduzem**
+- ❌ **Inglês (EN):** Mostra `service-e122f11c-12cb-4ea6-b85b-31391fbe573f-desc` ao invés da descrição real
+- ❌ **Português (PT):** Mostra `service-e122f11c-12cb-4ea6-b85b-31391fbe573f-desc` ao invés da descrição real
+- ❌ **Espanhol (ES):** Mostra `service-e122f11c-12cb-4ea6-b85b-31391fbe573f-desc` ao invés da descrição real
+
+#### 3. **Itens "Includes" dos Serviços NÃO Traduzem**
+- ❌ **Todos os idiomas:** Mostram chaves como `service-e122f11c-12cb-4ea6-b85b-31391fbe573f-include-1` ao invés do texto traduzido
+
+### ✅ ELEMENTOS QUE FUNCIONAM CORRETAMENTE
+
+#### 1. **Labels da Interface**
+- ✅ **Inglês:** "Starting from", "Duration", "Includes:", "Book This Service"
+- ✅ **Português:** "A partir de", "Duração", "Inclui:", "Reservar Este Serviço"  
+- ✅ **Espanhol:** "Desde", "Duración", "Incluye:", "Reservar Este Servicio"
+
+#### 2. **Títulos das Seções**
+- ✅ **Inglês:** "Our Cleaning Services"
+- ✅ **Português:** "Nossos Serviços de Limpeza"
+- ✅ **Espanhol:** "Nuestros Servicios de Limpieza"
+
+#### 3. **Áreas de Serviço e Garantias**
+- ✅ **Inglês:** "Serving Premium Atlanta Metro Communities"
+- ✅ **Português:** "Atendendo Comunidades Premium da Região Metropolitana de Atlanta"
+- ✅ **Espanhol:** "Atendiendo Comunidades Premium del Área Metropolitana de Atlanta"
+
+#### 4. **Funcionalidade de Troca de Idiomas**
+- ✅ **Troca instantânea** entre EN 🇺🇸, PT 🇧🇷, ES 🇪🇸
+- ✅ **Botões funcionais** e responsivos
+- ✅ **Estado persistente** durante navegação
+
+### 🔍 DIAGNÓSTICO TÉCNICO
+
+#### **Causa Raiz do Problema:**
+O problema está na integração entre os dados dos serviços vindos do backend e o sistema de traduções do frontend:
+
+1. **Backend retorna serviços com IDs únicos** (ex: `e122f11c-12cb-4ea6-b85b-31391fbe573f`)
+2. **Frontend tenta buscar traduções** usando `t(\`service-\${service.id}-name\`)`
+3. **Translations.js tem chaves fixas** como `service-deep-cleaning-name`, `service-regular-maintenance-name`
+4. **Resultado:** Chaves não encontradas, mostra a chave literal ao invés da tradução
+
+#### **Arquivos Afetados:**
+- `/app/frontend/src/components/ServicesSection.js` (linhas 111, 114, 140)
+- `/app/frontend/src/utils/translations.js` (chaves de serviços)
+- Backend API `/api/services` (estrutura de dados)
+
+### 📊 RESUMO DO TESTE
+
+| Elemento | EN | PT | ES | Status |
+|----------|----|----|----|---------| 
+| **Nomes dos Serviços** | ❌ | ❌ | ❌ | CRÍTICO |
+| **Descrições dos Serviços** | ❌ | ❌ | ❌ | CRÍTICO |
+| **Includes dos Serviços** | ❌ | ❌ | ❌ | CRÍTICO |
+| **Labels da Interface** | ✅ | ✅ | ✅ | OK |
+| **Títulos das Seções** | ✅ | ✅ | ✅ | OK |
+| **Troca de Idiomas** | ✅ | ✅ | ✅ | OK |
+
+### 🚨 IMPACTO NO USUÁRIO
+- **Experiência Quebrada:** Usuários veem códigos técnicos ao invés de nomes de serviços
+- **Perda de Conversão:** Impossível entender os serviços oferecidos
+- **Credibilidade Afetada:** Site parece com erro técnico grave
+- **SEO Prejudicado:** Conteúdo não indexável pelos motores de busca
+
+### 🔧 AÇÃO NECESSÁRIA
+**PRIORIDADE MÁXIMA:** Corrigir o mapeamento entre IDs dinâmicos do backend e chaves estáticas de tradução.
+
+**STATUS ATUAL:** ❌ **SEÇÃO SERVICES NÃO FUNCIONAL PARA PRODUÇÃO**
