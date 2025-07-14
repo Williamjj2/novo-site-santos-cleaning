@@ -93,6 +93,9 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* SEO Head */}
+      <HomePageSEO currentLanguage={currentLanguage} />
+      
       <Header 
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
