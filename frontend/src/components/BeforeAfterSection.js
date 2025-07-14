@@ -119,10 +119,10 @@ const BeforeAfterSection = ({ currentLanguage }) => {
                     <div className="flex items-center justify-between mb-6">
                       <h3 className="text-xl font-bold text-white flex items-center space-x-2">
                         <span className="text-2xl">{transformation.emoji}</span>
-                        <span>{transformation.title}</span>
+                        <span>{t(`transformation-${transformation.id}-title`)}</span>
                       </h3>
                       <span className="text-xs bg-white/20 text-white px-2 py-1 rounded-full">
-                        {transformation.category}
+                        {t(`transformation-${transformation.id}-category`)}
                       </span>
                     </div>
 
