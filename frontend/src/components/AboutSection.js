@@ -134,14 +134,14 @@ const AboutSection = ({ currentLanguage }) => {
                           className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                         >
                           <i className="fas fa-phone mr-2"></i>
-                          Get Free Quote
+                          {t('about-get-free-quote')}
                         </button>
                         <a
                           href="tel:+18663509407"
                           className="border border-white/30 hover:bg-white/10 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-center"
                         >
                           <i className="fas fa-calendar mr-2"></i>
-                          Call Now
+                          {t('about-call-now')}
                         </a>
                       </div>
                     </motion.div>
