@@ -351,11 +351,25 @@ export const translations = {
     'hero-subtitle': 'Servicios de limpieza familiar en Marietta, Georgia. Confianza, calidad y atención al detalle en cada trabajo.',
     'hero-cta': 'Reservar Evaluación Gratuita en Casa',
     'hero-phone': '(866) 350-9407',
+    'hero-guarantee-estimates': 'Cotizaciones Gratuitas',
+    'hero-guarantee-insured': 'Licenciado y Asegurado',
+    'hero-guarantee-rated': 'Servicio 5 Estrellas',
+    'hero-family-owned': 'Empresa Familiar',
 
     // About Section
     'about-title': 'Sobre Nosotros',
     'about-subtitle': 'Más que una empresa de limpieza, somos una familia que cuida de la tuya.',
     'about-description': 'Santos Cleaning Solutions LLC es una empresa profesional de limpieza con sede en Marietta, Georgia, impulsada por la fe, el propósito y la dedicación. Fundamos nuestra empresa con una misión simple pero poderosa: ofrecer servicios de limpieza que van más allá de lo básico, brindando cuidado, excelencia y ese toque profesional que transforma una casa en un hogar.',
+    'about-feature-family-title': 'Servicio Familiar',
+    'about-feature-family-desc': 'Enfoque amigable y cariñoso',
+    'about-feature-quality-title': 'Calidad Superior',
+    'about-feature-quality-desc': 'Atención a cada detalle',
+    'about-feature-reliable-title': 'Confiable y Puntual',
+    'about-feature-reliable-desc': 'A tiempo, siempre',
+    'about-feature-satisfaction-title': 'Satisfacción del Cliente',
+    'about-feature-satisfaction-desc': 'Su felicidad garantizada',
+    'about-get-free-quote': 'Obtener Cotización Gratuita',
+    'about-call-now': 'Llamar Ahora',
 
     // Services
     'services-title': 'Nuestros Servicios de Limpieza',
