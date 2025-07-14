@@ -97,6 +97,12 @@ const BookingPage = () => {
       if (response.success) {
         toast.success('Booking request submitted successfully! We will contact you soon.');
         
+        // Show success message with option to go back
+        toast.success('Redirecting to home page in 5 seconds... Click here to go back now!', {
+          duration: 5000,
+          onClick: () => navigate('/')
+        });
+        
         // Track booking conversion
         if (window.gtag) {
           window.gtag('event', 'booking_request', {
