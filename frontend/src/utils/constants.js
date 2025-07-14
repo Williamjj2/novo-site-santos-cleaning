@@ -155,7 +155,7 @@ export const DEFAULT_SERVICES = [
   },
   {
     id: 'appliance-cleaning',
-    name: 'Fridge & Oven Add-On',
+    name: 'Fridge & Oven Cleaning',
     description: 'Deep scrubbing of inside and outside of appliances to remove grease, residue, and odors.',
     basePrice: 35,
     duration: 1,
