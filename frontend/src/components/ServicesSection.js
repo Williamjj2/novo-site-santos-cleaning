@@ -157,7 +157,7 @@ const ServicesSection = ({ currentLanguage, services }) => {
                       {Array.from({length: 4}, (_, idx) => (
                         <li key={idx} className="text-sm text-gray-600 flex items-center">
                           <i className="fas fa-check text-green-500 mr-2 flex-shrink-0"></i>
-                          <span className="line-clamp-1">{t(`service-${service.id}-includes-${idx + 1}`)}</span>
+                          <span className="line-clamp-1">{t(`service-${getServiceTranslationKey(service)}-includes-${idx + 1}`)}</span>
                         </li>
                       ))}
                     </ul>
