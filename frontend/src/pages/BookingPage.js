@@ -96,13 +96,8 @@ const BookingPage = () => {
       const response = await apiService.createBooking(formData);
       
       if (response.success) {
+        setIsSubmitted(true);
         toast.success('Booking request submitted successfully! We will contact you soon.');
-        
-        // Show success message with option to go back
-        toast.success('Redirecting to home page in 5 seconds... Click here to go back now!', {
-          duration: 5000,
-          onClick: () => navigate('/')
-        });
         
         // Track booking conversion
         if (window.gtag) {
@@ -124,10 +119,10 @@ const BookingPage = () => {
           special_instructions: ''
         });
         
-        // Redirect to home page after 5 seconds
+        // Auto redirect after 8 seconds
         setTimeout(() => {
           navigate('/');
-        }, 5000);
+        }, 8000);
       }
     } catch (error) {
       console.error('Booking error:', error);
