@@ -120,7 +120,7 @@ const HeroSection = ({ currentLanguage }) => {
             </div>
             <div className="flex items-center space-x-2">
               <i className="fas fa-users text-purple-400"></i>
-              <span>Family Owned</span>
+              <span>{t('hero-family-owned')}</span>
             </div>
           </motion.div>
         </motion.div>
