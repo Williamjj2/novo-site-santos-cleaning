@@ -170,7 +170,7 @@ const ServicesSection = ({ currentLanguage, services }) => {
           <motion.div variants={itemVariants} className="text-center bg-white rounded-2xl p-8 shadow-lg">
             <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center justify-center space-x-2">
               <i className="fas fa-map-marked-alt text-blue-500"></i>
-              <span>Serving Premium Atlanta Metro Communities</span>
+              <span>{t('services-serving-title')}</span>
             </h3>
             
             {/* Premium Areas Grid */}
