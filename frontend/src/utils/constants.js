@@ -188,7 +188,7 @@ export const DEFAULT_SERVICES = [
   },
   {
     id: 'cabinet-cleaning',
-    name: 'Cabinet Deep Clean Add-On',
+    name: 'Cabinet Deep Cleaning',
     description: 'Remove dust, crumbs and buildup from kitchen and bathroom cabinets.',
     basePrice: 45,
     duration: 1,
