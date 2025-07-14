@@ -11,6 +11,7 @@ import ReviewsSection from '../components/ReviewsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import StickyCTA from '../components/StickyCTA';
+import HomePageSEO from '../components/HomePageSEO';
 import { apiService } from '../services/api';
 
 const HomePage = () => {
