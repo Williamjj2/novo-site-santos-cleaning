@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import HomePage from './pages/HomePage';
 import BookingPage from './pages/BookingPage';
 import AdminDashboard from './pages/AdminDashboard';
+import LegalPolicies from './pages/LegalPolicies';
 import './App.css';
 
 function App() {
