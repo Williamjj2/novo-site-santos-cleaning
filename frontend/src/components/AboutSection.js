@@ -34,26 +34,26 @@ const AboutSection = ({ currentLanguage }) => {
     {
       icon: 'fa-heart',
       color: 'text-red-400',
-      title: 'Family-style Service',
-      description: 'Friendly, caring approach'
+      title: t('about-feature-family-title'),
+      description: t('about-feature-family-desc')
     },
     {
       icon: 'fa-star',
       color: 'text-yellow-400',
-      title: 'Superior Quality',
-      description: 'Attention to every detail'
+      title: t('about-feature-quality-title'),
+      description: t('about-feature-quality-desc')
     },
     {
       icon: 'fa-clock',
       color: 'text-blue-400',
-      title: 'Reliable & Punctual',
-      description: 'On time, every time'
+      title: t('about-feature-reliable-title'),
+      description: t('about-feature-reliable-desc')
     },
     {
       icon: 'fa-thumbs-up',
       color: 'text-green-400',
-      title: 'Customer Satisfaction',
-      description: 'Your happiness guaranteed'
+      title: t('about-feature-satisfaction-title'),
+      description: t('about-feature-satisfaction-desc')
     }
   ];
 
