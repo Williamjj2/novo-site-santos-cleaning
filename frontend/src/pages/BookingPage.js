@@ -25,6 +25,7 @@ const BookingPage = () => {
     special_instructions: ''
   });
   const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     // Load services
