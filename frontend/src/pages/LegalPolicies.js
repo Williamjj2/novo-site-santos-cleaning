@@ -55,6 +55,9 @@ const LegalPolicies = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* SEO Head */}
+      <SEOHead currentLanguage={currentLanguage} currentSection={activeSection} />
+      
       {/* Header */}
       <header className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-6">
