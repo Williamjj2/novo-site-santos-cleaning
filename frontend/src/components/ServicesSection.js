@@ -13,6 +13,26 @@ const ServicesSection = ({ currentLanguage, services }) => {
 
   const displayServices = services?.length > 0 ? services : DEFAULT_SERVICES;
 
+  // Create mapping from service names to translation keys
+  const getServiceTranslationKey = (service) => {
+    const serviceNameMap = {
+      'Deep Cleaning': 'deep-cleaning',
+      'Regular Maintenance': 'regular-maintenance',
+      'Move-In / Move-Out Cleaning': 'move-in-out',
+      'Fridge & Oven Add-On': 'appliance-cleaning',
+      'Laundry Service Add-On': 'laundry-services',
+      'Cabinet Deep Clean Add-On': 'cabinet-cleaning',
+      'Limpeza Profunda': 'deep-cleaning',
+      'Manutenção Regular': 'regular-maintenance',
+      'Limpeza de Mudança': 'move-in-out',
+      'Limpeza de Geladeira e Forno': 'appliance-cleaning',
+      'Serviço de Lavanderia': 'laundry-services',
+      'Limpeza Profunda de Armários': 'cabinet-cleaning'
+    };
+    
+    return serviceNameMap[service.name] || service.id;
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
