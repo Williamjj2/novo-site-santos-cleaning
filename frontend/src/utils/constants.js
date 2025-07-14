@@ -278,10 +278,6 @@ export const BEFORE_AFTER_IMAGES = [
     afterAlt: 'Garagem organizada depois da organização Santos Cleaning',
     category: 'Organização de Garagem'
   }
-    beforeAlt: 'Cluttered garage before',
-    afterAlt: 'Organized garage after',
-    category: 'Garage & Storage'
-  }
 ];
 
 // Animation configurations
