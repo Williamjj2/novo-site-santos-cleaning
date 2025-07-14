@@ -264,11 +264,10 @@ const ServicesSection = ({ currentLanguage, services }) => {
           <motion.div variants={itemVariants} className="text-center mt-12">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Transform Your Home?
+                {t('services-transform-title')}
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Join hundreds of satisfied customers in Atlanta's premium neighborhoods. 
-                Get your free, no-obligation estimate today!
+                {t('services-transform-desc')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
@@ -276,14 +275,14 @@ const ServicesSection = ({ currentLanguage, services }) => {
                   className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
                   <i className="fas fa-calendar-check mr-2"></i>
-                  Get Free Estimate
+                  {t('services-get-estimate')}
                 </button>
                 <a
                   href="tel:+18663509407"
                   className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-300"
                 >
                   <i className="fas fa-phone mr-2"></i>
-                  Call (866) 350-9407
+                  {t('services-call-phone')}
                 </a>
               </div>
             </div>
