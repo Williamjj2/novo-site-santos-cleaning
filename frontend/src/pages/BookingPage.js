@@ -117,10 +117,10 @@ const BookingPage = () => {
           special_instructions: ''
         });
         
-        // Redirect to home page after 2 seconds
+        // Redirect to home page after 5 seconds
         setTimeout(() => {
           navigate('/');
-        }, 2000);
+        }, 5000);
       }
     } catch (error) {
       console.error('Booking error:', error);
