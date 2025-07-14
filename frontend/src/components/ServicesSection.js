@@ -120,20 +120,20 @@ const ServicesSection = ({ currentLanguage, services }) => {
                       <p className="text-2xl font-bold text-blue-600">
                         ${service.base_price || service.basePrice}
                       </p>
-                      <p className="text-xs text-gray-500">Starting from</p>
+                      <p className="text-xs text-gray-500">{t('services-price-starting')}</p>
                     </div>
                     <div className="text-center">
                       <p className="text-lg font-semibold text-gray-700">
                         {service.duration_hours || service.duration}h
                       </p>
-                      <p className="text-xs text-gray-500">Duration</p>
+                      <p className="text-xs text-gray-500">{t('services-duration-label')}</p>
                     </div>
                   </div>
 
                   {/* Includes List */}
                   {service.includes && service.includes.length > 0 && (
                     <div className="text-left mb-6">
-                      <p className="font-semibold text-gray-800 mb-2">Includes:</p>
+                      <p className="font-semibold text-gray-800 mb-2">{t('services-includes-label')}</p>
                       <ul className="space-y-1">
                         {service.includes.slice(0, 3).map((item, idx) => (
                           <li key={idx} className="text-sm text-gray-600 flex items-center">
@@ -143,7 +143,7 @@ const ServicesSection = ({ currentLanguage, services }) => {
                         ))}
                         {service.includes.length > 3 && (
                           <li className="text-sm text-blue-600 font-medium">
-                            +{service.includes.length - 3} more included
+                            +{service.includes.length - 3} {t('services-more-included')}
                           </li>
                         )}
                       </ul>
@@ -156,7 +156,7 @@ const ServicesSection = ({ currentLanguage, services }) => {
                     className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform group-hover:scale-105 shadow-md hover:shadow-lg"
                   >
                     <i className="fas fa-calendar-alt mr-2"></i>
-                    Book This Service
+                    {t('services-book-service')}
                   </button>
                 </div>
 
