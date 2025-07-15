@@ -212,8 +212,8 @@ export const BEFORE_AFTER_IMAGES = [
     description: 'Do rejunte negligenciado aos azulejos brilhantes',
     emoji: '🛁',
     // SUBSTITUA ESTAS URLs PELAS SUAS IMAGENS:
-    beforeImage: 'https://sua-hospedagem.com/bathroom-before.jpg',
-    afterImage: 'https://sua-hospedagem.com/bathroom-after.jpg',
+    beforeImage: 'https://res.cloudinary.com/dij6m4vbt/image/upload/v1752470045/antes4_puy6yi.webp',
+    afterImage:  'https://res.cloudinary.com/dij6m4vbt/image/upload/v1752470045/depois4_fnpiy4.webp',
     beforeAlt: 'Banheiro sujo antes da limpeza Santos Cleaning',
     afterAlt: 'Banheiro limpo depois da limpeza Santos Cleaning',
     category: 'Limpeza Profunda Banheiro'
@@ -224,8 +224,8 @@ export const BEFORE_AFTER_IMAGES = [
     description: 'Cozinha restaurada da gordura ao brilho',
     emoji: '🍳',
     // SUBSTITUA ESTAS URLs PELAS SUAS IMAGENS:
-    beforeImage: 'https://sua-hospedagem.com/kitchen-before.jpg',
-    afterImage: 'https://sua-hospedagem.com/kitchen-after.jpg',
+    beforeImage: 'https://res.cloudinary.com/dij6m4vbt/image/upload/v1752470045/antes5_f4fnvs.png',
+    afterImage:  'https://res.cloudinary.com/dij6m4vbt/image/upload/v1752470046/depois5_fsh001.png',
     beforeAlt: 'Cozinha suja antes da limpeza Santos Cleaning',
     afterAlt: 'Cozinha limpa depois da limpeza Santos Cleaning',
     category: 'Limpeza Profunda Cozinha'
@@ -236,8 +236,8 @@ export const BEFORE_AFTER_IMAGES = [
     description: 'Quarto empoeirado transformado em santuário aconchegante',
     emoji: '🛏️',
     // SUBSTITUA ESTAS URLs PELAS SUAS IMAGENS:
-    beforeImage: 'https://sua-hospedagem.com/room-before.jpg',
-    afterImage: 'https://sua-hospedagem.com/room-after.jpg',
+    beforeImage: 'https://res.cloudinary.com/dij6m4vbt/image/upload/v1752470045/antes3_ec2pr4.jpg',
+    afterImage:  'https://res.cloudinary.com/dij6m4vbt/image/upload/v1752470045/depois3_jawbaa.jpg',
     beforeAlt: 'Quarto bagunçado antes da limpeza Santos Cleaning',
     afterAlt: 'Quarto limpo depois da limpeza Santos Cleaning',
     category: 'Organização de Quartos'
