@@ -194,6 +194,20 @@ export const translations = {
     'contact-free-phone': 'Free phone estimate in 5 minutes!',
     'contact-premium-areas': 'Premium Areas Served',
 
+    // Calculator Messages
+    'calc-greeting': 'Hello! I would like a quote for:',
+    'calc-service': 'Service',
+    'calc-sqft': 'Square Footage',
+    'calc-bedrooms': 'Bedrooms',
+    'calc-bathrooms': 'Bathrooms',
+    'calc-pets': 'Pets',
+    'calc-yes': 'Yes',
+    'calc-no': 'No',
+    'calc-frequency': 'Frequency',
+    'calc-addons': 'Add-ons',
+    'calc-estimated-total': 'Estimated Total',
+    'calc-confirm-message': 'Please confirm the quote and schedule a visit. Thank you!',
+
     // Price Calculator
     'calculator-title': 'Price Calculator',
     'calculator-subtitle': 'Get an instant personalized estimate for your cleaning service',
@@ -576,6 +590,20 @@ export const translations = {
     'contact-free-phone': '¡Estimación gratuita por teléfono en 5 minutos!',
     'contact-premium-areas': 'Áreas Premium Servidas',
 
+    // Calculator Messages
+    'calc-greeting': '¡Hola! Me gustaría una cotización para:',
+    'calc-service': 'Servicio',
+    'calc-sqft': 'Pies Cuadrados',
+    'calc-bedrooms': 'Habitaciones',
+    'calc-bathrooms': 'Baños',
+    'calc-pets': 'Mascotas',
+    'calc-yes': 'Sí',
+    'calc-no': 'No',
+    'calc-frequency': 'Frecuencia',
+    'calc-addons': 'Adicionales',
+    'calc-estimated-total': 'Total Estimado',
+    'calc-confirm-message': '¡Por favor confirme la cotización y programe una visita. Gracias!',
+
     // Price Calculator
     'calculator-title': 'Calculadora de Precios',
     'calculator-subtitle': 'Obtenga una estimación personalizada instantánea para su servicio de limpieza',
@@ -957,6 +985,20 @@ export const translations = {
     'contact-need-now': 'Precisa Falar Agora?',
     'contact-free-phone': 'Orçamento gratuito por telefone em 5 minutos!',
     'contact-premium-areas': 'Áreas Premium Atendidas',
+
+    // Calculator Messages
+    'calc-greeting': 'Olá! Gostaria de um orçamento para:',
+    'calc-service': 'Serviço',
+    'calc-sqft': 'Metragem',
+    'calc-bedrooms': 'Quartos',
+    'calc-bathrooms': 'Banheiros',
+    'calc-pets': 'Pets',
+    'calc-yes': 'Sim',
+    'calc-no': 'Não',
+    'calc-frequency': 'Frequência',
+    'calc-addons': 'Adicionais',
+    'calc-estimated-total': 'Total Estimado',
+    'calc-confirm-message': 'Por favor, confirme o orçamento e agende uma visita. Obrigado!',
 
     // Price Calculator
     'calculator-title': 'Calculadora de Preços',
