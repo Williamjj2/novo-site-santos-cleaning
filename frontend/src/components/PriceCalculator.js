@@ -24,39 +24,39 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
   const [errors, setErrors] = useState({});
   const [isCalculating, setIsCalculating] = useState(false);
 
-  // Configurações com preços mais competitivos
+  // Configurações com preços ajustados (+15%)
   const serviceTypes = useMemo(() => [
     {
       id: 'regular',
       name: t('service-regular'),
-      basePrice: 80, // Reduzido de 100
-      minPrice: 60, // Preço mínimo
+      basePrice: 92, // 80 + 15% = 92
+      minPrice: 69, // 60 + 15% = 69
       description: t('service-regular-desc')
     },
     {
       id: 'deep',
       name: t('service-deep'),
-      basePrice: 150, // Reduzido de 250
-      minPrice: 120,
+      basePrice: 173, // 150 + 15% = 173
+      minPrice: 138, // 120 + 15% = 138
       description: t('service-deep-desc')
     },
     {
       id: 'move',
       name: t('service-move'),
-      basePrice: 180, // Reduzido de 250
-      minPrice: 150,
+      basePrice: 207, // 180 + 15% = 207
+      minPrice: 173, // 150 + 15% = 173
       description: t('service-move-desc')
     }
   ], [t]);
 
-  // Adicionais com preços mais acessíveis
+  // Adicionais com preços ajustados (+15%)
   const addOnOptions = useMemo(() => [
-    { id: 'fridge-oven', name: t('addon-fridge-oven'), price: 25 }, // Reduzido de 35
-    { id: 'laundry', name: t('addon-laundry'), price: 25 },
-    { id: 'cabinets', name: t('addon-cabinets'), price: 30 }, // Reduzido de 45
-    { id: 'garage', name: t('addon-garage'), price: 35 }, // Reduzido de 50
-    { id: 'basement', name: t('addon-basement'), price: 30 }, // Reduzido de 40
-    { id: 'windows-exterior', name: t('addon-windows'), price: 45 } // Reduzido de 60
+    { id: 'fridge-oven', name: t('addon-fridge-oven'), price: 29 }, // 25 + 15% = 29
+    { id: 'laundry', name: t('addon-laundry'), price: 29 }, // 25 + 15% = 29
+    { id: 'cabinets', name: t('addon-cabinets'), price: 35 }, // 30 + 15% = 35
+    { id: 'garage', name: t('addon-garage'), price: 40 }, // 35 + 15% = 40
+    { id: 'basement', name: t('addon-basement'), price: 35 }, // 30 + 15% = 35
+    { id: 'windows-exterior', name: t('addon-windows'), price: 52 } // 45 + 15% = 52
   ], [t]);
 
   // Multiplicadores mais suaves - usando useMemo para evitar recriação
