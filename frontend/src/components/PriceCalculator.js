@@ -112,7 +112,8 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
   }, [formData.serviceType, formData.squareFeet, currentLanguage, LIMITS]);
 
   const calculateEstimate = useCallback(() => {
-    if (!validateForm()) {
+    // Validação inline para evitar dependência
+    if (!formData.serviceType || !formData.squareFeet || isNaN(parseInt(formData.squareFeet))) {
       return null;
     }
 
