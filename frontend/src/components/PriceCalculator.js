@@ -59,23 +59,23 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
     { id: 'windows-exterior', name: t('addon-windows'), price: 45 } // Reduzido de 60
   ], [t]);
 
-  // Multiplicadores mais suaves
-  const frequencyMultipliers = {
+  // Multiplicadores mais suaves - usando useMemo para evitar recriação
+  const frequencyMultipliers = useMemo(() => ({
     'one-time': 1.0,
     'weekly': 0.80, // Mais desconto: 20%
     'biweekly': 0.85, // Mais desconto: 15%
     'monthly': 0.90  // Mais desconto: 10%
-  };
+  }), []);
 
-  // Limites e validações
-  const LIMITS = {
+  // Limites e validações - usando useMemo para evitar recriação
+  const LIMITS = useMemo(() => ({
     minSqft: 500,
     maxSqft: 10000,
     minBedrooms: 0,
     maxBedrooms: 10,
     minBathrooms: 1,
     maxBathrooms: 8
-  };
+  }), []);
 
   const getFrequencyLabel = useCallback((frequency) => {
     const labels = {
@@ -109,7 +109,7 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  }, [formData.serviceType, formData.squareFeet, currentLanguage]);
+  }, [formData.serviceType, formData.squareFeet, currentLanguage, LIMITS]);
 
   const calculateEstimate = useCallback(() => {
     if (!validateForm()) {
@@ -219,7 +219,7 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
         [field]: undefined
       }));
     }
-  }, [errors]);
+  }, [errors, LIMITS]);
 
   const handleAddOnToggle = useCallback((addOnId) => {
     setFormData(prev => ({
