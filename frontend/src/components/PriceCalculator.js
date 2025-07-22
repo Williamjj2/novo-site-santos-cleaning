@@ -111,92 +111,92 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
     return Object.keys(newErrors).length === 0;
   }, [formData.serviceType, formData.squareFeet, currentLanguage, LIMITS]);
 
-  const calculateEstimate = useCallback(() => {
-    // Validação inline para evitar dependência
-    if (!formData.serviceType || !formData.squareFeet || isNaN(parseInt(formData.squareFeet))) {
-      return null;
-    }
 
-    setIsCalculating(true);
-    
-    // Simular cálculo com pequeno delay para feedback visual
-    setTimeout(() => {
-      const selectedService = serviceTypes.find(s => s.id === formData.serviceType);
-      if (!selectedService) {
-        setIsCalculating(false);
-        return null;
-      }
 
-      let basePrice = selectedService.basePrice;
-
-      // Ajustes mais suaves por metragem
-      const sqft = parseInt(formData.squareFeet);
-      if (sqft <= 1000) {
-        // Casas pequenas - sem ajuste
-      } else if (sqft <= 2000) {
-        basePrice *= 1.20; // +20% (reduzido de 30%)
-      } else if (sqft <= 3000) {
-        basePrice *= 1.35; // +35% (reduzido de 60%)
-      } else if (sqft <= 4000) {
-        basePrice *= 1.50; // +50% (reduzido de 90%)
-      } else {
-        basePrice *= 1.70; // +70% (reduzido de 120%)
-      }
-
-      // Ajuste mais suave por cômodos
-      const roomMultiplier = Math.max(1, (formData.bedrooms + formData.bathrooms) / 6); // Mudado de /4 para /6
-      basePrice *= roomMultiplier;
-
-      // Ajuste por pets mais razoável
-      if (formData.hasPets) {
-        basePrice *= 1.10; // +10% (reduzido de 15%)
-      }
-
-      // Aplicar desconto de frequência
-      basePrice *= frequencyMultipliers[formData.frequency];
-
-      // Calcular adicionais
-      const addOnTotal = formData.addOns.reduce((total, addOnId) => {
-        const addOn = addOnOptions.find(a => a.id === addOnId);
-        return total + (addOn ? addOn.price : 0);
-      }, 0);
-
-      // Garantir preço mínimo
-      const subtotal = Math.max(Math.round(basePrice), selectedService.minPrice);
-      const total = subtotal + addOnTotal;
-
-      const result = {
-        service: selectedService.name,
-        basePrice: subtotal,
-        addOnsPrice: addOnTotal,
-        total: total,
-        sqft: sqft,
-        frequency: formData.frequency,
-        details: {
-          bedrooms: formData.bedrooms,
-          bathrooms: formData.bathrooms,
-          hasPets: formData.hasPets,
-          addOns: formData.addOns.map(id => addOnOptions.find(a => a.id === id)?.name).filter(Boolean)
-        }
-      };
-      
-      setEstimate(result);
-      setIsCalculating(false);
-    }, 300);
-  }, [formData, serviceTypes, addOnOptions, frequencyMultipliers, validateForm]);
-
-  // Debounce para performance
+  // Debounce para performance - REMOVENDO calculateEstimate das dependências
   useEffect(() => {
     const timer = setTimeout(() => {
       if (formData.serviceType && formData.squareFeet) {
-        calculateEstimate();
+        // Validação inline para evitar dependência
+        if (!formData.serviceType || !formData.squareFeet || isNaN(parseInt(formData.squareFeet))) {
+          setEstimate(null);
+          return;
+        }
+
+        setIsCalculating(true);
+        
+        // Simular cálculo com pequeno delay para feedback visual
+        setTimeout(() => {
+          const selectedService = serviceTypes.find(s => s.id === formData.serviceType);
+          if (!selectedService) {
+            setIsCalculating(false);
+            setEstimate(null);
+            return;
+          }
+
+          let basePrice = selectedService.basePrice;
+
+          // Ajustes mais suaves por metragem
+          const sqft = parseInt(formData.squareFeet);
+          if (sqft <= 1000) {
+            // Casas pequenas - sem ajuste
+          } else if (sqft <= 2000) {
+            basePrice *= 1.20; // +20% (reduzido de 30%)
+          } else if (sqft <= 3000) {
+            basePrice *= 1.35; // +35% (reduzido de 60%)
+          } else if (sqft <= 4000) {
+            basePrice *= 1.50; // +50% (reduzido de 90%)
+          } else {
+            basePrice *= 1.70; // +70% (reduzido de 120%)
+          }
+
+          // Ajuste mais suave por cômodos
+          const roomMultiplier = Math.max(1, (formData.bedrooms + formData.bathrooms) / 6);
+          basePrice *= roomMultiplier;
+
+          // Ajuste por pets mais razoável
+          if (formData.hasPets) {
+            basePrice *= 1.10; // +10% (reduzido de 15%)
+          }
+
+          // Aplicar desconto de frequência
+          basePrice *= frequencyMultipliers[formData.frequency];
+
+          // Calcular adicionais
+          const addOnTotal = formData.addOns.reduce((total, addOnId) => {
+            const addOn = addOnOptions.find(a => a.id === addOnId);
+            return total + (addOn ? addOn.price : 0);
+          }, 0);
+
+          // Garantir preço mínimo
+          const subtotal = Math.max(Math.round(basePrice), selectedService.minPrice);
+          const total = subtotal + addOnTotal;
+
+          const result = {
+            service: selectedService.name,
+            basePrice: subtotal,
+            addOnsPrice: addOnTotal,
+            total: total,
+            sqft: sqft,
+            frequency: formData.frequency,
+            details: {
+              bedrooms: formData.bedrooms,
+              bathrooms: formData.bathrooms,
+              hasPets: formData.hasPets,
+              addOns: formData.addOns.map(id => addOnOptions.find(a => a.id === id)?.name).filter(Boolean)
+            }
+          };
+          
+          setEstimate(result);
+          setIsCalculating(false);
+        }, 300);
       } else {
         setEstimate(null);
       }
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [formData, calculateEstimate]);
+  }, [formData, serviceTypes, addOnOptions, frequencyMultipliers]);
 
   const handleInputChange = useCallback((field, value) => {
     // Validações específicas por campo
