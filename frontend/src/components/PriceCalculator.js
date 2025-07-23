@@ -36,8 +36,8 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
     {
       id: 'deep',
       name: t('service-deep'),
-      basePrice: 173, // 150 + 15% = 173
-      minPrice: 138, // 120 + 15% = 138
+      basePrice: 199, // 173 + 15% = 199 (serviço mais sério)
+      minPrice: 159, // 138 + 15% = 159 (serviço mais sério)
       description: t('service-deep-desc')
     },
     {

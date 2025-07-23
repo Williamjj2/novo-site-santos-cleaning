@@ -100,7 +100,7 @@ export const DEFAULT_SERVICES = [
     id: 'deep-cleaning',
     name: 'Deep Cleaning',
     description: 'Complete top-to-bottom cleaning ideal for first-time visits, post-renovation, or long periods without service. Includes hidden and hard-to-reach spots.',
-    basePrice: 173, // Atualizado: 150 + 15% = 173
+    basePrice: 199, // Atualizado: 173 + 15% = 199 (serviço mais sério)
     duration: 4,
     includes: [
       'All rooms cleaned thoroughly',

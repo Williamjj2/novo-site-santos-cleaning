@@ -260,7 +260,7 @@ async def startup_event():
                 "id": str(uuid.uuid4()),
                 "name": "Deep Cleaning",
                 "description": "Complete top-to-bottom cleaning ideal for first-time visits, post-renovation, or long periods without service. Includes hidden and hard-to-reach spots.",
-                "base_price": 173.0,  # Atualizado para +15% (150 * 1.15 = 173)
+                "base_price": 199.0,  # Atualizado para +15% adicional (173 * 1.15 = 199) - serviço mais sério
                 "duration_hours": 4,
                 "includes": ["All rooms", "Kitchen deep clean", "Bathroom sanitization", "Window cleaning", "Baseboards", "Light fixtures"],
                 "active": True,
