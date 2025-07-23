@@ -63,7 +63,7 @@ const LegalPolicies = () => {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
-              <img src="/images/logo.svg" alt="Santos Cleaning Solutions Logo" className="w-12 h-12 object-contain" />
+              <img src="/images/logo.png" alt="Santos Cleaning Solutions Logo" className="w-12 h-12 object-contain" />
               <div>
                 <h1 className="text-2xl font-bold text-gray-800">Santos Cleaning Solutions</h1>
                 <p className="text-sm text-gray-600">{t('legal-policies-subtitle')}</p>

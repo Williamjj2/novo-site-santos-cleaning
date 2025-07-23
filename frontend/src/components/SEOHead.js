@@ -149,8 +149,8 @@ const SEOHead = ({ currentLanguage, currentSection = 'privacidade' }) => {
           "alternateName": "Santos Cleaning",
           "description": currentSEO.description,
           "url": siteUrl,
-          "logo": `${siteUrl}/images/logo.svg`,
-          "image": `${siteUrl}/images/logo.svg`,
+                  "logo": `${siteUrl}/images/logo.png`,
+        "image": `${siteUrl}/images/logo.png`,
           "telephone": "+1-470-416-5649",
           "email": "santoscservices@gmail.com",
           "address": {
