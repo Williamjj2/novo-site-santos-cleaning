@@ -30,11 +30,13 @@ const HomePage = () => {
         
         // Load services and reviews in parallel
         const [servicesData, reviewsData] = await Promise.all([
-          apiService.getServices().catch(() => ({ services: [] })),
+          // TEMPORÁRIO: Forçar uso dos constants atualizados até o backend ser atualizado
+          Promise.resolve({ services: [] }),
           apiService.getReviews().catch(() => ({ reviews: [] }))
         ]);
         
-        setServices(servicesData.services || []);
+        // Forçar uso dos DEFAULT_SERVICES que têm preços corretos
+        setServices([]);
         setReviews(reviewsData.reviews || []);
         
       } catch (error) {
