@@ -100,7 +100,7 @@ export const DEFAULT_SERVICES = [
     id: 'deep-cleaning',
     name: 'Deep Cleaning',
     description: 'Complete top-to-bottom cleaning ideal for first-time visits, post-renovation, or long periods without service. Includes hidden and hard-to-reach spots.',
-    basePrice: 250,
+    basePrice: 173, // Atualizado: 150 + 15% = 173
     duration: 4,
     includes: [
       'All rooms cleaned thoroughly',
@@ -119,7 +119,7 @@ export const DEFAULT_SERVICES = [
     id: 'regular-maintenance',
     name: 'Regular Maintenance',
     description: 'Ongoing cleaning to keep your space fresh. Includes kitchen, bathrooms, bedrooms, floors, and all visible surfaces.',
-    basePrice: 100,
+    basePrice: 92, // Atualizado: 80 + 15% = 92
     duration: 2,
     includes: [
       'Surface cleaning all rooms',
@@ -138,7 +138,7 @@ export const DEFAULT_SERVICES = [
     id: 'move-in-out',
     name: 'Move-In / Move-Out Cleaning',
     description: 'Detailed cleaning to prepare a home for new occupants or leave it spotless after moving. Includes inside cabinets, baseboards, and appliances.',
-    basePrice: 250,
+    basePrice: 207, // Atualizado: 180 + 15% = 207
     duration: 5,
     includes: [
       'Complete deep clean',
@@ -157,7 +157,7 @@ export const DEFAULT_SERVICES = [
     id: 'appliance-cleaning',
     name: 'Fridge & Oven Cleaning',
     description: 'Deep scrubbing of inside and outside of appliances to remove grease, residue, and odors.',
-    basePrice: 35,
+    basePrice: 29, // Atualizado: 25 + 15% = 29
     duration: 1,
     includes: [
       'Refrigerator deep clean (inside/out)',
@@ -174,7 +174,7 @@ export const DEFAULT_SERVICES = [
     id: 'laundry-services',
     name: 'Laundry Services',
     description: 'Washing, drying, folding and organizing clothes upon request.',
-    basePrice: 35,
+    basePrice: 29, // Atualizado: 25 + 15% = 29
     duration: 1,
     includes: [
       'Washing and drying',
@@ -190,7 +190,7 @@ export const DEFAULT_SERVICES = [
     id: 'cabinet-cleaning',
     name: 'Cabinet Deep Cleaning',
     description: 'Remove dust, crumbs and buildup from kitchen and bathroom cabinets.',
-    basePrice: 45,
+    basePrice: 35, // Atualizado: 30 + 15% = 35
     duration: 1,
     includes: [
       'Cabinet interior cleaning',
