@@ -55,7 +55,7 @@ const Footer = ({ currentLanguage }) => {
             >
               <div className="flex items-center space-x-3 mb-6">
                 <img 
-                  src="/assets/galeria/logo.png" 
+                  src="/images/logo.svg" 
                   alt="Santos Cleaning Logo" 
                   className="w-12 h-12 object-contain"
                   onError={(e) => {

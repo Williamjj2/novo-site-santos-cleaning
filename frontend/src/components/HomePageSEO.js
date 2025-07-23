@@ -86,9 +86,9 @@ const HomePageSEO = ({ currentLanguage = 'pt' }) => {
           "alternateName": ["Santos Cleaning", "Santos Cleaning Solutions"],
           "description": currentSEO.description,
           "url": siteUrl,
-          "logo": `${siteUrl}/images/logo.png`,
+          "logo": `${siteUrl}/images/logo.svg`,
           "image": [
-            `${siteUrl}/images/logo.png`,
+            `${siteUrl}/images/logo.svg`,
             `${siteUrl}/images/before-after-1.jpg`,
             `${siteUrl}/images/before-after-2.jpg`
           ],

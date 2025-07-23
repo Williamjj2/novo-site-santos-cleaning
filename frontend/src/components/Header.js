@@ -47,7 +47,7 @@ const Header = ({ currentLanguage, onLanguageChange }) => {
             onClick={() => navigate('/')}
           >
             <img 
-              src="/assets/galeria/logo.png" 
+              src="/images/logo.svg" 
               alt="Santos Cleaning Solutions Logo"
               className="w-12 h-12 md:w-16 md:h-16 object-contain transition-transform duration-300 hover:scale-105"
               onError={(e) => {
