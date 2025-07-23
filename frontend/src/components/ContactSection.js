@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import toast from 'react-hot-toast';
 import { useTranslations } from '../utils/translations';
-import { COMPANY_INFO, VALIDATION_PATTERNS, ERROR_MESSAGES } from '../utils/constants';
+import { VALIDATION_PATTERNS, ERROR_MESSAGES } from '../utils/constants';
 import { apiService } from '../services/api';
 
 const ContactSection = ({ currentLanguage, preFilledEstimate }) => {

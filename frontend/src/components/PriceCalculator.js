@@ -549,11 +549,7 @@ ${t('calc-confirm-message')}`;
                   </li>
                   <li className="flex items-center space-x-2">
                     <i className="fas fa-check text-green-600"></i>
-                    <span>
-                      {currentLanguage === 'es' ? 'Precios desde $60 - confirmados en visita' :
-                       currentLanguage === 'pt' ? 'Preços a partir de $60 - confirmados na visita' :
-                       'Prices from $60 - confirmed on visit'}
-                    </span>
+                    <span>{t('guarantee-prices-from')}</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <i className="fas fa-check text-green-600"></i>

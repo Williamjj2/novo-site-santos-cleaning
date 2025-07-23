@@ -12,7 +12,6 @@ const AdminDashboard = () => {
   useEffect(() => {
     // This is a placeholder for admin functionality
     // In a real app, you'd need authentication and proper admin routes
-    console.log('Admin dashboard - functionality to be implemented');
     setIsLoading(false);
   }, []);
 

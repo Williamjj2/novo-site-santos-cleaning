@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslations } from '../utils/translations';
-import { COMPANY_INFO } from '../utils/constants';
+// import { COMPANY_INFO } from '../utils/constants';
 
 const Header = ({ currentLanguage, onLanguageChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
