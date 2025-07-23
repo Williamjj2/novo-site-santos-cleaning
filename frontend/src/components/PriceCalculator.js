@@ -135,18 +135,24 @@ const PriceCalculator = ({ onEstimateReady, currentLanguage }) => {
 
         let basePrice = selectedService.basePrice;
 
-        // Ajustes mais suaves por metragem
+        // Ajustes realísticos por metragem
         const sqft = parseInt(formData.squareFeet);
         if (sqft <= 1000) {
-          // Casas pequenas - sem ajuste
+          // Casas pequenas - sem ajuste ($199)
+        } else if (sqft <= 1500) {
+          basePrice *= 1.05; // +5% = ~$209
         } else if (sqft <= 2000) {
-          basePrice *= 1.20; // +20% (reduzido de 30%)
+          basePrice *= 1.15; // +15% = ~$229 (1700 sq ft = ~$220)
+        } else if (sqft <= 2500) {
+          basePrice *= 1.30; // +30% = ~$259
         } else if (sqft <= 3000) {
-          basePrice *= 1.35; // +35% (reduzido de 60%)
+          basePrice *= 1.50; // +50% = ~$299 (2500 sq ft = ~$300)
+        } else if (sqft <= 3500) {
+          basePrice *= 1.70; // +70% = ~$338
         } else if (sqft <= 4000) {
-          basePrice *= 1.50; // +50% (reduzido de 90%)
+          basePrice *= 1.80; // +80% = ~$358 (3500 sq ft = ~$350+)
         } else {
-          basePrice *= 1.70; // +70% (reduzido de 120%)
+          basePrice *= 2.00; // +100% = ~$398 (casas muito grandes)
         }
 
         // Ajuste mais suave por cômodos
