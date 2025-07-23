@@ -260,7 +260,7 @@ async def startup_event():
                 "id": str(uuid.uuid4()),
                 "name": "Deep Cleaning",
                 "description": "Complete top-to-bottom cleaning ideal for first-time visits, post-renovation, or long periods without service. Includes hidden and hard-to-reach spots.",
-                "base_price": 199.0,  # Atualizado para +15% adicional (173 * 1.15 = 199) - serviço mais sério
+                "base_price": 159.0,  # Preço inicial "starting from" - Deep Cleaning
                 "duration_hours": 4,
                 "includes": ["All rooms", "Kitchen deep clean", "Bathroom sanitization", "Window cleaning", "Baseboards", "Light fixtures"],
                 "active": True,
@@ -270,7 +270,7 @@ async def startup_event():
                 "id": str(uuid.uuid4()),
                 "name": "Regular Maintenance",
                 "description": "Ongoing cleaning to keep your space fresh. Includes kitchen, bathrooms, bedrooms, floors, and all visible surfaces.",
-                "base_price": 92.0,  # Atualizado para +15% (80 * 1.15 = 92)
+                "base_price": 69.0,  # Preço inicial "starting from" - Regular Maintenance
                 "duration_hours": 2,
                 "includes": ["Surface cleaning", "Vacuuming", "Mopping", "Bathroom cleaning", "Kitchen cleaning", "Dusting"],
                 "active": True,
@@ -280,7 +280,7 @@ async def startup_event():
                 "id": str(uuid.uuid4()),
                 "name": "Move-In / Move-Out Cleaning",
                 "description": "Detailed cleaning to prepare a home for new occupants or leave it spotless after moving. Includes inside cabinets, baseboards, and appliances.",
-                "base_price": 207.0,  # Atualizado para +15% (180 * 1.15 = 207)
+                "base_price": 173.0,  # Preço inicial "starting from" - Move-In/Out Cleaning
                 "duration_hours": 6,
                 "includes": ["Complete deep clean", "Cabinet interiors", "Appliance cleaning", "Wall washing", "Closet cleaning", "Garage cleaning"],
                 "active": True,

@@ -100,7 +100,8 @@ export const DEFAULT_SERVICES = [
     id: 'deep-cleaning',
     name: 'Deep Cleaning',
     description: 'Complete top-to-bottom cleaning ideal for first-time visits, post-renovation, or long periods without service. Includes hidden and hard-to-reach spots.',
-    basePrice: 199, // Atualizado: 173 + 15% = 199 (serviço mais sério)
+    basePrice: 199, // Preço máximo para casas grandes
+    base_price: 159, // Preço inicial "starting from" - CORRIGIDO
     duration: 4,
     includes: [
       'All rooms cleaned thoroughly',
@@ -119,7 +120,8 @@ export const DEFAULT_SERVICES = [
     id: 'regular-maintenance',
     name: 'Regular Maintenance',
     description: 'Ongoing cleaning to keep your space fresh. Includes kitchen, bathrooms, bedrooms, floors, and all visible surfaces.',
-    basePrice: 92, // Atualizado: 80 + 15% = 92
+    basePrice: 92, // Preço máximo para casas grandes
+    base_price: 69, // Preço inicial "starting from" - CORRIGIDO
     duration: 2,
     includes: [
       'Surface cleaning all rooms',
@@ -138,7 +140,8 @@ export const DEFAULT_SERVICES = [
     id: 'move-in-out',
     name: 'Move-In / Move-Out Cleaning',
     description: 'Detailed cleaning to prepare a home for new occupants or leave it spotless after moving. Includes inside cabinets, baseboards, and appliances.',
-    basePrice: 207, // Atualizado: 180 + 15% = 207
+    basePrice: 207, // Preço máximo para casas grandes
+    base_price: 173, // Preço inicial "starting from" - CORRIGIDO
     duration: 5,
     includes: [
       'Complete deep clean',
