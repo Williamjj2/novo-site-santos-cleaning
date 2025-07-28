@@ -59,6 +59,16 @@ class Review(BaseModel):
     service_type: Optional[str] = None
     verified: bool = False
 
+class ReviewWebhook(BaseModel):
+    """Modelo para receber reviews do n8n webhook - mantém compatibilidade total"""
+    action: str
+    timestamp: str
+    business_name: str
+    total_reviews: int
+    average_rating: float
+    user_ratings_total: int
+    reviews: List[dict]
+
 class ServiceType(BaseModel):
     name: str
     description: str
@@ -248,6 +258,135 @@ async def add_review(review: Review):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to submit review: {str(e)}")
+
+# Webhook para receber reviews do n8n - NOVA FUNCIONALIDADE
+@app.post("/api/webhook/reviews-update")
+async def receive_reviews_webhook(webhook_data: ReviewWebhook):
+    """
+    Recebe reviews do n8n e salva no Supabase
+    Mantém 100% de compatibilidade com sistema existente
+    """
+    try:
+        supabase_url = os.getenv("SUPABASE_URL")
+        supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+        
+        print(f"🔔 Webhook recebido: {webhook_data.total_reviews} reviews de {webhook_data.business_name}")
+        print(f"⭐ Rating médio: {webhook_data.average_rating}")
+        
+        if not supabase_url or not supabase_key:
+            print("⚠️ Supabase não configurado, retornando sucesso sem salvar")
+            return {
+                "success": True,
+                "message": "Reviews recebidos (Supabase não configurado)",
+                "reviews_count": webhook_data.total_reviews,
+                "average_rating": webhook_data.average_rating
+            }
+        
+        reviews_saved = 0
+        reviews_skipped = 0
+        reviews_errors = 0
+        
+        async with httpx.AsyncClient(timeout=30) as client:
+            for review in webhook_data.reviews:
+                try:
+                    # Gerar ID único e consistente
+                    author_clean = review.get('author_name', 'anonymous').replace(' ', '_').replace('-', '_').lower()
+                    review_timestamp = review.get('review_time', webhook_data.timestamp)
+                    
+                    # Converter timestamp para segundos Unix
+                    try:
+                        timestamp_seconds = int(datetime.fromisoformat(review_timestamp.replace('Z', '+00:00')).timestamp())
+                    except:
+                        timestamp_seconds = int(datetime.now().timestamp())
+                    
+                    review_id = f"gp_{author_clean}_{timestamp_seconds}_{review.get('rating', 5)}"
+                    
+                    # Verificar se review já existe (evitar duplicatas)
+                    check_response = await client.get(
+                        f"{supabase_url}/rest/v1/google_reviews",
+                        headers={
+                            "apikey": supabase_key,
+                            "Authorization": f"Bearer {supabase_key}"
+                        },
+                        params={
+                            "select": "review_id",
+                            "review_id": f"eq.{review_id}",
+                            "limit": "1"
+                        }
+                    )
+                    
+                    if check_response.status_code == 200 and len(check_response.json()) > 0:
+                        reviews_skipped += 1
+                        print(f"⏭️ Review já existe: {review_id}")
+                        continue
+                    
+                    # Preparar dados para Supabase - compatível com estrutura existente
+                    review_data = {
+                        "review_id": review_id,
+                        "author_name": review.get("author_name", "Cliente Anônimo")[:255],
+                        "author_url": review.get("author_url"),
+                        "language": review.get("language", "pt")[:10],
+                        "profile_photo_url": review.get("profile_photo_url") or f"https://ui-avatars.com/api/?name={review.get('author_name', 'Cliente')}&background=4285F4&color=fff&size=128",
+                        "rating": max(1, min(5, review.get("rating", 5))),  # Garantir range 1-5
+                        "relative_time_description": review.get("relative_time_description", "Recente")[:100],
+                        "text": review.get("text", "")[:5000],
+                        "review_time": review.get("review_time"),
+                        "review_timestamp": timestamp_seconds,
+                        "translated": review.get("translated", False),
+                        "original_language": review.get("original_language", review.get("language", "pt"))[:10],
+                        "original_text": review.get("text", "")[:5000],
+                        "is_active": True,
+                        "is_featured": review.get("rating", 5) >= 4,  # 4+ estrelas são featured
+                        "response_from_owner": None,
+                        "response_time": None,
+                        "helpful_count": 0
+                    }
+                    
+                    # Inserir review no Supabase
+                    insert_response = await client.post(
+                        f"{supabase_url}/rest/v1/google_reviews",
+                        headers={
+                            "apikey": supabase_key,
+                            "Authorization": f"Bearer {supabase_key}",
+                            "Content-Type": "application/json",
+                            "Prefer": "return=minimal"
+                        },
+                        json=review_data
+                    )
+                    
+                    if insert_response.status_code in [200, 201]:
+                        reviews_saved += 1
+                        print(f"✅ Review salvo: {review.get('author_name', 'Anônimo')} - {review.get('rating', 5)}⭐")
+                    else:
+                        reviews_errors += 1
+                        print(f"❌ Erro ao salvar review: {insert_response.status_code} - {insert_response.text}")
+                        
+                except Exception as review_error:
+                    reviews_errors += 1
+                    print(f"❌ Erro processando review individual: {str(review_error)}")
+                    continue
+        
+        # Resposta completa com estatísticas
+        result = {
+            "success": True,
+            "message": f"Webhook processado com sucesso",
+            "total_received": webhook_data.total_reviews,
+            "reviews_saved": reviews_saved,
+            "reviews_skipped": reviews_skipped,
+            "reviews_errors": reviews_errors,
+            "business_name": webhook_data.business_name,
+            "average_rating": webhook_data.average_rating,
+            "user_ratings_total": webhook_data.user_ratings_total,
+            "timestamp": webhook_data.timestamp
+        }
+        
+        print(f"📊 RESULTADO: {reviews_saved} salvos, {reviews_skipped} duplicatas, {reviews_errors} erros")
+        return result
+        
+    except Exception as e:
+        error_msg = f"Erro crítico no webhook: {str(e)}"
+        print(f"❌ {error_msg}")
+        raise HTTPException(status_code=500, detail=error_msg)
 
 # Initialize default service types
 @app.on_event("startup")
