@@ -77,6 +77,12 @@ class ServiceType(BaseModel):
     includes: List[str]
     active: bool = True
 
+# Pydantic models para leads
+class LeadUpdate(BaseModel):
+    status: Optional[str] = None
+    notes: Optional[str] = None
+    assigned_to: Optional[str] = None
+
 @app.get("/")
 async def root():
     return {"message": "Santos Cleaning Solutions API"}
@@ -94,26 +100,83 @@ async def health_check():
 @app.post("/api/contact")
 async def submit_contact(contact: ContactRequest):
     try:
-        contact_data = {
-            **contact.dict(),
-            "id": str(uuid.uuid4()),
-            "created_at": datetime.utcnow(),
-            "status": "new",
-            "user_agent": "",
-            "ip_address": ""
+        # Dados do lead
+        lead_data = {
+            "name": contact.name,
+            "phone": contact.phone,
+            "email": contact.email,
+            "message": contact.message or "",
+            "sms_consent": contact.sms_consent,
+            "language": contact.language,
+            "source": contact.source,
+            "status": "new"
         }
         
-        # Save to database
-        result = await db.contacts.insert_one(contact_data)
+        # Tentar salvar no Supabase primeiro
+        supabase_url = os.getenv("SUPABASE_URL")
+        supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
         
-        # TODO: Send notification emails/SMS
+        if supabase_url and supabase_key:
+            async with httpx.AsyncClient() as client:
+                try:
+                    # Inserir lead no Supabase
+                    supabase_response = await client.post(
+                        f"{supabase_url}/rest/v1/leads",
+                        headers={
+                            "apikey": supabase_key,
+                            "Authorization": f"Bearer {supabase_key}",
+                            "Content-Type": "application/json",
+                            "Prefer": "return=representation"
+                        },
+                        json=lead_data
+                    )
+                    
+                    if supabase_response.status_code in [200, 201]:
+                        supabase_data = supabase_response.json()
+                        lead_id = supabase_data[0]["id"] if supabase_data else str(uuid.uuid4())
+                        print(f"✅ Lead salvo no Supabase: {contact.name} - {contact.email}")
+                    else:
+                        print(f"❌ Erro Supabase: {supabase_response.status_code} - {supabase_response.text}")
+                        raise Exception("Supabase error")
+                        
+                except Exception as supabase_error:
+                    print(f"❌ Erro conectando ao Supabase: {str(supabase_error)}")
+                    # Fallback para MongoDB
+                    contact_data = {
+                        **contact.dict(),
+                        "id": str(uuid.uuid4()),
+                        "created_at": datetime.utcnow(),
+                        "status": "new",
+                        "user_agent": "",
+                        "ip_address": ""
+                    }
+                    result = await db.contacts.insert_one(contact_data)
+                    lead_id = contact_data["id"]
+                    print(f"⚠️ Fallback MongoDB: Lead salvo - {contact.name}")
+        else:
+            print("❌ Supabase não configurado, usando MongoDB")
+            # Fallback para MongoDB se Supabase não configurado
+            contact_data = {
+                **contact.dict(),
+                "id": str(uuid.uuid4()),
+                "created_at": datetime.utcnow(),
+                "status": "new",
+                "user_agent": "",
+                "ip_address": ""
+            }
+            result = await db.contacts.insert_one(contact_data)
+            lead_id = contact_data["id"]
+        
+        # TODO: Enviar notificação por email/SMS/webhook
+        print(f"📬 Novo lead recebido: {contact.name} ({contact.email}) - Fonte: {contact.source}")
         
         return {
             "success": True,
             "message": "Contact request submitted successfully",
-            "id": contact_data["id"]
+            "id": lead_id
         }
     except Exception as e:
+        print(f"❌ Erro geral ao salvar lead: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to submit contact: {str(e)}")
 
 # Get reviews from Supabase
@@ -401,6 +464,162 @@ async def receive_reviews_webhook(webhook_data: ReviewWebhook):
         error_msg = f"Erro crítico no webhook: {str(e)}"
         print(f"❌ {error_msg}")
         raise HTTPException(status_code=500, detail=error_msg)
+
+# Endpoint para listar leads
+@app.get("/api/leads")
+async def get_leads(
+    status: Optional[str] = None,
+    limit: int = 50,
+    offset: int = 0
+):
+    """
+    Lista leads com filtros opcionais
+    """
+    try:
+        supabase_url = os.getenv("SUPABASE_URL")
+        supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+        
+        if not supabase_url or not supabase_key:
+            # Fallback para MongoDB
+            query = {}
+            if status:
+                query["status"] = status
+            
+            contacts = await db.contacts.find(query).sort("created_at", -1).skip(offset).limit(limit).to_list(length=None)
+            total = await db.contacts.count_documents(query)
+            
+            # Converter para formato padrão
+            leads = []
+            for contact in contacts:
+                contact["_id"] = str(contact["_id"])
+                leads.append(contact)
+            
+            return {
+                "leads": leads,
+                "total": total,
+                "offset": offset,
+                "limit": limit
+            }
+        
+        # Usar Supabase
+        async with httpx.AsyncClient() as client:
+            # Construir query string
+            params = {
+                "select": "*",
+                "order": "created_at.desc",
+                "offset": offset,
+                "limit": limit
+            }
+            
+            if status:
+                params["status"] = f"eq.{status}"
+            
+            query_string = "&".join([f"{k}={v}" for k, v in params.items()])
+            url = f"{supabase_url}/rest/v1/leads?{query_string}"
+            
+            response = await client.get(
+                url,
+                headers={
+                    "apikey": supabase_key,
+                    "Authorization": f"Bearer {supabase_key}",
+                    "Content-Type": "application/json"
+                }
+            )
+            
+            if response.status_code == 200:
+                leads = response.json()
+                
+                # Buscar total de registros
+                count_response = await client.get(
+                    f"{supabase_url}/rest/v1/leads?select=count",
+                    headers={
+                        "apikey": supabase_key,
+                        "Authorization": f"Bearer {supabase_key}",
+                        "Content-Type": "application/json",
+                        "Prefer": "count=exact"
+                    }
+                )
+                
+                total = 0
+                if count_response.status_code == 200:
+                    # O total vem no header Content-Range
+                    content_range = count_response.headers.get("content-range", "")
+                    if "/" in content_range:
+                        total = int(content_range.split("/")[-1])
+                
+                return {
+                    "leads": leads,
+                    "total": total,
+                    "offset": offset,
+                    "limit": limit
+                }
+            else:
+                raise HTTPException(status_code=500, detail="Failed to fetch leads from Supabase")
+                
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching leads: {str(e)}")
+
+# Endpoint para atualizar lead
+@app.put("/api/leads/{lead_id}")
+async def update_lead(lead_id: str, lead_update: LeadUpdate):
+    """
+    Atualiza status, notas e responsável de um lead
+    """
+    try:
+        supabase_url = os.getenv("SUPABASE_URL")
+        supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+        
+        update_data = {}
+        if lead_update.status:
+            update_data["status"] = lead_update.status
+            if lead_update.status == "contacted":
+                update_data["contacted_at"] = datetime.utcnow().isoformat()
+            elif lead_update.status == "converted":
+                update_data["converted_at"] = datetime.utcnow().isoformat()
+        
+        if lead_update.notes:
+            update_data["notes"] = lead_update.notes
+            
+        if lead_update.assigned_to:
+            update_data["assigned_to"] = lead_update.assigned_to
+        
+        if not update_data:
+            raise HTTPException(status_code=400, detail="No fields to update")
+        
+        if not supabase_url or not supabase_key:
+            # Fallback MongoDB
+            result = await db.contacts.update_one(
+                {"id": lead_id},
+                {"$set": update_data}
+            )
+            
+            if result.matched_count == 0:
+                raise HTTPException(status_code=404, detail="Lead not found")
+            
+            return {"success": True, "message": "Lead updated successfully"}
+        
+        # Usar Supabase
+        async with httpx.AsyncClient() as client:
+            response = await client.patch(
+                f"{supabase_url}/rest/v1/leads?id=eq.{lead_id}",
+                headers={
+                    "apikey": supabase_key,
+                    "Authorization": f"Bearer {supabase_key}",
+                    "Content-Type": "application/json",
+                    "Prefer": "return=representation"
+                },
+                json=update_data
+            )
+            
+            if response.status_code == 200:
+                return {"success": True, "message": "Lead updated successfully"}
+            elif response.status_code == 404:
+                raise HTTPException(status_code=404, detail="Lead not found")
+            else:
+                raise HTTPException(status_code=500, detail="Failed to update lead")
+                
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error updating lead: {str(e)}")
 
 # Initialize default service types
 @app.on_event("startup")
