@@ -22,25 +22,18 @@ function App() {
             success: {
               duration: 3000,
               theme: {
-                primary: '#10B981',
-                secondary: '#DCFCE7',
-              },
-            },
-            error: {
-              duration: 5000,
-              theme: {
-                primary: '#EF4444',
-                secondary: '#FEE2E2',
+                primary: 'green',
+                secondary: 'black',
               },
             },
           }}
         />
+        
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/book" element={<BookingPage />} />
+          <Route path="/booking" element={<BookingPage />} />
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/politicas-legais" element={<LegalPolicies />} />
-          <Route path="/legal-policies" element={<LegalPolicies />} />
+          <Route path="/legal/*" element={<LegalPolicies />} />
         </Routes>
       </div>
     </Router>

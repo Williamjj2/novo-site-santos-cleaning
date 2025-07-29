@@ -122,6 +122,31 @@ export const apiService = {
       console.error('Review submission failed:', error);
       throw error;
     }
+  },
+
+  // Lead management
+  async getLeads(status = null, limit = 50, offset = 0) {
+    try {
+      let url = `/api/leads?limit=${limit}&offset=${offset}`;
+      if (status) {
+        url += `&status=${status}`;
+      }
+      const response = await api.get(url);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching leads:', error);
+      throw error;
+    }
+  },
+
+  async updateLead(leadId, updates) {
+    try {
+      const response = await api.put(`/api/leads/${leadId}`, updates);
+      return response.data;
+    } catch (error) {
+      console.error('Error updating lead:', error);
+      throw error;
+    }
   }
 };
 
