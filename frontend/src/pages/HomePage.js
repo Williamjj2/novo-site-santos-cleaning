@@ -32,8 +32,14 @@ const HomePage = () => {
         const [servicesData, reviewsData] = await Promise.all([
           // TEMPORÁRIO: Forçar uso dos constants atualizados até o backend ser atualizado
           Promise.resolve({ services: [] }),
-          apiService.getReviews().catch(() => ({ reviews: [] }))
+          apiService.getReviews().catch((error) => {
+            console.error('❌ Erro ao carregar reviews:', error);
+            return { reviews: [] };
+          })
         ]);
+        
+        console.log('📊 Reviews carregados:', reviewsData);
+        console.log('📊 Quantidade de reviews:', reviewsData.reviews?.length || 0);
         
         // Forçar uso dos DEFAULT_SERVICES que têm preços corretos
         setServices([]);
