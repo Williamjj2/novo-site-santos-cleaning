@@ -621,6 +621,143 @@ async def update_lead(lead_id: str, lead_update: LeadUpdate):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error updating lead: {str(e)}")
 
+# Endpoint para deletar lead específico
+@app.delete("/api/leads/{lead_id}")
+async def delete_lead(lead_id: str):
+    """
+    Deleta um lead específico
+    """
+    try:
+        supabase_url = os.getenv("SUPABASE_URL")
+        supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+        
+        if not supabase_url or not supabase_key:
+            # Fallback MongoDB
+            result = await db.contacts.delete_one({"id": lead_id})
+            
+            if result.deleted_count == 0:
+                raise HTTPException(status_code=404, detail="Lead not found")
+            
+            return {"success": True, "message": "Lead deleted successfully"}
+        
+        # Usar Supabase
+        async with httpx.AsyncClient() as client:
+            response = await client.delete(
+                f"{supabase_url}/rest/v1/leads?id=eq.{lead_id}",
+                headers={
+                    "apikey": supabase_key,
+                    "Authorization": f"Bearer {supabase_key}",
+                    "Content-Type": "application/json"
+                }
+            )
+            
+            if response.status_code == 204:
+                return {"success": True, "message": "Lead deleted successfully"}
+            elif response.status_code == 404:
+                raise HTTPException(status_code=404, detail="Lead not found")
+            else:
+                raise HTTPException(status_code=500, detail="Failed to delete lead")
+                
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error deleting lead: {str(e)}")
+
+# Endpoint para limpar leads mocados/demo
+@app.delete("/api/leads/cleanup/demo")
+async def cleanup_demo_leads():
+    """
+    Remove todos os leads de demonstração/teste
+    """
+    try:
+        supabase_url = os.getenv("SUPABASE_URL")
+        supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+        
+        # Lista de leads demo para remover
+        demo_names = [
+            "João Silva",
+            "Maria Santos", 
+            "Carlos Oliveira",
+            "Dashboard Test Lead",
+            "Lead Teste",
+            "Webhook Final Test",
+            "Webhook Test Success"
+        ]
+        
+        demo_emails = [
+            "joao@email.com",
+            "maria@email.com",
+            "carlos@email.com", 
+            "dashboard@test.com",
+            "teste@email.com"
+        ]
+        
+        demo_sources = [
+            "dashboard_test",
+            "webhook_test"
+        ]
+        
+        if not supabase_url or not supabase_key:
+            # Fallback MongoDB
+            query = {
+                "$or": [
+                    {"name": {"$in": demo_names}},
+                    {"email": {"$in": demo_emails}},
+                    {"source": {"$in": demo_sources}}
+                ]
+            }
+            result = await db.contacts.delete_many(query)
+            deleted_count = result.deleted_count
+        else:
+            # Usar Supabase
+            deleted_count = 0
+            async with httpx.AsyncClient() as client:
+                # Deletar por nome
+                for name in demo_names:
+                    response = await client.delete(
+                        f"{supabase_url}/rest/v1/leads?name=eq.{name}",
+                        headers={
+                            "apikey": supabase_key,
+                            "Authorization": f"Bearer {supabase_key}",
+                            "Content-Type": "application/json"
+                        }
+                    )
+                    if response.status_code == 204:
+                        deleted_count += 1
+                
+                # Deletar por email
+                for email in demo_emails:
+                    response = await client.delete(
+                        f"{supabase_url}/rest/v1/leads?email=eq.{email}",
+                        headers={
+                            "apikey": supabase_key,
+                            "Authorization": f"Bearer {supabase_key}",
+                            "Content-Type": "application/json"
+                        }
+                    )
+                    if response.status_code == 204:
+                        deleted_count += 1
+                
+                # Deletar por source
+                for source in demo_sources:
+                    response = await client.delete(
+                        f"{supabase_url}/rest/v1/leads?source=eq.{source}",
+                        headers={
+                            "apikey": supabase_key,
+                            "Authorization": f"Bearer {supabase_key}",
+                            "Content-Type": "application/json"
+                        }
+                    )
+                    if response.status_code == 204:
+                        deleted_count += 1
+        
+        return {
+            "success": True,
+            "message": f"Demo leads cleanup completed",
+            "deleted_count": deleted_count
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error cleaning up demo leads: {str(e)}")
+
 # Initialize default service types
 @app.on_event("startup")
 async def startup_event():

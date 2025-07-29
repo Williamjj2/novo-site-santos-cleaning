@@ -12,6 +12,9 @@ const AdminDashboard = () => {
   const [filter, setFilter] = useState('all');
   const [selectedLead, setSelectedLead] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [showDetailModal, setShowDetailModal] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [leadToDelete, setLeadToDelete] = useState(null);
   const [stats, setStats] = useState({
     total: 0,
     new: 0,
@@ -110,9 +113,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     if (isAuthenticated) {
       fetchLeads();
-      // Auto refresh a cada 30 segundos
-      const interval = setInterval(fetchLeads, 30000);
-      return () => clearInterval(interval);
+      // Remover auto-refresh - atualizar apenas manualmente ou quando há novos leads
     }
   }, [fetchLeads, isAuthenticated]);
 
@@ -128,9 +129,46 @@ const AdminDashboard = () => {
     }
   };
 
+  const deleteLead = async (leadId) => {
+    try {
+      await apiService.deleteLead(leadId);
+      toast.success('Lead excluído com sucesso!');
+      fetchLeads(); // Refresh da lista
+      setShowDeleteConfirm(false);
+      setLeadToDelete(null);
+    } catch (error) {
+      console.error('Erro ao excluir lead:', error);
+      toast.error('Erro ao excluir lead: ' + error.message);
+    }
+  };
+
+  const cleanupDemoLeads = async () => {
+    try {
+      const result = await apiService.cleanupDemoLeads();
+      toast.success(`${result.deleted_count || 0} leads demo removidos!`);
+      fetchLeads(); // Refresh da lista
+    } catch (error) {
+      console.error('Erro ao limpar leads demo:', error);
+      toast.error('Erro ao limpar leads demo: ' + error.message);
+    }
+  };
+
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A';
     return new Date(dateString).toLocaleString('pt-BR');
+  };
+
+  const formatFullDate = (dateString) => {
+    if (!dateString) return 'N/A';
+    const date = new Date(dateString);
+    return date.toLocaleString('pt-BR', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
   };
 
   const getTimeAgo = (dateString) => {
@@ -291,7 +329,7 @@ const AdminDashboard = () => {
 
         {/* Filters */}
         <div className="bg-white p-4 rounded-lg shadow mb-6">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 items-center">
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-medium ${
@@ -315,13 +353,23 @@ const AdminDashboard = () => {
                 {label} ({stats[status] || 0})
               </button>
             ))}
-            <button
-              onClick={fetchLeads}
-              className="ml-auto px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center"
-            >
-              <i className="fas fa-sync-alt mr-2"></i>
-              Atualizar
-            </button>
+            
+            <div className="ml-auto flex gap-2">
+              <button
+                onClick={cleanupDemoLeads}
+                className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 flex items-center"
+              >
+                <i className="fas fa-broom mr-2"></i>
+                Limpar Demos
+              </button>
+              <button
+                onClick={fetchLeads}
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center"
+              >
+                <i className="fas fa-sync-alt mr-2"></i>
+                Atualizar
+              </button>
+            </div>
           </div>
         </div>
 
@@ -407,27 +455,52 @@ const AdminDashboard = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button
-                          onClick={() => {
-                            setSelectedLead(lead);
-                            setShowModal(true);
-                          }}
-                          className="text-blue-600 hover:text-blue-900 mr-4"
-                        >
-                          <i className="fas fa-edit"></i>
-                        </button>
-                        <a
-                          href={`tel:${lead.phone}`}
-                          className="text-green-600 hover:text-green-900 mr-4"
-                        >
-                          <i className="fas fa-phone"></i>
-                        </a>
-                        <a
-                          href={`mailto:${lead.email}`}
-                          className="text-purple-600 hover:text-purple-900"
-                        >
-                          <i className="fas fa-envelope"></i>
-                        </a>
+                        <div className="flex items-center space-x-2">
+                          <button
+                            onClick={() => {
+                              setSelectedLead(lead);
+                              setShowDetailModal(true);
+                            }}
+                            className="text-blue-600 hover:text-blue-900"
+                            title="Ver detalhes"
+                          >
+                            <i className="fas fa-eye"></i>
+                          </button>
+                          <button
+                            onClick={() => {
+                              setSelectedLead(lead);
+                              setShowModal(true);
+                            }}
+                            className="text-purple-600 hover:text-purple-900"
+                            title="Editar status"
+                          >
+                            <i className="fas fa-edit"></i>
+                          </button>
+                          <a
+                            href={`tel:${lead.phone}`}
+                            className="text-green-600 hover:text-green-900"
+                            title="Ligar"
+                          >
+                            <i className="fas fa-phone"></i>
+                          </a>
+                          <a
+                            href={`mailto:${lead.email}`}
+                            className="text-indigo-600 hover:text-indigo-900"
+                            title="Enviar email"
+                          >
+                            <i className="fas fa-envelope"></i>
+                          </a>
+                          <button
+                            onClick={() => {
+                              setLeadToDelete(lead);
+                              setShowDeleteConfirm(true);
+                            }}
+                            className="text-red-600 hover:text-red-900"
+                            title="Excluir"
+                          >
+                            <i className="fas fa-trash"></i>
+                          </button>
+                        </div>
                       </td>
                     </motion.tr>
                   ))}
@@ -480,6 +553,204 @@ const AdminDashboard = () => {
                   className="flex-1 px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300"
                 >
                   Cancelar
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Modal de Detalhes Completos */}
+        {showDetailModal && selectedLead && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="text-xl font-bold text-gray-900">Detalhes do Lead</h3>
+                  <button
+                    onClick={() => setShowDetailModal(false)}
+                    className="text-gray-400 hover:text-gray-600"
+                  >
+                    <i className="fas fa-times text-xl"></i>
+                  </button>
+                </div>
+
+                <div className="space-y-6">
+                  {/* Informações Básicas */}
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+                      <i className="fas fa-user mr-2 text-blue-600"></i>
+                      Informações Pessoais
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-600">Nome</label>
+                        <p className="text-gray-900 font-medium">{selectedLead.name}</p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-600">Email</label>
+                        <p className="text-gray-900">{selectedLead.email}</p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-600">Telefone</label>
+                        <p className="text-gray-900">{selectedLead.phone}</p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-600">Idioma</label>
+                        <p className="text-gray-900">{selectedLead.language || 'N/A'}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Mensagem */}
+                  {selectedLead.message && (
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+                        <i className="fas fa-comment mr-2 text-blue-600"></i>
+                        Mensagem do Cliente
+                      </h4>
+                      <div className="bg-white p-4 rounded border border-blue-200">
+                        <p className="text-gray-900 whitespace-pre-wrap">{selectedLead.message}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Status e Tracking */}
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+                      <i className="fas fa-chart-line mr-2 text-green-600"></i>
+                      Status e Acompanhamento
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-600">Status Atual</label>
+                        <span
+                          className={`inline-flex px-3 py-1 text-sm font-semibold rounded-full ${
+                            statusColors[selectedLead.status] || 'bg-gray-100 text-gray-800'
+                          }`}
+                        >
+                          {statusLabels[selectedLead.status] || selectedLead.status}
+                        </span>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-600">Fonte</label>
+                        <p className="text-gray-900">{selectedLead.source}</p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-600">Consentimento SMS</label>
+                        <p className="text-gray-900">
+                          {selectedLead.sms_consent ? 
+                            <span className="text-green-600">✅ Sim</span> : 
+                            <span className="text-red-600">❌ Não</span>
+                          }
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-600">Responsável</label>
+                        <p className="text-gray-900">{selectedLead.assigned_to || 'Não atribuído'}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Datas */}
+                  <div className="bg-purple-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+                      <i className="fas fa-calendar mr-2 text-purple-600"></i>
+                      Histórico de Datas
+                    </h4>
+                    <div className="space-y-3">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-600">Data de Criação</label>
+                        <p className="text-gray-900">{formatFullDate(selectedLead.created_at)}</p>
+                      </div>
+                      {selectedLead.contacted_at && (
+                        <div>
+                          <label className="block text-sm font-medium text-gray-600">Data do Contato</label>
+                          <p className="text-gray-900">{formatFullDate(selectedLead.contacted_at)}</p>
+                        </div>
+                      )}
+                      {selectedLead.converted_at && (
+                        <div>
+                          <label className="block text-sm font-medium text-gray-600">Data da Conversão</label>
+                          <p className="text-gray-900">{formatFullDate(selectedLead.converted_at)}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Notas */}
+                  {selectedLead.notes && (
+                    <div className="bg-yellow-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+                        <i className="fas fa-sticky-note mr-2 text-yellow-600"></i>
+                        Notas
+                      </h4>
+                      <div className="bg-white p-4 rounded border border-yellow-200">
+                        <p className="text-gray-900 whitespace-pre-wrap">{selectedLead.notes}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Ações do Modal */}
+                <div className="flex gap-3 mt-8 pt-6 border-t">
+                  <button
+                    onClick={() => {
+                      setShowDetailModal(false);
+                      setShowModal(true);
+                    }}
+                    className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 flex items-center justify-center"
+                  >
+                    <i className="fas fa-edit mr-2"></i>
+                    Editar Status
+                  </button>
+                  <a
+                    href={`tel:${selectedLead.phone}`}
+                    className="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center text-decoration-none"
+                  >
+                    <i className="fas fa-phone mr-2"></i>
+                    Ligar
+                  </a>
+                  <a
+                    href={`mailto:${selectedLead.email}`}
+                    className="flex-1 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 flex items-center justify-center text-decoration-none"
+                  >
+                    <i className="fas fa-envelope mr-2"></i>
+                    Email
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Modal de Confirmação de Exclusão */}
+        {showDeleteConfirm && leadToDelete && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6 w-full max-w-md">
+              <div className="text-center mb-6">
+                <i className="fas fa-trash text-4xl text-red-500 mb-4"></i>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Confirmar Exclusão</h3>
+                <p className="text-gray-600">
+                  Tem certeza que deseja excluir o lead de <strong>{leadToDelete.name}</strong>?
+                </p>
+                <p className="text-sm text-red-600 mt-2">Esta ação não pode ser desfeita!</p>
+              </div>
+
+              <div className="flex gap-3">
+                <button
+                  onClick={() => {
+                    setShowDeleteConfirm(false);
+                    setLeadToDelete(null);
+                  }}
+                  className="flex-1 px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300"
+                >
+                  Cancelar
+                </button>
+                <button
+                  onClick={() => deleteLead(leadToDelete.id)}
+                  className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                >
+                  Excluir
                 </button>
               </div>
             </div>

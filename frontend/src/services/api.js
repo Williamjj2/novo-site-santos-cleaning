@@ -147,6 +147,26 @@ export const apiService = {
       console.error('Error updating lead:', error);
       throw error;
     }
+  },
+
+  async deleteLead(leadId) {
+    try {
+      const response = await api.delete(`/api/leads/${leadId}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error deleting lead:', error);
+      throw error;
+    }
+  },
+
+  async cleanupDemoLeads() {
+    try {
+      const response = await api.delete('/api/leads/cleanup/demo');
+      return response.data;
+    } catch (error) {
+      console.error('Error cleaning up demo leads:', error);
+      throw error;
+    }
   }
 };
 
