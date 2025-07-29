@@ -1,6 +1,13 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+// Em produção, usar URL relativa (mesmo domínio)
+// Em desenvolvimento, usar localhost
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? '' // URL relativa em produção
+  : (process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001');
+
+console.log('🔧 API_BASE_URL configurada:', API_BASE_URL);
+console.log('🔧 NODE_ENV:', process.env.NODE_ENV);
 
 // Create axios instance with default config
 const api = axios.create({
