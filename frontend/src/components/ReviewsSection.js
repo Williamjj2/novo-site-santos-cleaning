@@ -16,10 +16,6 @@ const ReviewsSection = ({ currentLanguage, reviews }) => {
   // NO MORE FAKE REVIEWS - Use only real reviews from backend or empty
   const displayReviews = reviews?.length > 0 ? reviews : [];
 
-  console.log('🎯 ReviewsSection - reviews recebidos:', reviews);
-  console.log('🎯 ReviewsSection - displayReviews:', displayReviews);
-  console.log('🎯 ReviewsSection - vai mostrar seção?', displayReviews.length > 0);
-
   const reviewsPerPage = 3;
   const totalPages = Math.ceil(displayReviews.length / reviewsPerPage);
 
