@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { apiService } from '../services/api';
 
 const AdminDashboard = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [showLogin, setShowLogin] = useState(true);
   const [leads, setLeads] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
@@ -16,6 +19,9 @@ const AdminDashboard = () => {
     converted: 0,
     lost: 0
   });
+
+  // Senha simples (em produção real, usar autenticação JWT)
+  const ADMIN_PASSWORD = 'santos2024admin';
 
   const statusColors = {
     new: 'bg-blue-100 text-blue-800',
@@ -31,42 +37,84 @@ const AdminDashboard = () => {
     lost: 'Perdido'
   };
 
-  useEffect(() => {
-    fetchLeads();
-    // Auto refresh a cada 30 segundos
-    const interval = setInterval(fetchLeads, 30000);
-    return () => clearInterval(interval);
-  }, [filter]);
+  const handleLogin = () => {
+    if (password === ADMIN_PASSWORD) {
+      setIsAuthenticated(true);
+      setShowLogin(false);
+      localStorage.setItem('santos_admin_auth', 'true');
+      toast.success('Login realizado com sucesso!');
+    } else {
+      toast.error('Senha incorreta!');
+      setPassword('');
+    }
+  };
 
-  const fetchLeads = async () => {
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setShowLogin(true);
+    localStorage.removeItem('santos_admin_auth');
+    toast.success('Logout realizado com sucesso!');
+  };
+
+  // Verificar se já está autenticado
+  useEffect(() => {
+    const isAuth = localStorage.getItem('santos_admin_auth') === 'true';
+    if (isAuth) {
+      setIsAuthenticated(true);
+      setShowLogin(false);
+    }
+  }, []);
+
+  const fetchLeads = useCallback(async () => {
+    if (!isAuthenticated) return;
+    
     try {
       setLoading(true);
-      const response = await apiService.getLeads(filter === 'all' ? null : filter);
-      setLeads(response.leads || []);
+      console.log('Buscando leads com filtro:', filter);
       
-      // Calcular estatísticas
+      const response = await apiService.getLeads(filter === 'all' ? null : filter);
+      console.log('Resposta da API:', response);
+      
+      const leadsData = response.leads || [];
+      setLeads(leadsData);
+      
+      // Calcular estatísticas baseado em TODOS os leads
+      const allLeadsResponse = await apiService.getLeads(null); // Buscar todos
+      const allLeads = allLeadsResponse.leads || [];
+      
       const newStats = {
-        total: response.total || 0,
+        total: allLeads.length,
         new: 0,
         contacted: 0,
         converted: 0,
         lost: 0
       };
       
-      response.leads?.forEach(lead => {
-        if (newStats[lead.status]) {
+      allLeads.forEach(lead => {
+        if (newStats.hasOwnProperty(lead.status)) {
           newStats[lead.status]++;
         }
       });
       
+      console.log('Estatísticas calculadas:', newStats);
       setStats(newStats);
+      
     } catch (error) {
       console.error('Erro ao buscar leads:', error);
-      toast.error('Erro ao carregar leads');
+      toast.error('Erro ao carregar leads: ' + error.message);
     } finally {
       setLoading(false);
     }
-  };
+  }, [filter, isAuthenticated]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchLeads();
+      // Auto refresh a cada 30 segundos
+      const interval = setInterval(fetchLeads, 30000);
+      return () => clearInterval(interval);
+    }
+  }, [fetchLeads, isAuthenticated]);
 
   const updateLeadStatus = async (leadId, newStatus, notes = '') => {
     try {
@@ -76,7 +124,7 @@ const AdminDashboard = () => {
       setShowModal(false);
     } catch (error) {
       console.error('Erro ao atualizar lead:', error);
-      toast.error('Erro ao atualizar status');
+      toast.error('Erro ao atualizar status: ' + error.message);
     }
   };
 
@@ -98,17 +146,84 @@ const AdminDashboard = () => {
     return 'Agora mesmo';
   };
 
+  // Tela de Login
+  if (showLogin) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center p-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md"
+        >
+          <div className="text-center mb-8">
+            <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <i className="fas fa-shield-alt text-2xl text-blue-600"></i>
+            </div>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              Admin Dashboard
+            </h1>
+            <p className="text-gray-600">
+              Santos Cleaning Solutions
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Senha de Acesso
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Digite a senha do administrador"
+                autoFocus
+              />
+            </div>
+
+            <button
+              onClick={handleLogin}
+              disabled={!password}
+              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+            >
+              <i className="fas fa-sign-in-alt mr-2"></i>
+              Entrar
+            </button>
+          </div>
+
+          <div className="mt-6 text-center">
+            <p className="text-xs text-gray-500">
+              Acesso restrito apenas para administradores
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Dashboard de Leads
-          </h1>
-          <p className="text-gray-600">
-            Gerencie e acompanhe seus leads do formulário de contato
-          </p>
+        <div className="mb-8 flex justify-between items-start">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Dashboard de Leads
+            </h1>
+            <p className="text-gray-600">
+              Gerencie e acompanhe seus leads do formulário de contato
+            </p>
+          </div>
+          
+          <button
+            onClick={handleLogout}
+            className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 flex items-center"
+          >
+            <i className="fas fa-sign-out-alt mr-2"></i>
+            Sair
+          </button>
         </div>
 
         {/* Stats Cards */}
@@ -185,7 +300,7 @@ const AdminDashboard = () => {
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              Todos
+              Todos ({stats.total})
             </button>
             {Object.entries(statusLabels).map(([status, label]) => (
               <button
@@ -197,7 +312,7 @@ const AdminDashboard = () => {
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                {label}
+                {label} ({stats[status] || 0})
               </button>
             ))}
             <button
@@ -220,7 +335,9 @@ const AdminDashboard = () => {
           ) : leads.length === 0 ? (
             <div className="p-8 text-center">
               <i className="fas fa-inbox text-4xl text-gray-400 mb-4"></i>
-              <p className="text-gray-600">Nenhum lead encontrado</p>
+              <p className="text-gray-600">
+                {filter === 'all' ? 'Nenhum lead encontrado' : `Nenhum lead com status "${statusLabels[filter] || filter}"`}
+              </p>
             </div>
           ) : (
             <div className="overflow-x-auto">
