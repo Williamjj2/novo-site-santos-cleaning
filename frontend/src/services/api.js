@@ -80,24 +80,9 @@ export const apiService = {
       return response.data;
     } catch (error) {
       console.error('Failed to fetch reviews:', error);
-      // Return fallback data on error
+      // Return empty reviews on error - NO MORE FAKE REVIEWS
       return {
-        reviews: [
-          {
-            author_name: "Maria Rodriguez",
-            rating: 5,
-            text: "Santos Cleaning Solutions exceeded all my expectations! Karen and William are incredibly professional and detail-oriented.",
-            relative_time_description: "2 weeks ago",
-            profile_photo_url: "https://ui-avatars.com/api/?name=Maria+Rodriguez&background=4285F4&color=fff&size=128&font-size=0.6&bold=true"
-          },
-          {
-            author_name: "John Smith",
-            rating: 5,
-            text: "Best cleaning service in Marietta! They pay attention to every detail and are incredibly reliable.",
-            relative_time_description: "1 month ago",
-            profile_photo_url: "https://ui-avatars.com/api/?name=John+Smith&background=34A853&color=fff&size=128&font-size=0.6&bold=true"
-          }
-        ]
+        reviews: []
       };
     }
   },

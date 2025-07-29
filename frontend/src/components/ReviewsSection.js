@@ -13,53 +13,14 @@ const ReviewsSection = ({ currentLanguage, reviews }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Default reviews if API fails
-  const fallbackReviews = [
-    {
-      author_name: "Maria Rodriguez",
-      rating: 5,
-      text: "Santos Cleaning Solutions exceeded all my expectations! Karen and William are incredibly professional and detail-oriented. They transformed our home completely - every corner sparkles now. The level of care and attention they put into their work is truly remarkable.",
-      relative_time_description: "2 semanas atrás",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Maria+Rodriguez&background=4285F4&color=fff&size=128&font-size=0.6&bold=true"
-    },
-    {
-      author_name: "John Smith",
-      rating: 5,
-      text: "Best cleaning service in Marietta! William and Karen are amazing - they pay attention to every single detail and are incredibly reliable. Our house has never looked better. They treat your home like it's their own.",
-      relative_time_description: "1 mês atrás",
-      profile_photo_url: "https://ui-avatars.com/api/?name=John+Smith&background=34A853&color=fff&size=128&font-size=0.6&bold=true"
-    },
-    {
-      author_name: "Sarah Johnson",
-      rating: 5,
-      text: "Santos Cleaning Solutions is absolutely fantastic! This family-owned business really cares about their customers. They did a deep cleaning of our entire house and it looks brand new. Professional, trustworthy, and reasonably priced.",
-      relative_time_description: "3 semanas atrás",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Sarah+Johnson&background=FBBC04&color=fff&size=128&font-size=0.6&bold=true"
-    },
-    {
-      author_name: "Michael Davis",
-      rating: 5,
-      text: "I've tried several cleaning services before, but Santos Cleaning Solutions is by far the best! They consistently deliver exceptional results. Our weekly cleaning is always perfect. Couldn't be happier!",
-      relative_time_description: "2 meses atrás",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Michael+Davis&background=EA4335&color=fff&size=128&font-size=0.6&bold=true"
-    },
-    {
-      author_name: "Lisa Williams",
-      rating: 5,
-      text: "Outstanding service! Karen and William cleaned our house for a family gathering and everything was absolutely perfect. They're punctual, professional, and the quality of their work is exceptional.",
-      relative_time_description: "1 semana atrás",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Lisa+Williams&background=9C27B0&color=fff&size=128&font-size=0.6&bold=true"
-    },
-    {
-      author_name: "Robert Chen",
-      rating: 5,
-      text: "Exceptional cleaning service! William and Karen are true professionals who take great pride in their work. They cleaned our home after renovation and it looks absolutely stunning. Five stars well deserved!",
-      relative_time_description: "3 dias atrás",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Robert+Chen&background=FF9800&color=fff&size=128&font-size=0.6&bold=true"
-    }
-  ];
+  // NO MORE FAKE REVIEWS - Use only real reviews from backend or empty
+  const displayReviews = reviews?.length > 0 ? reviews : [];
 
-  const displayReviews = reviews?.length > 0 ? reviews : fallbackReviews;
+  // If no reviews available, don't show the section
+  if (!displayReviews || displayReviews.length === 0) {
+    return null;
+  }
+
   const reviewsPerPage = 3;
   const totalPages = Math.ceil(displayReviews.length / reviewsPerPage);
 

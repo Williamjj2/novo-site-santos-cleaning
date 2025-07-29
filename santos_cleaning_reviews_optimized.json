@@ -1,0 +1,258 @@
+{
+  "name": "Santos_Cleaning_Reviews_Optimized",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "cronExpression": "0 6 * * *"
+            }
+          ]
+        }
+      },
+      "id": "1e125fdf-0867-4524-ad03-8e39af3083d7",
+      "name": "Daily 6AM Trigger",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://maps.googleapis.com/maps/api/place/details/json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "place_id",
+              "value": "ChIJtUAkWzIR9YgRXn8fIRml4gk"
+            },
+            {
+              "name": "fields",
+              "value": "reviews,rating,user_ratings_total,name"
+            },
+            {
+              "name": "key",
+              "value": "AIzaSyAFGyJq3Ss7jCd1yTeU4b6jATL0Hs0m1ko"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "a7efa01d-1dee-45e8-bf7c-a8a63ac54561",
+      "name": "Fetch Google Reviews",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -400,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Google Places API response for Santos Cleaning\nconst response = $input.first().json;\n\nconsole.log('🔍 Google API Response Status:', response.status);\n\nif (!response.result) {\n  console.log('❌ No result from Google API');\n  return {\n    json: {\n      error: 'No result from Google API',\n      status: response.status || 'UNKNOWN',\n      success: false,\n      total_reviews: 0,\n      response: response\n    }\n  };\n}\n\nconst result = response.result;\nconst reviews = result.reviews || [];\n\nconsole.log(`📊 Found ${reviews.length} reviews from Google`);\n\nconst processedReviews = reviews.map((review, index) => {\n  console.log(`📝 Processing review ${index + 1}: ${review.author_name} - ${review.rating}⭐`);\n  \n  return {\n    author_name: review.author_name || 'Anonymous',\n    author_url: review.author_url || null,\n    profile_photo_url: review.profile_photo_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.author_name || 'Anonymous')}&background=4285F4&color=fff&size=128`,\n    rating: review.rating || 5,\n    text: review.text || '',\n    relative_time_description: review.relative_time_description || 'Recently',\n    review_time: new Date(review.time * 1000).toISOString(),\n    language: review.language || 'en',\n    original_language: review.original_language || review.language || 'en',\n    translated: review.translated || false\n  };\n});\n\nconst processedData = {\n  business_name: result.name || 'Santos Cleaning Solutions',\n  total_reviews: processedReviews.length,\n  average_rating: result.rating || 5.0,\n  user_ratings_total: result.user_ratings_total || 0,\n  reviews: processedReviews,\n  timestamp: new Date().toISOString(),\n  success: true\n};\n\nconsole.log(`✅ Data processed successfully: ${processedData.total_reviews} reviews, avg rating: ${processedData.average_rating}`);\n\nreturn {\n  json: processedData\n};"
+      },
+      "id": "14035926-f54c-478b-8964-93cce3296c59",
+      "name": "Process Review Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -180,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "success-check",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equal"
+              }
+            },
+            {
+              "id": "reviews-count-check",
+              "leftValue": "={{ $json.total_reviews }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "larger"
+              }
+            },
+            {
+              "id": "no-error-check",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "isEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "82e8d5aa-f64a-4393-bcc1-6bbdb11a84c6",
+      "name": "Check Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        40,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://santoscsolutions.com/api/webhook/reviews-update",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"action\": \"reviews_updated\",\n  \"timestamp\": \"{{ $json.timestamp }}\",\n  \"business_name\": \"{{ $json.business_name }}\",\n  \"total_reviews\": {{ $json.total_reviews }},\n  \"average_rating\": {{ $json.average_rating }},\n  \"user_ratings_total\": {{ $json.user_ratings_total }},\n  \"reviews\": {{ JSON.stringify($json.reviews) }}\n}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "e650d32c-5bf2-4e26-9390-b3ea4ea8a051",
+      "name": "Send to Website",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        260,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log final do resultado do webhook\nconst webhookResponse = $input.first().json;\n\nconsole.log('=== SANTOS CLEANING REVIEWS AUTOMATION ===');\nconsole.log(`✅ Status: ${webhookResponse.success ? 'SUCCESS' : 'FAILED'}`);\nconsole.log(`📊 Reviews recebidos: ${webhookResponse.total_received || 'N/A'}`);\nconsole.log(`💾 Reviews salvos: ${webhookResponse.reviews_saved || 'N/A'}`);\nconsole.log(`⏭️ Reviews duplicados: ${webhookResponse.reviews_skipped || 'N/A'}`);\nconsole.log(`❌ Erros: ${webhookResponse.reviews_errors || 'N/A'}`);\nconsole.log(`⭐ Rating médio: ${webhookResponse.average_rating || 'N/A'}`);\nconsole.log(`🏢 Empresa: ${webhookResponse.business_name || 'N/A'}`);\nconsole.log(`📈 Total de avaliações: ${webhookResponse.user_ratings_total || 'N/A'}`);\nconsole.log(`🕐 Timestamp: ${webhookResponse.timestamp || 'N/A'}`);\nconsole.log('==========================================');\n\n// Retornar dados para possível uso futuro\nreturn {\n  json: {\n    automation_status: 'completed',\n    success: webhookResponse.success || false,\n    summary: {\n      total_received: webhookResponse.total_received || 0,\n      reviews_saved: webhookResponse.reviews_saved || 0,\n      reviews_skipped: webhookResponse.reviews_skipped || 0,\n      reviews_errors: webhookResponse.reviews_errors || 0\n    },\n    business_info: {\n      name: webhookResponse.business_name || 'Unknown',\n      average_rating: webhookResponse.average_rating || 0,\n      total_reviews: webhookResponse.user_ratings_total || 0\n    },\n    timestamp: webhookResponse.timestamp || new Date().toISOString()\n  }\n};"
+      },
+      "id": "monitoring-log-node",
+      "name": "Log Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log de erro quando condições do IF falharam\nconst data = $input.first().json;\n\nconsole.log('=== SANTOS CLEANING REVIEWS - EXECUTION STOPPED ===');\nconsole.log('❌ Workflow interrompido pelas condições:');\nconsole.log(`📊 Success: ${data.success || 'undefined'}`);\nconsole.log(`📈 Total Reviews: ${data.total_reviews || 0}`);\nconsole.log(`❌ Error: ${data.error || 'none'}`);\nconsole.log('💡 Possíveis causas:');\nconsole.log('   - Google API retornou erro');\nconsole.log('   - Nenhum review encontrado');\nconsole.log('   - Falha no processamento dos dados');\nconsole.log('==================================================');\n\nreturn {\n  json: {\n    automation_status: 'stopped',\n    reason: 'conditions_not_met',\n    data: data,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "error-log-node",
+      "name": "Log Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        60
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Daily 6AM Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch Google Reviews",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Google Reviews": {
+      "main": [
+        [
+          {
+            "node": "Process Review Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Review Data": {
+      "main": [
+        [
+          {
+            "node": "Check Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Success": {
+      "main": [
+        [
+          {
+            "node": "Send to Website",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send to Website": {
+      "main": [
+        [
+          {
+            "node": "Log Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log Results": {
+      "main": [
+        []
+      ]
+    },
+    "Log Error": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "optimized-version-1.0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "santos-cleaning-reviews-automation"
+  },
+  "id": "santos-cleaning-optimized",
+  "tags": [
+    "santos-cleaning",
+    "google-reviews",
+    "automation",
+    "webhook"
+  ]
+} 
