@@ -12,12 +12,18 @@ const ReviewsSection = ({ currentLanguage, reviews }) => {
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [hasValidReviews, setHasValidReviews] = useState(false);
 
   // NO MORE FAKE REVIEWS - Use only real reviews from backend or empty
   const displayReviews = reviews?.length > 0 ? reviews : [];
 
+  // Check if we have valid reviews and set state
+  useEffect(() => {
+    setHasValidReviews(displayReviews && displayReviews.length > 0);
+  }, [displayReviews]);
+
   // If no reviews available, don't show the section
-  if (!displayReviews || displayReviews.length === 0) {
+  if (!hasValidReviews) {
     return null;
   }
 
