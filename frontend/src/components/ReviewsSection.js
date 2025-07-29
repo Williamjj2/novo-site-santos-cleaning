@@ -12,20 +12,9 @@ const ReviewsSection = ({ currentLanguage, reviews }) => {
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [hasValidReviews, setHasValidReviews] = useState(false);
 
   // NO MORE FAKE REVIEWS - Use only real reviews from backend or empty
   const displayReviews = reviews?.length > 0 ? reviews : [];
-
-  // Check if we have valid reviews and set state
-  useEffect(() => {
-    setHasValidReviews(displayReviews && displayReviews.length > 0);
-  }, [displayReviews]);
-
-  // If no reviews available, don't show the section
-  if (!hasValidReviews) {
-    return null;
-  }
 
   const reviewsPerPage = 3;
   const totalPages = Math.ceil(displayReviews.length / reviewsPerPage);
@@ -57,6 +46,11 @@ const ReviewsSection = ({ currentLanguage, reviews }) => {
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
+
+  // If no reviews available, don't show the section
+  if (!displayReviews || displayReviews.length === 0) {
+    return null;
+  }
 
   const getCurrentReviews = () => {
     const startIndex = currentIndex * reviewsPerPage;
