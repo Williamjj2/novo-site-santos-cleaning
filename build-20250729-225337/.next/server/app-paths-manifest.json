@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/contact/route": "app/api/contact/route.js",
+  "/about/page": "app/about/page.js",
+  "/areas/page": "app/areas/page.js",
+  "/areas/marietta/page": "app/areas/marietta/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/services/page": "app/services/page.js",
+  "/page": "app/page.js"
+}
