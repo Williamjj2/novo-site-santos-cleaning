@@ -193,22 +193,7 @@ async def get_reviews():
         if not supabase_url or not supabase_key:
             print("⚠️ Supabase não configurado, retornando reviews padrão")
             return {
-                "reviews": [
-                    {
-                        "author_name": "Maria Rodriguez",
-                        "rating": 5,
-                        "text": "Santos Cleaning Solutions exceeded all my expectations! Karen and William are incredibly professional and detail-oriented.",
-                        "relative_time_description": "2 weeks ago",
-                        "profile_photo_url": "https://ui-avatars.com/api/?name=Maria+Rodriguez&background=4285F4&color=fff&size=128&font-size=0.6&bold=true"
-                    },
-                    {
-                        "author_name": "John Smith", 
-                        "rating": 5,
-                        "text": "Best cleaning service in Marietta! They pay attention to every detail and are incredibly reliable.",
-                        "relative_time_description": "1 month ago",
-                        "profile_photo_url": "https://ui-avatars.com/api/?name=John+Smith&background=34A853&color=fff&size=128&font-size=0.6&bold=true"
-                    }
-                ]
+                "reviews": []
             }
         
         async with httpx.AsyncClient(timeout=10) as client:
@@ -251,37 +236,14 @@ async def get_reviews():
         
         # Fallback para reviews padrão
         return {
-            "reviews": [
-                {
-                    "author_name": "Maria Rodriguez",
-                    "rating": 5,
-                    "text": "Santos Cleaning Solutions exceeded all my expectations! Professional and detail-oriented service.",
-                    "relative_time_description": "2 weeks ago",
-                    "profile_photo_url": "https://ui-avatars.com/api/?name=Maria+Rodriguez&background=4285F4&color=fff&size=128&font-size=0.6&bold=true"
-                },
-                {
-                    "author_name": "John Smith",
-                    "rating": 5, 
-                    "text": "Best cleaning service in Marietta! Incredibly reliable and professional.",
-                    "relative_time_description": "1 month ago",
-                    "profile_photo_url": "https://ui-avatars.com/api/?name=John+Smith&background=34A853&color=fff&size=128&font-size=0.6&bold=true"
-                }
-            ]
+            "reviews": []
         }
         
     except Exception as e:
         print(f"❌ Erro crítico ao buscar reviews: {str(e)}")
         # Fallback seguro
         return {
-            "reviews": [
-                {
-                    "author_name": "Santos Cleaning Client",
-                    "rating": 5,
-                    "text": "Excellent cleaning service! Professional and reliable.",
-                    "relative_time_description": "Recently",
-                    "profile_photo_url": "https://ui-avatars.com/api/?name=Santos+Client&background=4285F4&color=fff&size=128"
-                }
-            ]
+            "reviews": []
         }
 
 # Service types

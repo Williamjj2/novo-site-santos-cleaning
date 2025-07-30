@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslations } from '../utils/translations';
 // import { COMPANY_INFO } from '../utils/constants';
@@ -35,10 +35,8 @@ const Header = ({ currentLanguage, onLanguageChange }) => {
 
   return (
     <>
-      {/* Gradient overlay when at top */}
-      <div className={`fixed top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none z-40 transition-opacity duration-300 ${
-        isScrolled ? 'opacity-0' : 'opacity-100'
-      }`} />
+      {/* Gradient overlay - always visible with softer gradient */}
+      <div className="fixed top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/70 via-white/30 to-transparent pointer-events-none z-40" />
       
       <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
@@ -118,12 +116,13 @@ const Header = ({ currentLanguage, onLanguageChange }) => {
               >
                 {t('nav-contact')}
               </button>
-              <Link
-                to="/book"
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg"
+              <a
+                href="tel:+18663509407"
+                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-2"
               >
+                <i className="fas fa-phone"></i>
                 {t('nav-book')}
-              </Link>
+              </a>
             </motion.nav>
 
             {/* Language Selector & Mobile Menu Button */}
@@ -204,13 +203,14 @@ const Header = ({ currentLanguage, onLanguageChange }) => {
                 >
                   {t('nav-contact')}
                 </button>
-                <Link
-                  to="/book"
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-center"
+                <a
+                  href="tel:+18663509407"
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-center flex items-center justify-center gap-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
+                  <i className="fas fa-phone"></i>
                   {t('nav-book')}
-                </Link>
+                </a>
               </nav>
             </motion.div>
           )}
