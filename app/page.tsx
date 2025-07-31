@@ -6,6 +6,7 @@ import BeforeAfterGallery from '../components/BeforeAfterGallery'
 import ReviewsSection from '../components/ReviewsSection'
 import ContactForm from '../components/ContactForm'
 import Breadcrumbs from '../components/Breadcrumbs'
+import FAQSection from '../components/FAQSection'
 import { HeroImage, ServiceImage } from '../components/SEOImages'
 
 export const metadata: Metadata = {
