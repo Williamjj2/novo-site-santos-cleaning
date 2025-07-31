@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import StickyCTA from '../components/StickyCTA'
 import { organizationSchema, serviceSchema } from '../lib/schema'
+import { faqSchema, websiteSchema } from '../lib/enhanced-schema'
 
 const inter = Inter({ 
   subsets: ['latin'],
