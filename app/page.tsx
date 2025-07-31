@@ -99,11 +99,22 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
+  const breadcrumbItems = [
+    { name: 'Home', href: '/', current: true }
+  ]
+
   return (
     <div className="min-h-screen">
       
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 py-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={breadcrumbItems} />
+        </div>
+      </div>
+      
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-24 lg:py-32 relative overflow-hidden">
+      <section className="bg-gradient-hero text-white py-24 lg:py-32 relative overflow-hidden hero-section">
         {/* Animated Background Elements */}
         <div className="absolute top-20 left-16 w-24 h-24 bg-blue-400/20 rounded-full blur-md animate-float"></div>
         <div className="absolute bottom-32 right-16 w-32 h-32 bg-blue-400/20 rounded-full blur-md animate-bounce"></div>
@@ -111,28 +122,30 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
-              Professional Cleaning with a Human Touch
+              Professional House Cleaning Services in Marietta, GA
             </h1>
             <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90 max-w-3xl mx-auto">
-              Family-owned cleaning services in Marietta, Georgia. Trust, quality, and attention to detail in every job. 
-              We deliver care, excellence, and that professional touch that transforms a house into a home.
+              Family-owned cleaning company serving Metro Atlanta with eco-friendly products. Licensed, insured, and 5-star rated. 
+              We deliver exceptional cleaning services with the professional touch that transforms your house into a spotless home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <Link 
                 href="/contact" 
                 className="cta-button bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center pulse-cta"
+                aria-label="Book a Free In-Home Cleaning Evaluation in Marietta, GA"
               >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                Book a Free In-Home Evaluation
+                Book Free Evaluation
               </Link>
               <Link 
                 href="tel:+18663509407" 
                 className="inline-flex items-center space-x-2 text-white hover:text-blue-200 transition-colors duration-200 group"
+                aria-label="Call Santos Cleaning Solutions at (866) 350-9407"
               >
                 <div className="p-3 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
@@ -140,31 +153,31 @@ export default function HomePage() {
               </Link>
             </div>
             
-            {/* Trust Indicators */}
+            {/* Trust Indicators with Enhanced SEO */}
             <div className="flex flex-wrap justify-center gap-6 text-sm opacity-90">
               <div className="trust-indicator text-white">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Free Estimates</span>
+                <span>No-Cost Estimates</span>
               </div>
               <div className="trust-indicator text-white">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Licensed & Insured</span>
+                <span>Georgia Licensed & Insured</span>
               </div>
               <div className="trust-indicator text-white">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
-                <span>5-Star Rated Service</span>
+                <span>5-Star Customer Reviews</span>
               </div>
               <div className="trust-indicator text-white">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                 </svg>
-                <span>Family Owned</span>
+                <span>Family-Owned Business</span>
               </div>
             </div>
           </div>
