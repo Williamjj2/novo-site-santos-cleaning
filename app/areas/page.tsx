@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Service Areas - Atlanta Metro | Santos Cleaning Solutions',
-  description: 'Professional cleaning services throughout Metro Atlanta. Serving Marietta, Buckhead, Dunwoody, Alpharetta, Sandy Springs, and 15+ communities with licensed cleaning teams.',
+  description: 'Professional cleaning services in Metro Atlanta. Serving Marietta, Buckhead, Alpharetta, Sandy Springs & 15+ communities.',
   keywords: 'Atlanta cleaning service areas, Metro Atlanta house cleaning, Georgia maid service locations',
 }
 
