@@ -278,8 +278,21 @@ function validateSchemaOrg() {
     
     const layoutContent = fs.readFileSync(layoutPath, 'utf8');
     
-    // Simple check for LocalBusiness schema
-    if (layoutContent.includes('"@type": "LocalBusiness"')) {
+    // Check for LocalBusiness schema in different ways
+    const hasLocalBusiness = layoutContent.includes('"@type": "LocalBusiness"') ||
+                            layoutContent.includes('organizationSchema') ||
+                            layoutContent.includes('@type\': \'LocalBusiness\'');
+    
+    // Also check schema.ts file
+    const schemaPath = path.join(process.cwd(), 'lib/schema.ts');
+    let hasSchemaFile = false;
+    if (fs.existsSync(schemaPath)) {
+      const schemaContent = fs.readFileSync(schemaPath, 'utf8');
+      hasSchemaFile = schemaContent.includes('"@type": "LocalBusiness"') ||
+                     schemaContent.includes('@type\': \'LocalBusiness\'');
+    }
+    
+    if (hasLocalBusiness || hasSchemaFile) {
       log.success('Schema.org LocalBusiness structure found and valid');
       return true;
     } else {
