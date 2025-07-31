@@ -10,7 +10,7 @@ import FAQSection from '../components/FAQSection'
 import { HeroImage, ServiceImage } from '../components/SEOImages'
 
 export const metadata: Metadata = {
-  title: 'House Cleaning Marietta GA | Buckhead Atlanta | Santos Cleaning',
+  title: 'Professional House Cleaning in Marietta, GA | Santos',
   description: 'Premium house cleaning in Marietta & Buckhead. Licensed & insured. Deep cleaning, move-in/out, regular maintenance. Get free estimate!',
   keywords: [
     'house cleaning Marietta GA',
