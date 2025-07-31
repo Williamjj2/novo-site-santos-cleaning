@@ -5,6 +5,8 @@ import PriceCalculator from '../components/PriceCalculator'
 import BeforeAfterGallery from '../components/BeforeAfterGallery'
 import ReviewsSection from '../components/ReviewsSection'
 import ContactForm from '../components/ContactForm'
+import Breadcrumbs from '../components/Breadcrumbs'
+import { HeroImage, ServiceImage } from '../components/SEOImages'
 
 export const metadata: Metadata = {
   title: 'House Cleaning Marietta GA | Buckhead Atlanta | Santos Cleaning',
