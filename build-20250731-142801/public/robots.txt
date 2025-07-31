@@ -1,0 +1,56 @@
+# Santos Cleaning Solutions - Expert SEO Robots.txt
+# Optimized for maximum search engine visibility
+
+# Allow all crawlers to access the site
+User-agent: *
+Allow: /
+
+# Block sensitive areas
+Disallow: /admin
+Disallow: /api/
+Disallow: /seo-test
+Disallow: /_next/
+Disallow: /static/
+
+# Special rules for Googlebot (most important)
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+# Bing crawler
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+# Facebook crawler for social sharing
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter crawler for cards
+User-agent: Twitterbot
+Allow: /
+
+# SEO analysis tools
+User-agent: SEObility
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+# Site verification crawlers
+User-agent: GoogleOther
+Allow: /
+
+# Sitemap location (critical for SEO)
+Sitemap: https://santoscsolutions.com/sitemap.xml
+
+# Crawl delay to be respectful to server resources
+Crawl-delay: 1
+
+# Host declaration for canonical domain
+Host: santoscsolutions.com 

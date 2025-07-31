@@ -90,27 +90,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
-        {/* SearchAtlas Dynamic Optimization Script - TEMPORARY TEST */}
-        <script
-          {...{
-            'nowprocket': '',
-            'nitro-exclude': ''
-          } as any}
-          type="text/javascript"
-          id="sa-dynamic-optimization"
-          data-uuid="e818b258-c07f-43f5-b850-c649e9b0d162"
-          dangerouslySetInnerHTML={{
-            __html: `
-              var script = document.createElement("script");
-              script.setAttribute("nowprocket", "");
-              script.setAttribute("nitro-exclude", "");
-              script.src = "https://dashboard.searchatlas.com/scripts/dynamic_optimization.js";
-              script.dataset.uuid = "e818b258-c07f-43f5-b850-c649e9b0d162";
-              script.id = "sa-dynamic-optimization-loader";
-              document.head.appendChild(script);
-            `
-          }}
-        />
       </head>
       <body className={`${inter.className} antialiased`}>
         <a

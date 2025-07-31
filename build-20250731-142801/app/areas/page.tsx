@@ -275,7 +275,7 @@ export default function ServiceAreasPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Growing Communities</h2>
             <p className="text-lg text-gray-600">Serving Atlanta's dynamic and diverse neighborhoods</p>
-                  </div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {growingAreas.map((area) => (
@@ -294,8 +294,8 @@ export default function ServiceAreasPage() {
                 </div>
               </Link>
             ))}
-                  </div>
-                </div>
+          </div>
+        </div>
       </section>
 
       {/* Coverage Stats */}
@@ -315,7 +315,7 @@ export default function ServiceAreasPage() {
             <div>
               <div className="text-5xl font-bold mb-2">25</div>
               <div className="text-xl">Mile Service Radius</div>
-              </div>
+            </div>
             <div>
               <div className="text-5xl font-bold mb-2">1M+</div>
               <div className="text-xl">Population Coverage</div>

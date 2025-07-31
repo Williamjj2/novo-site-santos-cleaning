@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://santoscsolutions.com/</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Main Pages -->
+  <url>
+    <loc>https://santoscsolutions.com/services</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/about</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/contact</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Primary Service Areas -->
+  <url>
+    <loc>https://santoscsolutions.com/areas/marietta</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas/buckhead</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas/alpharetta</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas/sandy-springs</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Premium Communities -->
+  <url>
+    <loc>https://santoscsolutions.com/areas/dunwoody</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas/druid-hills</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas/vinings</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas/johns-creek</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas/milton</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Growing Communities -->
+  <url>
+    <loc>https://santoscsolutions.com/areas/roswell</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas/smyrna</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/areas/brookhaven</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Resource Pages (if they exist) -->
+  <url>
+    <loc>https://santoscsolutions.com/guides</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://santoscsolutions.com/directories</loc>
+    <lastmod>2024-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset> 
