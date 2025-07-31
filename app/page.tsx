@@ -407,6 +407,9 @@ export default function HomePage() {
       {/* Reviews Section */}
       <ReviewsSection />
 
+      {/* FAQ Section */}
+      <FAQSection />
+
       {/* Contact Form Section */}
       <section className="py-20 bg-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
