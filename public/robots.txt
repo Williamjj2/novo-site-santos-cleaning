@@ -1,38 +1,42 @@
-# Santos Cleaning Solutions - Expert SEO Robots.txt
-# Optimized for maximum search engine visibility
+# Santos Cleaning Solutions - Robots.txt SEO Optimized
+# Última atualização: 2025-03-XX
 
-# Allow all crawlers to access the site
+# Permitir todos os crawlers para acessar o site
 User-agent: *
 Allow: /
 
-# Block sensitive areas
-Disallow: /admin
+# Bloquear áreas sensíveis e técnicas
+Disallow: /admin/
 Disallow: /api/
-Disallow: /seo-test
 Disallow: /_next/
 Disallow: /static/
+Disallow: /.well-known/
+Disallow: /search
 
-# Special rules for Googlebot (most important)
+# Regras especiais para Googlebot (mais importante)
 User-agent: Googlebot
 Allow: /
-Disallow: /admin
+Disallow: /admin/
 Disallow: /api/
+Disallow: /_next/static/
+Crawl-delay: 1
 
 # Bing crawler
 User-agent: Bingbot
 Allow: /
-Disallow: /admin
+Disallow: /admin/
 Disallow: /api/
+Crawl-delay: 1
 
-# Facebook crawler for social sharing
+# Facebook crawler para compartilhamento social
 User-agent: facebookexternalhit
 Allow: /
 
-# Twitter crawler for cards
+# Twitter crawler para cards
 User-agent: Twitterbot
 Allow: /
 
-# SEO analysis tools
+# Ferramentas de análise SEO
 User-agent: SEObility
 Allow: /
 
@@ -42,15 +46,18 @@ Allow: /
 User-agent: SemrushBot
 Allow: /
 
+User-agent: MJ12bot
+Allow: /
+
 # Site verification crawlers
 User-agent: GoogleOther
 Allow: /
 
-# Sitemap location (critical for SEO)
+# Localização do Sitemap (CRÍTICO para SEO)
 Sitemap: https://santoscsolutions.com/sitemap.xml
 
-# Crawl delay to be respectful to server resources
+# Delay de crawl para ser respeitoso com recursos do servidor
 Crawl-delay: 1
 
-# Host declaration for canonical domain
+# Declaração do host para domínio canônico
 Host: santoscsolutions.com 
