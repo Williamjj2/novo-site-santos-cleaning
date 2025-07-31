@@ -36,7 +36,7 @@ const Header = ({ currentLanguage, onLanguageChange }) => {
   return (
     <>
       {/* Gradient overlay - always visible with softer gradient */}
-      <div className="fixed top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/70 via-white/30 to-transparent pointer-events-none z-40" />
+      <div className="fixed top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/90 via-white/50 to-transparent pointer-events-none z-40" />
       
       <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
